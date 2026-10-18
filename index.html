@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creative Debrief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav id="tabs"></nav>
+<button id="menuBtn" aria-expanded="false" aria-controls="mega"><span class="bars"></span><span id="menuTxt">Menu</span></button>
+<nav id="mega" aria-label="Belangrijkste onderwerpen"></nav>
+<main id="stage"><div id="stack"></div></main>
+<div id="label"><small>VPRO Medialab · creative debrief</small><b id="cur"></b></div>
+<div id="hint">Beweeg over een document, klik om te openen</div>
+<div id="reader" hidden><div id="pages"></div></div>
+<button id="close" aria-label="Sluiten">✕ Esc</button>
+<script src="app.js"></script>
+</body>
+</html>
