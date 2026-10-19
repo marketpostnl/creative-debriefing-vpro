@@ -6,126 +6,272 @@
 <title>Podwalk prototype</title>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--blue:#0000ff;--dblue:#000099;--green:#0cdf0c;--navy:#00004c;--ink:#121212;--t:0}
+:root{--blue:#0000ff;--dblue:#000099;--green:#0cdf0c;--navy:#00004c;--ink:#121212;--mute:#5b5b66;--t:0}
 *{box-sizing:border-box;margin:0}
-body{font-family:Figtree,sans-serif;color:var(--ink);background:#f2f2f2;display:flex;gap:48px;align-items:center;justify-content:center;min-height:100vh;padding:24px;flex-wrap:wrap}
-.side{max-width:320px}
+body{font-family:Figtree,sans-serif;color:var(--ink);background:#f2f2f2;display:flex;gap:56px;align-items:center;justify-content:center;min-height:100vh;padding:24px;flex-wrap:wrap}
+body.embed{padding:0;background:#f2f2f2;min-height:100vh}
+body.embed .side{display:none}
+button{font:inherit;cursor:pointer;border:0;color:inherit}
+/* uitleg naast de telefoon */
+.side{max-width:330px}
 .side h1{font-size:32px;line-height:1.05;font-weight:800;color:var(--blue)}
-.side p{margin-top:12px;line-height:1.45}
+.side .intro{margin-top:10px;line-height:1.45;color:var(--mute)}
 .side a{color:var(--blue);font-weight:600}
-.side small{display:block;margin-top:16px;opacity:.6}
-.phone{width:380px;height:min(780px,calc(100vh - 48px));min-height:640px;background:#fff;border:10px solid var(--ink);border-radius:44px;overflow:hidden;position:relative;flex:none}
-.screen{position:absolute;inset:0;display:none;flex-direction:column;padding:48px 20px 20px}
+.why{margin-top:22px;padding:16px;background:#fff;border-left:5px solid var(--green)}
+.why small{font-weight:800;color:var(--blue);display:block}
+.why b{display:block;font-size:20px;margin:4px 0 6px}
+.why p{line-height:1.4;font-size:15px}
+.steps{display:flex;gap:6px;margin-top:14px}
+.steps i{flex:1;height:5px;background:#ccc}
+.steps i.on{background:var(--blue)}
+.note{margin-top:16px;font-size:13px;color:var(--mute)}
+/* telefoon */
+.phone{width:380px;height:min(780px,calc(100vh - 48px));min-height:660px;background:#fff;border:10px solid var(--ink);border-radius:44px;overflow:hidden;position:relative;flex:none}
+.screen{position:absolute;inset:0;display:none;flex-direction:column;padding:44px 20px 20px}
 .screen.on{display:flex}
-button{font:inherit;cursor:pointer;border:0}
-.btn{background:var(--blue);color:#fff;font-weight:800;padding:16px;font-size:17px;width:100%}
-.btn.alt{background:var(--green);color:var(--navy)}
-.tag{display:inline-block;background:var(--navy);color:#fff;font-size:12px;font-weight:600;padding:4px 8px;align-self:flex-start}
-h2{font-size:38px;line-height:1;font-weight:800;color:var(--blue);margin:14px 0 10px}
-.sub{line-height:1.4}
-.hero{flex:1;margin:18px -20px;background:linear-gradient(160deg,var(--blue),var(--navy));position:relative;overflow:hidden}
-.hero i{position:absolute;bottom:0;width:14%;background:var(--green);opacity:.9}
-.back{background:none;font-weight:600;color:var(--blue);align-self:flex-start;margin-bottom:6px;padding:0}
-/* map */
-.map{flex:1;margin:12px -20px;background:#e9eef7;position:relative;overflow:hidden}
+.top{display:flex;align-items:center;gap:10px;min-height:30px}
+.back{background:none;font-weight:800;color:var(--blue);font-size:22px;padding:0 6px 0 0;line-height:1}
+.dots{display:flex;gap:5px;flex:1}
+.dots i{flex:1;height:5px;background:#d4d4dc}
+.dots i.done{background:var(--blue)}.dots i.cur{background:var(--green)}
+.cnt{font-size:12px;font-weight:800;color:var(--mute)}
+.btn{background:var(--blue);color:#fff;font-weight:800;padding:16px;font-size:17px;width:100%;margin-top:auto}
+.btn.green{background:var(--green);color:var(--navy)}
+.btn.ghost{background:none;color:var(--blue);padding:10px;font-size:14px;margin-top:4px}
+.btn[disabled]{background:#ccc;color:#777;cursor:default}
+.tag{display:inline-block;background:var(--navy);color:#fff;font-size:12px;font-weight:600;padding:4px 8px;align-self:flex-start;margin-top:6px}
+h2{font-size:34px;line-height:1;font-weight:800;color:var(--blue);margin:12px 0 8px}
+h3{font-size:24px;line-height:1.1;font-weight:800;color:var(--blue);margin:12px 0 6px}
+.sub{line-height:1.4;color:#33333c}
+/* 1 welkom */
+.hero{height:150px;margin:14px -20px;background:linear-gradient(160deg,var(--blue),var(--navy));position:relative;overflow:hidden}
+.hero i{position:absolute;bottom:0;width:11%;background:var(--green);animation:eq 1.2s infinite ease-in-out}
+@keyframes eq{50%{transform:scaleY(.35)}}
+.hero i{transform-origin:bottom}
+.how{display:grid;gap:10px;margin:4px 0 10px}
+.how div{display:flex;gap:12px;align-items:center}
+.how b{flex:none;width:32px;height:32px;background:var(--green);color:var(--navy);display:grid;place-items:center;font-weight:800}
+.how span{line-height:1.25;font-size:15px}
+.meta{display:flex;gap:14px;font-size:13px;font-weight:800;color:var(--dblue);margin:4px 0 10px}
+/* 2 voorbereiding */
+.check{display:flex;gap:12px;align-items:flex-start;padding:14px;border:2px solid #d4d4dc;margin-top:10px;width:100%;text-align:left;background:#fff}
+.check .box{flex:none;width:26px;height:26px;border:2px solid var(--blue);display:grid;place-items:center;color:#fff;font-weight:800}
+.check.on{border-color:var(--blue)}.check.on .box{background:var(--blue)}
+.check b{display:block}.check small{color:var(--mute);line-height:1.3;display:block;margin-top:2px}
+/* 3 route */
+.map{height:250px;margin:10px -20px;background:#e9eef7;position:relative;overflow:hidden}
 .map svg{position:absolute;inset:0;width:100%;height:100%}
-.pin{position:absolute;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;transform:translate(-50%,-50%);border:3px solid #fff}
+.pin{position:absolute;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center;transform:translate(-50%,-50%);border:3px solid #fff}
 .pin.me{background:var(--green);color:var(--navy);animation:pulse 1.6s infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 12px #0cdf0c44}}
-.stop{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid #ddd;font-weight:600;background:none;width:100%;text-align:left}
-.stop b{color:var(--blue)}
-/* listen */
-.scene{height:230px;margin:10px -20px;position:relative;overflow:hidden;background:#8aa0c8}
-.scene .now,.scene .arch{position:absolute;inset:0}
-.scene .now{background:linear-gradient(#9fb4dc 55%,#5f6f8f 55%);}
-.scene .arch{background:linear-gradient(#d9c7a0 55%,#7a6a4c 55%);filter:grayscale(.6) contrast(1.1);opacity:var(--t)}
-.scene .bld{position:absolute;bottom:45%;background:#2c3a5e;width:22%}
-.scene .arch .bld{background:#4d3f2a}
-.scene .grain{position:absolute;inset:0;opacity:calc(var(--t)*.35);background:repeating-radial-gradient(#000 0 1px,transparent 1px 3px)}
-.year{position:absolute;right:14px;top:12px;background:var(--ink);color:#fff;font-weight:800;padding:4px 10px}
-.where{font-size:13px;opacity:.7}
-.slider{margin:6px 0 2px}
-.slider .lab{display:flex;justify-content:space-between;font-weight:800;font-size:13px}
-input[type=range]{width:100%;accent-color:var(--blue);height:30px}
-.layers{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
-.layer{border:2px solid var(--blue);background:#fff;color:var(--blue);padding:8px 10px;text-align:left;font-weight:800;font-size:14px}
-.layer.on{background:var(--blue);color:#fff}
-.layer small{display:block;font-weight:400;opacity:.85;font-size:11px}
-.eq{display:flex;gap:2px;align-items:flex-end;height:14px;margin-top:4px}
-.eq s{width:4px;background:currentColor;height:30%;animation:eq 0.9s infinite ease-in-out;opacity:.3}
-.layer.on .eq s{opacity:1}
-.eq s:nth-child(2){animation-delay:.15s}.eq s:nth-child(3){animation-delay:.3s}.eq s:nth-child(4){animation-delay:.45s}.eq s:nth-child(5){animation-delay:.6s}
-@keyframes eq{50%{height:100%}}
-.cap{margin-top:8px;font-size:13px;line-height:1.35;background:#eef;padding:8px 10px;border-left:4px solid var(--blue)}
-.nav{display:flex;gap:8px;margin-top:auto}
-.nav .btn{padding:12px}
+.list{display:grid;gap:0}
+.list div{display:flex;gap:10px;padding:7px 0;border-top:1px solid #e3e3e8;font-size:14px;font-weight:600}
+.list b{color:var(--blue);width:18px}
+.list em{margin-left:auto;font-style:normal;color:var(--mute);font-weight:400}
+/* 4 lopen */
+.walk{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px}
+.ring{width:190px;height:190px;border-radius:50%;background:conic-gradient(var(--blue) calc(var(--p,0)*1%),#e3e3ee 0);display:grid;place-items:center}
+.ring div{width:164px;height:164px;border-radius:50%;background:#fff;display:grid;place-items:center;align-content:center}
+.ring b{font-size:46px;font-weight:800;color:var(--blue);line-height:1}
+.ring small{color:var(--mute);font-weight:600}
+.arrow{font-size:30px;color:var(--blue);display:inline-block;animation:nudge 1.4s infinite}
+@keyframes nudge{50%{transform:translateX(8px)}}
+.playing{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--mute);background:#f3f3f8;padding:10px 12px;margin-top:6px;text-align:left;width:100%}
+.eq{display:flex;gap:2px;align-items:flex-end;height:16px;color:var(--blue)}
+.eq s{width:4px;background:currentColor;height:100%;transform-origin:bottom;animation:eq .9s infinite ease-in-out}
+.eq s:nth-child(2){animation-delay:.15s}.eq s:nth-child(3){animation-delay:.3s}.eq s:nth-child(4){animation-delay:.45s}
+.arrived{animation:pop .5s}
+@keyframes pop{0%{transform:scale(.9)}100%{transform:scale(1)}}
+/* 5 luisteren */
+.scene{height:190px;margin:8px -20px 0;position:relative;overflow:hidden}
+.now,.arch{position:absolute;inset:0}
+.now{background:linear-gradient(#9fb4dc 55%,#5f6f8f 55%)}
+.arch{background:linear-gradient(#d9c7a0 55%,#7a6a4c 55%);filter:grayscale(.6) contrast(1.1);opacity:var(--t)}
+.bld{position:absolute;bottom:45%;background:#2c3a5e;width:22%}
+.arch .bld{background:#4d3f2a}
+.grain{position:absolute;inset:0;opacity:calc(var(--t)*.35);background:repeating-radial-gradient(#000 0 1px,transparent 1px 3px)}
+.year{position:absolute;right:12px;top:10px;background:var(--ink);color:#fff;font-weight:800;padding:4px 10px;font-size:14px}
+.slider{margin-top:10px;position:relative}
+.slider .lab{display:flex;justify-content:space-between;font-weight:800;font-size:13px;margin-bottom:2px}
+.slider .big{font-size:15px}
+input[type=range]{width:100%;accent-color:var(--blue);height:34px}
+.coach{position:absolute;left:0;right:0;top:-46px;background:var(--ink);color:#fff;padding:8px 12px;font-size:13px;font-weight:600;line-height:1.25;animation:pop .4s}
+.coach:after{content:"";position:absolute;left:50%;bottom:-6px;border:6px solid transparent;border-bottom:0;border-top-color:var(--ink)}
+.cap{margin-top:8px;font-size:15px;line-height:1.35;background:#eef;padding:10px 12px;border-left:4px solid var(--blue);min-height:64px}
+.player{display:flex;gap:12px;align-items:center;margin-top:10px}
+.play{flex:none;width:46px;height:46px;border-radius:50%;background:var(--blue);color:#fff;font-size:18px}
+.bar{flex:1;height:6px;background:#dcdce8;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--blue);width:0}
+.time{font-size:12px;font-weight:800;color:var(--mute);width:38px;text-align:right}
+.mixbtn{background:none;font-weight:800;color:var(--blue);font-size:14px;padding:8px 0;text-align:left}
+.mix{display:none;gap:8px;margin-top:2px}
+.mix.on{display:grid}
+.lay{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;font-size:13px}
+.lay b{font-size:14px}.lay small{color:var(--mute)}
+.lay .m{grid-column:1;height:5px;background:#e3e3ee;position:relative}
+.lay .m i{position:absolute;inset:0 auto 0 0;background:var(--green);width:50%}
+.sw{grid-column:2;grid-row:1/3;width:42px;height:24px;background:var(--blue);position:relative;border-radius:12px}
+.sw:after{content:"";position:absolute;top:3px;right:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:.15s}
+.lay.off .sw{background:#bbb}.lay.off .sw:after{right:21px}.lay.off .m i{width:0!important}
+/* 6 klaar */
+.done{flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:10px}
+.big-check{width:84px;height:84px;background:var(--green);color:var(--navy);font-size:46px;font-weight:800;display:grid;place-items:center;margin:0 auto}
 </style>
 </head>
 <body>
 <div class="side">
   <h1>Podwalk<br>prototype</h1>
-  <p>Een visueel, klikbaar idee van het product: een fysieke route met verhalen, gelaagde audio en een tijdschakelaar tussen nu en het archief.</p>
-  <p><a href="index.html">← Terug naar de debrief</a></p>
-  <small>Illustratief. Locaties, jaartallen en teksten zijn plaatshouders; de pilot-route (50 Jaar Hiphop) wordt nog ingevuld.</small>
+  <p class="intro">Een klikbare weergave van de gebruikersreis: van starten, naar lopen, naar luisteren op de plek zelf.</p>
+  <div class="steps" id="steps"></div>
+  <div class="why"><small id="wk">Stap 1</small><b id="wt"></b><p id="wp"></p></div>
+  <p class="note">Illustratief: locaties, afstanden en teksten zijn plaatshouders. De pilot-route (50 Jaar Hiphop) wordt nog ingevuld. <a href="index.html">← Terug naar de debrief</a></p>
 </div>
 
-<div class="phone">
-  <!-- 1 start -->
-  <section class="screen on" id="s1">
+<div class="phone" id="phone">
+  <!-- 1 welkom -->
+  <section class="screen on" data-s="welkom">
     <span class="tag">VPRO Podwalk · pilot</span>
     <h2>50 Jaar<br>Hiphop</h2>
-    <p class="sub">Loop door de stad en hoor de geschiedenis op de plek waar die gebeurde. Straatgeluid, archief en verhalen smelten samen.</p>
     <div class="hero" id="hero"></div>
-    <p class="sub" style="margin-bottom:12px"><b>Route:</b> ± 3 km · 5 stops · 60 min</p>
-    <button class="btn" data-go="s2">Start de route</button>
-  </section>
-  <!-- 2 map -->
-  <section class="screen" id="s2">
-    <button class="back" data-go="s1">← Terug</button>
-    <h2 style="font-size:28px;margin:4px 0">Jouw route</h2>
-    <div class="map">
-      <svg viewBox="0 0 360 400" preserveAspectRatio="none"><path d="M40 350 C90 300 60 230 140 210 S250 190 230 120 S300 50 320 40" fill="none" stroke="#0000ff" stroke-width="5" stroke-dasharray="2 10" stroke-linecap="round"/></svg>
-      <div class="pin" style="left:11%;top:87%">1</div>
-      <div class="pin" style="left:39%;top:52%">2</div>
-      <div class="pin me" style="left:64%;top:30%">3</div>
-      <div class="pin" style="left:80%;top:15%">4</div>
+    <div class="meta"><span>± 3 km</span><span>5 stops</span><span>± 60 min</span></div>
+    <div class="how">
+      <div><b>1</b><span>Loop de route, de app wijst je de weg</span></div>
+      <div><b>2</b><span>Bij elke stop start het verhaal vanzelf</span></div>
+      <div><b>3</b><span>Schuif terug in de tijd en hoor hoe het was</span></div>
     </div>
-    <button class="stop" data-go="s3"><b>3</b><span>Je bent bij stop 3<br><small>Voorbeeldlocatie · tik om te luisteren</small></span></button>
+    <button class="btn" data-next>Start</button>
   </section>
-  <!-- 3 listen -->
-  <section class="screen" id="s3">
-    <button class="back" data-go="s2">← Kaart</button>
-    <span class="where">Stop 3 van 5 · voorbeeldlocatie</span>
+  <!-- 2 voorbereiding -->
+  <section class="screen" data-s="voorbereiding">
+    <div class="top"><button class="back" data-prev aria-label="Terug">←</button></div>
+    <h3>Voor je begint</h3>
+    <p class="sub">Twee dingen zorgen voor de beste ervaring. Tik om ze aan te zetten.</p>
+    <button class="check" data-check><span class="box"></span><span><b>Koptelefoon op</b><small>Je hoort de verhalen en het archief het best met een koptelefoon. Laat de straat wel hoorbaar.</small></span></button>
+    <button class="check" data-check><span class="box"></span><span><b>Locatie delen</b><small>Zo weet de app wanneer je bij een stop bent en start het verhaal automatisch.</small></span></button>
+    <button class="btn" id="goRoute" data-next disabled>Naar de route</button>
+  </section>
+  <!-- 3 route -->
+  <section class="screen" data-s="route">
+    <div class="top"><button class="back" data-prev aria-label="Terug">←</button></div>
+    <h3>Jouw route</h3>
+    <div class="map">
+      <svg viewBox="0 0 360 250" preserveAspectRatio="none"><path d="M40 215 C90 185 60 140 140 130 S250 118 230 75 S300 30 320 22" fill="none" stroke="#0000ff" stroke-width="5" stroke-dasharray="2 10" stroke-linecap="round"/></svg>
+      <div class="pin me" style="left:11%;top:86%">1</div>
+      <div class="pin" style="left:39%;top:52%">2</div>
+      <div class="pin" style="left:64%;top:30%">3</div>
+      <div class="pin" style="left:80%;top:15%">4</div>
+      <div class="pin" style="left:90%;top:9%">5</div>
+    </div>
+    <div class="list" id="stoplist"></div>
+    <button class="btn" data-next>Begin bij stop 1</button>
+  </section>
+  <!-- 4 lopen -->
+  <section class="screen" data-s="lopen">
+    <div class="top"><button class="back" data-prev aria-label="Terug">←</button><div class="dots dd"></div><span class="cnt cc"></span></div>
+    <div class="walk">
+      <span class="tag" id="wtag" style="align-self:center">Onderweg</span>
+      <h3 id="wname" style="margin:4px 0 0">Stop 1</h3>
+      <div class="ring" id="ring"><div><b id="dist">240</b><small>meter</small></div></div>
+      <p class="sub"><span class="arrow">→</span> Loop rechtdoor, de volgende stop ligt aan je rechterhand</p>
+      <div class="playing"><div class="eq"><s></s><s></s><s></s><s></s></div><span>Je hoort nu alleen sfeer en straatgeluid. Het verhaal start bij de stop.</span></div>
+    </div>
+    <button class="btn ghost" id="skipWalk">Demo: ik ben er al</button>
+  </section>
+  <!-- 5 luisteren -->
+  <section class="screen" data-s="luisteren">
+    <div class="top"><button class="back" data-prev aria-label="Terug">←</button><div class="dd dots"></div><span class="cnt cc"></span></div>
     <div class="scene" id="scene">
       <div class="now"><i class="bld" style="left:5%;height:40%"></i><i class="bld" style="left:30%;height:55%"></i><i class="bld" style="left:58%;height:35%"></i><i class="bld" style="left:78%;height:50%"></i></div>
       <div class="arch"><i class="bld" style="left:8%;height:30%"></i><i class="bld" style="left:35%;height:42%"></i><i class="bld" style="left:62%;height:28%"></i></div>
-      <div class="grain"></div>
-      <div class="year" id="year">Nu</div>
+      <div class="grain"></div><div class="year" id="year">Nu</div>
     </div>
     <div class="slider">
-      <div class="lab"><span>Nu</span><span>Archief</span></div>
+      <div class="coach" id="coach">Schuif naar rechts om terug in de tijd te gaan</div>
+      <div class="lab"><span class="big">Nu</span><span class="big">Toen (archief)</span></div>
       <input type="range" id="time" min="0" max="100" value="0" aria-label="Tijdschakelaar tussen nu en archief">
     </div>
-    <div class="cap" id="cap">Je hoort de straat zoals die nu is. Schuif naar rechts om terug te gaan in de tijd.</div>
-    <div class="layers" id="layers"></div>
-    <div class="nav"><button class="btn alt" data-go="s2">Volgende stop →</button></div>
+    <div class="cap" id="cap"></div>
+    <div class="player"><button class="play" id="play" aria-label="Pauzeer">❚❚</button><div class="bar"><i id="prog"></i></div><span class="time" id="tm">0:00</span></div>
+    <button class="mixbtn" id="mixbtn">Geluidsmix ▾</button>
+    <div class="mix" id="mix"></div>
+    <button class="btn green" id="nextStop">Volgende stop →</button>
+  </section>
+  <!-- 6 klaar -->
+  <section class="screen" data-s="klaar">
+    <div class="done">
+      <div class="big-check">✓</div>
+      <h2 style="margin:6px 0 0">Route afgerond</h2>
+      <p class="sub">Je hoorde 5 verhalen, op de plek waar ze gebeurden.</p>
+    </div>
+    <button class="btn" id="again">Opnieuw beginnen</button>
   </section>
 </div>
 
 <script>
-const $=s=>document.querySelector(s);
-document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(!b)return;
-  document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===b.dataset.go))});
-// hero bars
-$('#hero').innerHTML=[40,70,55,90,35,80,60].map((h,i)=>`<i style="left:${4+i*14}%;height:${h}%;animation:eq ${0.8+i*.1}s infinite ease-in-out"></i>`).join('');
-// layers (voice, music, ambience, archive): the four audio tracks from the scope
-const L=[['Stem','verteller en interviews'],['Muziek','tracks van toen'],['Sfeer','straatgeluid nu'],['Archief','geluid van vroeger']];
-$('#layers').innerHTML=L.map((l,i)=>`<button class="layer on"><b>${l[0]}</b><small>${l[1]}</small><div class="eq"><s></s><s></s><s></s><s></s><s></s></div></button>`).join('');
-$('#layers').onclick=e=>{const b=e.target.closest('.layer');if(b)b.classList.toggle('on')};
-// time slider: crossfade nu -> archief
-$('#time').oninput=e=>{const v=e.target.value/100;$('#scene').style.setProperty('--t',v);
-  $('#year').textContent=v<.2?'Nu':v<.8?'Overgang':'Archief';
-  $('#cap').textContent=v<.2?'Je hoort de straat zoals die nu is. Schuif naar rechts om terug te gaan in de tijd.':v<.8?'Het straatgeluid van nu en de opnames van toen smelten samen.':'Archiefbeeld en historische soundscape van exact deze plek.'};
+if(location.search.includes('embed'))document.body.classList.add('embed');
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const ORDER=['welkom','voorbereiding','route','lopen','luisteren','klaar'];
+const STOPS=[['Stop 1','240 m'],['Stop 2','180 m'],['Stop 3','300 m'],['Stop 4','150 m'],['Stop 5','210 m']];
+const WHY={
+ welkom:['Stap 1 · Welkom','Eén duidelijke belofte','Wat je gaat doen in drie korte stappen, plus duur en afstand. Eén knop, geen keuzestress.'],
+ voorbereiding:['Stap 2 · Voorbereiding','Vraag toestemming met uitleg','Koptelefoon en locatie worden vooraf geregeld, elk met een reden. “Naar de route” blijft uit tot beide aan staan.'],
+ route:['Stap 3 · Route','Eerst het overzicht','De hele route op een kaart, met alle stops. Zo weet je wat je te wachten staat voordat je begint.'],
+ lopen:['Stap 4 · Lopen','De app wijst, jij loopt','Afstand tot de volgende stop, een richting en sfeergeluid. Aankomst wordt vanzelf herkend (hier gesimuleerd).'],
+ luisteren:['Stap 5 · Luisteren','Eén hoofdbediening: de tijdschakelaar','De schuif “Nu ↔ Toen” staat centraal en wordt bij het eerste gebruik uitgelegd. De mix met losse lagen zit bewust verborgen voor wie meer wil.'],
+ klaar:['Stap 6 · Afronden','Een duidelijk einde','Bevestiging dat je klaar bent, met een weg terug naar het begin.']};
+let cur='welkom', stop=0, timers=[];
+const clear=()=>{timers.forEach(clearInterval);timers=[]};
+function dots(){const h=STOPS.map((_,i)=>`<i class="${i<stop?'done':i===stop?'cur':''}"></i>`).join('');$$('.dd').forEach(d=>d.innerHTML=h);$$('.cc').forEach(c=>c.textContent=`${stop+1}/${STOPS.length}`)}
+function go(name){
+  clear();cur=name;
+  $$('.screen').forEach(s=>s.classList.toggle('on',s.dataset.s===name));
+  const w=WHY[name];$('#wk').textContent=w[0];$('#wt').textContent=w[1];$('#wp').textContent=w[2];
+  const i=ORDER.indexOf(name);$('#steps').innerHTML=ORDER.map((_,k)=>`<i class="${k<=i?'on':''}"></i>`).join('');
+  if(name==='lopen')startWalk();
+  if(name==='luisteren')startListen();
+}
+const step=d=>{const i=ORDER.indexOf(cur)+d;
+  if(cur==='luisteren'&&d>0){if(stop<STOPS.length-1){stop++;return go('lopen')}return go('klaar')}
+  if(cur==='lopen'&&d<0&&stop>0){stop--;return go('luisteren')}
+  if(cur==='luisteren'&&d<0)return go('lopen');
+  if(cur==='lopen'&&d<0&&stop===0)return go('route');
+  go(ORDER[Math.max(0,i)])};
+$('#phone').addEventListener('click',e=>{
+  if(e.target.closest('[data-next]'))step(1);
+  else if(e.target.closest('[data-prev]'))step(-1);
+});
+// voorbereiding
+$$('[data-check]').forEach(b=>b.onclick=()=>{b.classList.toggle('on');b.querySelector('.box').textContent=b.classList.contains('on')?'✓':'';
+  $('#goRoute').disabled=$$('[data-check]:not(.on)').length>0});
+// hero + route lijst
+$('#hero').innerHTML=[40,70,55,90,35,80,60].map((h,i)=>`<i style="left:${4+i*14}%;height:${h}%;animation-delay:${i*.12}s"></i>`).join('');
+$('#stoplist').innerHTML=STOPS.map((s,i)=>`<div><b>${i+1}</b>${s[0]}<em>${s[1]}</em></div>`).join('');
+// lopen: afstand telt af, aankomst start het verhaal automatisch
+function startWalk(){dots();$('#wname').textContent=`Naar ${STOPS[stop][0].toLowerCase()}`;
+  const total=parseInt(STOPS[stop][1]);let d=total;const upd=()=>{$('#dist').textContent=d;$('#ring').style.setProperty('--p',100-d/total*100)};upd();
+  timers.push(setInterval(()=>{d=Math.max(0,d-12);upd();if(d===0){clear();$('#wtag').textContent='Je bent er';$('#wname').textContent=STOPS[stop][0];timers.push(setTimeout(()=>go('luisteren'),900))}},200));}
+$('#skipWalk').onclick=()=>go('luisteren');
+// luisteren
+const CAPS=['Je hoort de straat zoals die nu is, met de verteller erbovenop.','Het straatgeluid van nu en de opnames van toen smelten samen.','Archiefbeeld en historische soundscape van exact deze plek.'];
+const LAY=[['Stem','verteller en interviews',()=>1],['Muziek','tracks van toen',t=>.4+t*.6],['Sfeer','straatgeluid nu',t=>1-t*.7],['Archief','geluid van vroeger',t=>t]];
+let coached=false;
+function setTime(v){const t=v/100;$('#scene').style.setProperty('--t',t);
+  $('#year').textContent=t<.2?'Nu':t<.8?'Overgang':'Archief';$('#cap').textContent=CAPS[t<.2?0:t<.8?1:2];
+  $$('.lay').forEach((el,i)=>el.querySelector('.m i').style.width=Math.round(LAY[i][2](t)*100)+'%')}
+function startListen(){dots();$('#time').value=0;
+  $('#mix').innerHTML=LAY.map(l=>`<div class="lay"><div><b>${l[0]}</b> <small>${l[1]}</small></div><div class="sw" role="switch"></div><div class="m"><i></i></div></div>`).join('');
+  $$('.lay .sw').forEach(sw=>sw.onclick=()=>sw.closest('.lay').classList.toggle('off'));
+  $('#mix').classList.remove('on');$('#mixbtn').textContent='Geluidsmix ▾';
+  $('#coach').style.display=coached?'none':'block';setTime(0);
+  $('#nextStop').textContent=stop<STOPS.length-1?'Volgende stop →':'Route afronden';
+  let s=0,playing=true;$('#play').textContent='❚❚';$('#prog').style.width='0';$('#tm').textContent='0:00';
+  $('#play').onclick=()=>{playing=!playing;$('#play').textContent=playing?'❚❚':'▶'};
+  timers.push(setInterval(()=>{if(!playing)return;s=Math.min(90,s+1);$('#prog').style.width=s/90*100+'%';$('#tm').textContent=`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`},333));}
+$('#time').oninput=e=>{setTime(e.target.value);coached=true;$('#coach').style.display='none'};
+$('#mixbtn').onclick=()=>{const o=$('#mix').classList.toggle('on');$('#mixbtn').textContent=o?'Geluidsmix ▴':'Geluidsmix ▾'};
+$('#nextStop').onclick=()=>step(1);
+$('#again').onclick=()=>{stop=0;$$('[data-check]').forEach(b=>{b.classList.remove('on');b.querySelector('.box').textContent=''});$('#goRoute').disabled=true;go('welkom')};
+go('welkom');
 </script>
 </body>
 </html>

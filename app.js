@@ -94,7 +94,21 @@ const sheets = [
       <div class="card"><h4>Hoofdpersonen</h4><p>Belang: een eerlijke en zorgvuldige representatie van hun ervaring.</p><em>Spanning: een persoonlijk verhaal is meer dan een middel voor emotie.</em></div>
       <div class="card"><h4>Mediaorganisatie / opdrachtgever</h4><p>Belang: kwaliteit, bereik en aansluiting bij de identiteit van het merk.</p><em>Spanning: optimaliseren voor bereik vs journalistieke verdieping.</em></div>
       <div class="card"><h4>Mediaplatformen</h4><p>Bepalen mede hoe content wordt ontdekt: formats, thumbnails, titels, aanbevelingen.</p><em>Spanning: de platformlogica mag het verhaal niet volledig bepalen.</em></div>
-    </div>`] },
+    </div>`,
+    `<h3>Stakeholdermap</h3>
+    <p class="lead">Wie heeft iets te maken met ons project, en <mark>hoeveel invloed en belang</mark> hebben ze? Klik een stakeholder voor het actieplan.</p>
+    <div class="smap">
+      <span class="ax y">Invloed ↑</span>
+      <div class="grid"><div class="q tevreden"><h4>Tevreden houden</h4><small>Veel invloed, weinig belang</small><div class="chips"><button data-s="rechten">Rechthebbenden van archief en muziek</button><button data-s="platformen">Mediaplatformen</button></div></div><div class="q nauw"><h4>Nauw betrekken</h4><small>Veel invloed, veel belang</small><div class="chips"><button data-s="vpro">VPRO Medialab (opdrachtgever)</button><button data-s="docent">Docent / beoordelaar</button></div></div><div class="q monitor"><h4>Monitoren</h4><small>Weinig invloed, weinig belang</small><div class="chips"><button data-s="studenten">Medestudenten</button><button data-s="toegang">Nieuwe doelgroepen via toegankelijkheid</button></div></div><div class="q op"><h4>Op de hoogte houden</h4><small>Weinig invloed, veel belang</small><div class="chips"><button data-s="doelgroep">Primaire doelgroep: jonge mediagebruikers</button><button data-s="sprekers">Hoofdpersonen en sprekers</button><button data-s="experts">Experts en bronnen</button><button data-s="redactie">Maker of redactie</button></div></div></div>
+      <span class="ax x">Belang →</span>
+    </div>
+    <div class="cols"><div class="card"><h4>Zo lees je de matrix</h4><p><b>Veel invloed + veel belang:</b> nauw contact, actief betrekken. <b>Veel invloed + weinig belang:</b> tevreden houden. <b>Weinig invloed + veel belang:</b> op de hoogte houden. <b>Weinig invloed + weinig belang:</b> af en toe inchecken.</p></div>
+    <div class="card"><h4>Status</h4><p>Digitaal, versie 1.0. De plaatsing is een eerste inschatting op basis van de briefing en het onderzoek en moet nog met de stakeholders zelf worden gecontroleerd.</p></div></div>
+    <p class="src">Methode: stakeholdermapping (Smart Media Production, blok 05). Stakeholders komen uit de briefing, het onderzoek en de cursusvoorbeelden.</p>`,
+    `<h3>Actieplan per stakeholder</h3>
+    <p>Per stakeholder: wat willen ze, hoe houden we ze betrokken (samenwerking, contact, feedback) en aan welke (eind)producten koppelen we ze.</p>
+    <div class="cards plan"><div class="card" id="sh-vpro"><h4>VPRO Medialab (opdrachtgever)</h4><span class="tagq nauw">Nauw betrekken</span><dl><dt>Belang</dt><dd>Een concept met een echt nieuwe media-ervaring, waarin technologie essentieel is en dat past bij de identiteit van de VPRO.</dd><dt>Betrokken houden</dt><dd>Feedbackmoment na fase 1; daarna regelmatig contact over de gekozen richting.</dd><dt>Gekoppeld aan</dt><dd>Concept, prototype en eindresultaat</dd></dl></div><div class="card" id="sh-docent"><h4>Docent / beoordelaar</h4><span class="tagq nauw">Nauw betrekken</span><dl><dt>Belang</dt><dd>Een onderbouwd en afgerond product dat laat zien dat we zelfstandig met stakeholders afstemmen (S 2.3).</dd><dt>Betrokken houden</dt><dd>Feedback vragen op tussenproducten en de stakeholdermap zelf.</dd><dt>Gekoppeld aan</dt><dd>Alle (tussen)producten</dd></dl></div><div class="card" id="sh-rechten"><h4>Rechthebbenden van archief en muziek</h4><span class="tagq tevreden">Tevreden houden</span><dl><dt>Belang</dt><dd>Auteursrecht en verantwoord gebruik van archiefmateriaal en tracks (rechten en ethiek uit de briefing).</dd><dt>Betrokken houden</dt><dd>Vroeg checken wat mag en onder welke voorwaarden; niet lastigvallen met halve ideeën.</dd><dt>Gekoppeld aan</dt><dd>Archieflaag en muzieklaag van de podwalk</dd></dl></div><div class="card" id="sh-platformen"><h4>Mediaplatformen</h4><span class="tagq tevreden">Tevreden houden</span><dl><dt>Belang</dt><dd>Eigen regels voor formats, thumbnails, titels en aanbevelingen.</dd><dt>Betrokken houden</dt><dd>Regels kennen en vooraf meenemen in de ontwerpkeuzes.</dd><dt>Gekoppeld aan</dt><dd>Kanalen waarop het verhaal wordt ontdekt</dd></dl></div><div class="card" id="sh-doelgroep"><h4>Primaire doelgroep: jonge mediagebruikers</h4><span class="tagq op">Op de hoogte houden</span><dl><dt>Belang</dt><dd>Authenticiteit, rauwe verhalen en maatschappelijke diepgang; geen passief of belerend format.</dd><dt>Betrokken houden</dt><dd>Het prototype laten zien en reacties ophalen (nog toe te voegen als fieldresearch).</dd><dt>Gekoppeld aan</dt><dd>Prototype van de podwalk</dd></dl></div><div class="card" id="sh-sprekers"><h4>Hoofdpersonen en sprekers</h4><span class="tagq op">Op de hoogte houden</span><dl><dt>Belang</dt><dd>Een eerlijke en zorgvuldige representatie van hun ervaring.</dd><dt>Betrokken houden</dt><dd>Op de hoogte houden van hoe hun verhaal wordt gebruikt; laten meekijken.</dd><dt>Gekoppeld aan</dt><dd>Verhalen en stemlaag van de route</dd></dl></div><div class="card" id="sh-experts"><h4>Experts en bronnen</h4><span class="tagq op">Op de hoogte houden</span><dl><dt>Belang</dt><dd>Een correcte weergave van informatie met voldoende context.</dd><dt>Betrokken houden</dt><dd>Feiten laten controleren en feedback vragen op de inhoud.</dd><dt>Gekoppeld aan</dt><dd>Inhoud van de stops</dd></dl></div><div class="card" id="sh-redactie"><h4>Maker of redactie</h4><span class="tagq op">Op de hoogte houden</span><dl><dt>Belang</dt><dd>Inhoudelijk sterk én aantrekkelijk genoeg om bekeken te worden.</dd><dt>Betrokken houden</dt><dd>Meenemen in keuzes tussen journalistieke verdieping en toegankelijkheid.</dd><dt>Gekoppeld aan</dt><dd>Verhaalopbouw per stop</dd></dl></div><div class="card" id="sh-studenten"><h4>Medestudenten</h4><span class="tagq monitor">Monitoren</span><dl><dt>Belang</dt><dd>Een duidelijk en bruikbaar ontwerp; ze geven feedback op onze producten.</dd><dt>Betrokken houden</dt><dd>Af en toe feedback vragen, maar niet alleen bij hen blijven.</dd><dt>Gekoppeld aan</dt><dd>Tussenproducten</dd></dl></div><div class="card" id="sh-toegang"><h4>Nieuwe doelgroepen via toegankelijkheid</h4><span class="tagq monitor">Monitoren</span><dl><dt>Belang</dt><dd>Toegang tot VPRO-content via andere talen, vormen van interactie of toegankelijkheidsmogelijkheden (briefing).</dd><dt>Betrokken houden</dt><dd>Volgen en onderzoeken waar de technologie extra toegang geeft.</dd><dt>Gekoppeld aan</dt><dd>Interface van de app</dd></dl></div></div>
+    <p class="callout">Feedback vragen we bij verschillende stakeholders, niet alleen bij medestudenten of docenten.</p>`] },
 
   // ───────────────────────── CONTEXT (Trendanalyse)
   { tab: 'Opdracht', title: 'Context', pages: [`
@@ -124,6 +138,7 @@ const sheets = [
     <ol class="flow"><li><b>Institutionele afzender</b></li><li><b>Herkenbare maker</b></li></ol>
     <p>De persoon die informatie vertelt wordt belangrijker. Internationaal verschuift nieuwsconsumptie richting creators en persoonlijkheden; in Nederland is dat minder ver, traditionele nieuwsmerken en journalisten krijgen op sociale platformen nog relatief veel aandacht. De betrouwbaarheid hoeft dus niet te verdwijnen, de presentatie kan persoonlijker.</p>
     <div class="chips"><span>SPILNEWS: jonge journalisten, influencerachtige stijl</span><span>NU.nl: video-first strategie</span><span>NOS Stories: groot bereik op TikTok en Instagram</span></div>
+    <p class="src">Onderzoek: SPIL (Mediahuis, juni 2025) maakt alleen video en podcasts voor TikTok, Instagram en YouTube; slechts 36% van de jongeren voelt zich vertegenwoordigd door de media. NOS Stories begon in 2015 als NOS Kort op Instagram (2018: 300.000+ volgers); een bron voor TikTok-bereik is niet gevonden. Over de video-first strategie van NU.nl is nog niets gevonden.</p>
     <blockquote class="quote small">Het gaat er niet om dat journalistiek op influencers moet lijken, maar dat de maker <mark>zichtbaarder onderdeel</mark> wordt van de storytelling.</blockquote>
     <h4>Authenticiteit boven perfectie</h4>
     <p>TikTok noemt onder de term Reali-TEA een beweging richting eerlijkere verhalen, echte processen en behind-the-scenescontent. De maker kan het onderzoeksproces zichtbaar maken: welke vraag stond aan het begin, welke locatie wordt bezocht, welke informatie komt onverwacht naar voren.</p>
@@ -291,9 +306,9 @@ const sheets = [
     <p class="callout">Van verwondering, naar persoonlijke ervaring, naar onderzoek, naar verdieping, naar maatschappelijke betekenis.</p>`,
     `<h3>Best practice: cases (1 t/m 3)</h3>
     <p class="lead">${D}Vijf VPRO-series, elk geanalyseerd op <mark>vorm, formule, succesfactor en implementatie</mark> voor onze podwalk.</p>
-    <div class="cards cases"><div class="card case"><h4>1. 50 jaar hiphop in Nederland: Iemand moet het doen</h4><dl><dt>Vorm</dt><dd>Documentaireserie over de geschiedenis en evolutie van de Nederlandse hiphopcultuur.</dd><dt>Formule</dt><dd>Per aflevering ligt de focus op een specifiek tijdperk. Artiesten vertellen het verhaal van de aflevering, maar worden ondersteund door archiefmateriaal en het spelen van de tracks waar ze over praten.</dd><dt>Succesfactor</dt><dd>Meeslepende manier van storytelling: door het afwisselen van interviews met de artiesten, archiefbeelden en ondertussen de tracks, wordt je hele zintuiglijke beleving betrokken.</dd><dt>Implementatie</dt><dd>Deze serie is perfect om een concrete fysieke immersive podwalk-route op te baseren. Net zoals in de serie combineren we gesproken geschiedenisvertelling met andere vormen van geluid en visuals om de zintuigen actief te prikkelen en de luisteraar echt in het verhaal mee te trekken.</dd></dl></div><div class="card case"><h4>2. 30 jaar Dutch Dance</h4><dl><dt>Vorm</dt><dd>Verhalende documentaireserie over de geschiedenis van dutch dance.</dd><dt>Formule</dt><dd>Iedere aflevering behandelt een specifieke fase in de evolutie van de Nederlandse dance. Persoonlijke verhalen van dj’s en organisatoren worden gemixt met archiefmateriaal van clubnachten.</dd><dt>Succesfactor</dt><dd>Maakt de clubcultuur tastbaar en historisch urgent door rauwe beelden van legendarische, inmiddels verdwenen clubs te combineren met de euforische tracks van toen. Hierdoor is het meeslepend.</dd><dt>Implementatie</dt><dd>Serie gebruiken als onderwerp van een immersive podwalk. Inspelen op immersie door op meerdere zintuigen in te spelen: terwijl de gebruiker de route loopt en de podcast luistert, toont de app ondertussen archiefbeelden van vroeger op exact die plek met bijbehorende historische soundscapes.</dd></dl></div><div class="card case"><h4>3. De Roze Revolutie</h4><dl><dt>Vorm</dt><dd>Vierdelige verhalende documentaireserie over vijftig jaar LHBTQIA+-emancipatiestrijd in Nederland.</dd><dt>Formule</dt><dd>Iedere aflevering focust op een specifiek thema en historisch kantelpunt van de LHBTIQ+ gemeenschap. De hoofdpersonen zitten in een fysieke ruimte waar historische beelden en archieffragmenten 360 graden om hen heen worden geprojecteerd terwijl ze hun verhaal vertellen.</dd><dt>Succesfactor</dt><dd>De driedimensionale setting waarin sprekers letterlijk worden omringd door geprojecteerde archiefbeelden maakt het verhaal tastbaar. De dialoog tussen verschillende generaties maakt het voor leeftijden interessant en relevant.</dd><dt>Implementatie</dt><dd>Serie gebruiken als onderwerp voor één van de podwalks. Net zoals in de aflevering inspelen op een immersieve ervaring.</dd></dl></div></div>`,
+    <div class="cards cases"><div class="card case"><h4>1. 50 jaar hiphop in Nederland: Iemand moet het doen</h4><figure class="frame"><a href="https://www.vpro.nl/50-jaar-hiphop-in-nederland-iemand-moet-het-doen/info/50-jaar-hiphop-in-nederland" target="_blank" rel="noopener"><img src="https://images.vpro.nl/1ub8n6eicyrd/w_1200/50jr-hiphop-nl-imhd-vpro-2025-beeldmerk-c-jay-sunsmith.jpg" alt="Beeldmerk van 50 jaar hiphop in Nederland" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeldmerk, © Jay Sunsmith / VPRO</figcaption></figure><dl><dt>Vorm</dt><dd>Documentaireserie over de geschiedenis en evolutie van de Nederlandse hiphopcultuur.</dd><dt>Formule</dt><dd>Per aflevering ligt de focus op een specifiek tijdperk. Artiesten vertellen het verhaal van de aflevering, maar worden ondersteund door archiefmateriaal en het spelen van de tracks waar ze over praten.</dd><dt>Succesfactor</dt><dd>Meeslepende manier van storytelling: door het afwisselen van interviews met de artiesten, archiefbeelden en ondertussen de tracks, wordt je hele zintuiglijke beleving betrokken.</dd><dt>Implementatie</dt><dd>Deze serie is perfect om een concrete fysieke immersive podwalk-route op te baseren. Net zoals in de serie combineren we gesproken geschiedenisvertelling met andere vormen van geluid en visuals om de zintuigen actief te prikkelen en de luisteraar echt in het verhaal mee te trekken.</dd><dt>Onderzoek</dt><dd>Zesdelige serie van Ivan Barbosa en Sacha Vermeulen, coproductie met Scenery, uitgezonden vanaf 30 november 2025 op NPO 3 en NPO Start. Aflevering 1 (Grondleggers) behandelt de jaren zeventig en tachtig. Ook de keerzijde komt aan bod: commercialisering, mediaframing en de persoonlijke tol.</dd></dl></div><div class="card case"><h4>2. 30 jaar Dutch Dance</h4><figure class="frame"><a href="https://www.vpro.nl/programmas/30jaardutchdance" target="_blank" rel="noopener"><img src="https://images.vpro.nl/3e9e1qwcpgl7/w_1200/30-jaar-dutch-dance-social.jpg" alt="Beeld van 30 jaar Dutch Dance" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeld: 30 jaar Dutch Dance, VPRO</figcaption></figure><dl><dt>Vorm</dt><dd>Verhalende documentaireserie over de geschiedenis van dutch dance.</dd><dt>Formule</dt><dd>Iedere aflevering behandelt een specifieke fase in de evolutie van de Nederlandse dance. Persoonlijke verhalen van dj’s en organisatoren worden gemixt met archiefmateriaal van clubnachten.</dd><dt>Succesfactor</dt><dd>Maakt de clubcultuur tastbaar en historisch urgent door rauwe beelden van legendarische, inmiddels verdwenen clubs te combineren met de euforische tracks van toen. Hierdoor is het meeslepend.</dd><dt>Implementatie</dt><dd>Serie gebruiken als onderwerp van een immersive podwalk. Inspelen op immersie door op meerdere zintuigen in te spelen: terwijl de gebruiker de route loopt en de podcast luistert, toont de app ondertussen archiefbeelden van vroeger op exact die plek met bijbehorende historische soundscapes.</dd><dt>Onderzoek</dt><dd>Drieluik uitgezonden van 20 oktober tot 3 november 2018 (Pionieren, Harder harder harder, De wijde wereld). Het project heeft ook podcasts en een website vol interviews en archiefmateriaal, dus de archieflaag bestaat al online.</dd></dl></div><div class="card case"><h4>3. De Roze Revolutie</h4><figure class="frame"><a href="https://www.vpro.nl/de-roze-revolutie/info/over-de-serie" target="_blank" rel="noopener"><img src="https://images.vpro.nl/j4awf2lxwp7/w_1200/source.jpg" alt="Beeld uit De Roze Revolutie" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeld: De Roze Revolutie, VPRO</figcaption></figure><dl><dt>Vorm</dt><dd>Vierdelige verhalende documentaireserie over vijftig jaar LHBTQIA+-emancipatiestrijd in Nederland.</dd><dt>Formule</dt><dd>Iedere aflevering focust op een specifiek thema en historisch kantelpunt van de LHBTIQ+ gemeenschap. De hoofdpersonen zitten in een fysieke ruimte waar historische beelden en archieffragmenten 360 graden om hen heen worden geprojecteerd terwijl ze hun verhaal vertellen.</dd><dt>Succesfactor</dt><dd>De driedimensionale setting waarin sprekers letterlijk worden omringd door geprojecteerde archiefbeelden maakt het verhaal tastbaar. De dialoog tussen verschillende generaties maakt het voor leeftijden interessant en relevant.</dd><dt>Implementatie</dt><dd>Serie gebruiken als onderwerp voor één van de podwalks. Net zoals in de aflevering inspelen op een immersieve ervaring.</dd><dt>Onderzoek</dt><dd>Vierdelige serie van regisseur Michiel van Erp, uitgezonden van 10 tot 31 mei 2021. Van Erp onderzoekt vanuit zijn persoonlijke verwondering de geschiedenis van de LHBTQIA+-beweging in Nederland.</dd></dl></div></div>`,
     `<h3>Best practice: cases (4 en 5)</h3>
-    <div class="cards cases"><div class="card case"><h4>4. De nieuwe generaties van Suriname</h4><dl><dt>Vorm</dt><dd>Vierdelige verhalende documentaireserie over identiteit, cultureel erfgoed en hoe jonge Nederlandse Surinamers zich opnieuw verbinden met hun roots.</dd><dt>Formule</dt><dd>De hoofdpersonen onderzoeken wat ze hebben meegekregen van hun (groot)ouders en hoe ze die erfenis op hun eigen, hedendaagse manier voortzetten.</dd><dt>Succesfactor</dt><dd>Spreekt een jonge, biculturele generatie direct aan doordat het niet blijft hangen in nostalgie of enkel historisch leed, maar focust op trots, eigentijdse creativiteit en toekomstvisie.</dd><dt>Implementatie</dt><dd>Serie als inspiratiebron gebruiken voor een maatschappelijke en culturele podwalkroute over de Surinaams-Nederlandse diaspora en stadsgeschiedenis (bijvoorbeeld in Amsterdam Zuidoost of Oost). Net als in de afleveringen koppelen we familie- en herkomstverhalen aan concrete fysieke plekken waar die geschiedenis nog voelbaar is.</dd></dl></div><div class="card case"><h4>5. YOUS &amp; YAY: In het wild</h4><dl><dt>Vorm</dt><dd>Verhalende interview- en wandelpodcast op locatie met prominente makers en kunstenaars.</dd><dt>Formule</dt><dd>De presentatoren nemen per aflevering één gast mee op pad in de buitenlucht of op een betekenisvolle openbare plek. Geen statische studio-opstelling: omgevingsgeluiden (voetstappen, verkeer, voorbijgangers, weersomstandigheden) vormen een natuurlijk decor en sturen soms spontaan het gesprek. Ongehaaste, diepgaande en associatieve dialogen.</dd><dt>Succesfactor</dt><dd>De intieme, rauwe setting: doordat er gewandeld wordt in de openbare ruimte ontstaat er veel sneller openheid en kwetsbaarheid dan tijdens een traditioneel studio-interview. Hoge herkenbaarheid voor jongvolwassenen dankzij de authentieke, ongefilterde VPRO-tone-of-voice en de gedeelde leefwereld tussen hosts en gasten. Het decor leeft mee: de luisteraar krijgt door de continue achtergrondgeluiden het zintuiglijke gevoel daadwerkelijk fysiek mee te lopen.</dd><dt>Implementatie</dt><dd>De serie bewijst dat wandelen mensen openstelt voor introspectie en maatschappelijke verhalen, wat de kern vormt van onze immersieve podwalk. We hanteren dezelfde informele, wandelende vertelstijl: de podwalk voelt niet als een belerende museumgids, maar als een toffe gids of maker die naast je loopt in de stad. Omgevingsgeluid als actieve laag: we filteren het fysieke straatgeluid niet weg, maar laten het vloeiend versmelten met de audiolagen en soundscapes in de app.</dd></dl></div></div>`,
+    <div class="cards cases"><div class="card case"><h4>4. De nieuwe generaties van Suriname</h4><figure class="frame"><a href="https://www.vpro.nl/de-nieuwe-generaties-van-suriname/" target="_blank" rel="noopener"><img src="https://images.vpro.nl/5ovt6hw5klu1/w_1200/de-nieuwe-generaties-van-suriname-2025-vpro-still2-c-vpro-omroep-zwart.jpg" alt="Still uit De nieuwe generaties van Suriname" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Still, © VPRO / Omroep Zwart</figcaption></figure><dl><dt>Vorm</dt><dd>Vierdelige verhalende documentaireserie over identiteit, cultureel erfgoed en hoe jonge Nederlandse Surinamers zich opnieuw verbinden met hun roots.</dd><dt>Formule</dt><dd>De hoofdpersonen onderzoeken wat ze hebben meegekregen van hun (groot)ouders en hoe ze die erfenis op hun eigen, hedendaagse manier voortzetten.</dd><dt>Succesfactor</dt><dd>Spreekt een jonge, biculturele generatie direct aan doordat het niet blijft hangen in nostalgie of enkel historisch leed, maar focust op trots, eigentijdse creativiteit en toekomstvisie.</dd><dt>Implementatie</dt><dd>Serie als inspiratiebron gebruiken voor een maatschappelijke en culturele podwalkroute over de Surinaams-Nederlandse diaspora en stadsgeschiedenis (bijvoorbeeld in Amsterdam Zuidoost of Oost). Net als in de afleveringen koppelen we familie- en herkomstverhalen aan concrete fysieke plekken waar die geschiedenis nog voelbaar is.</dd><dt>Onderzoek</dt><dd>Serie van Amanda van Hesteren, een samenwerking van Omroep Zwart en de VPRO (coproductie Scenery), najaar 2025 op NPO 3 en NPO Start. Jongeren starten in Suriname een project: een boksschool nieuw leven inblazen, cassaveteelt, een theatervoorstelling, een ziekenhuisontwerp.</dd></dl></div><div class="card case"><h4>5. YOUS &amp; YAY: In het wild</h4><figure class="frame"><a href="https://www.vpro.nl/yous-yay-in-het-wild/info/over-seizoen-1" target="_blank" rel="noopener"><img src="https://images.vpro.nl/5j8juilyi900/w_1200/source.jpg" alt="Beeld uit Yous &amp; Yay in het wild" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeld: Yous &amp; Yay in het wild, VPRO</figcaption></figure><dl><dt>Vorm</dt><dd>Verhalende interview- en wandelpodcast op locatie met prominente makers en kunstenaars.</dd><dt>Formule</dt><dd>De presentatoren nemen per aflevering één gast mee op pad in de buitenlucht of op een betekenisvolle openbare plek. Geen statische studio-opstelling: omgevingsgeluiden (voetstappen, verkeer, voorbijgangers, weersomstandigheden) vormen een natuurlijk decor en sturen soms spontaan het gesprek. Ongehaaste, diepgaande en associatieve dialogen.</dd><dt>Succesfactor</dt><dd>De intieme, rauwe setting: doordat er gewandeld wordt in de openbare ruimte ontstaat er veel sneller openheid en kwetsbaarheid dan tijdens een traditioneel studio-interview. Hoge herkenbaarheid voor jongvolwassenen dankzij de authentieke, ongefilterde VPRO-tone-of-voice en de gedeelde leefwereld tussen hosts en gasten. Het decor leeft mee: de luisteraar krijgt door de continue achtergrondgeluiden het zintuiglijke gevoel daadwerkelijk fysiek mee te lopen.</dd><dt>Implementatie</dt><dd>De serie bewijst dat wandelen mensen openstelt voor introspectie en maatschappelijke verhalen, wat de kern vormt van onze immersieve podwalk. We hanteren dezelfde informele, wandelende vertelstijl: de podwalk voelt niet als een belerende museumgids, maar als een toffe gids of maker die naast je loopt in de stad. Omgevingsgeluid als actieve laag: we filteren het fysieke straatgeluid niet weg, maar laten het vloeiend versmelten met de audiolagen en soundscapes in de app.</dd><dt>Onderzoek</dt><dd>Yousef Gnaoui (Yous) en Pepijn Lanen (Yay) ontvangen gasten; seizoen 1 in december 2024, seizoen 2 vanaf 22 maart op VPRO en NPO 3. Let op: de VPRO-pagina’s beschrijven dit als televisieserie, in onze analyse staat het als wandelpodcast. Controleer welk format we bedoelen.</dd></dl></div></div>`,
     `<h3>Van best practice naar podwalk</h3>
     <p class="lead">In vier van de vijf cases wordt de <mark>serie of aflevering zelf het onderwerp</mark> van een immersieve podwalk-route.</p>
     <div class="layers">
@@ -313,46 +328,36 @@ const sheets = [
       <li>Best practice analyse VPRO (eigen document): vijf VPRO-series, van 50 jaar hiphop tot YOUS &amp; YAY</li>
       <li>Nederlandse voorbeelden: SPILNEWS, NU.nl, NOS Stories</li>
     </ul>`] },
-
-  // ───────────────────────── VIDEOREFERENTIES (desk research met officiële beelden)
-  { tab: 'Bronnen', title: 'Video&shy;referenties', short: 'Videoreferenties', pages: [`<h3>Videoreferenties: hiphop en dance</h3>
-    <p class="lead">${D}Beeld en feiten bij de twee series die als <mark>podwalk-onderwerp</mark> zijn gekozen. Klik een beeld om naar de VPRO-pagina te gaan.</p>
-    <div class="cards cases">
-    <div class="card case"><h4>50 jaar hiphop in Nederland: Iemand moet het doen</h4><figure class="frame"><a href="https://www.vpro.nl/50-jaar-hiphop-in-nederland-iemand-moet-het-doen/info/50-jaar-hiphop-in-nederland" target="_blank" rel="noopener"><img src="https://images.vpro.nl/1ub8n6eicyrd/w_1200/50jr-hiphop-nl-imhd-vpro-2025-beeldmerk-c-jay-sunsmith.jpg" alt="Beeldmerk van 50 jaar hiphop in Nederland" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeldmerk, © Jay Sunsmith / VPRO</figcaption></figure><dl><dt>Gegevens</dt><dd>Zesdelige VPRO-serie van regisseurs Ivan Barbosa en Sacha Vermeulen, coproductie met Scenery. Uitgezonden vanaf 30 november 2025 op NPO 3 en NPO Start.</dd><dt>Inhoud</dt><dd>Van de vroege cyphers en graffiti tot het huidige succes, inclusief de keerzijde: commercialisering, mediaframing en de persoonlijke tol voor de dragers van de cultuur.</dd><dt>Voor de podwalk</dt><dd>Aflevering 1 (Grondleggers) behandelt de jaren zeventig en tachtig: een logisch startpunt voor een pilot-route.</dd></dl></div>
-    <div class="card case"><h4>30 jaar Dutch Dance</h4><figure class="frame"><a href="https://www.vpro.nl/programmas/30jaardutchdance" target="_blank" rel="noopener"><img src="https://images.vpro.nl/3e9e1qwcpgl7/w_1200/30-jaar-dutch-dance-social.jpg" alt="Sociale afbeelding van 30 jaar Dutch Dance" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeld: 30 jaar Dutch Dance, VPRO</figcaption></figure><dl><dt>Gegevens</dt><dd>Drieluik van de VPRO, uitgezonden van 20 oktober tot 3 november 2018 op NPO 3. Afleveringen: Pionieren, Harder harder harder, De wijde wereld.</dd><dt>Inhoud</dt><dd>Naast de serie bevat het project podcasts en een website vol interviews en archiefmateriaal, zoals een interview met Joost van Bellen.</dd><dt>Voor de podwalk</dt><dd>Het archiefmateriaal staat al online: bruikbaar als inspiratie voor de archieflaag van de route.</dd></dl></div>
-    </div>
-    <p class="src">Bronnen: vpro.nl, TheTVDB. Volledige afleveringen staan op NPO Start; een officiële YouTube-upload is niet gevonden.</p>`,
-    `<h3>Videoreferenties: identiteit en emancipatie</h3>
-    <div class="cards cases">
-    <div class="card case"><h4>De Roze Revolutie</h4><figure class="frame"><a href="https://www.vpro.nl/de-roze-revolutie/info/over-de-serie" target="_blank" rel="noopener"><img src="https://images.vpro.nl/j4awf2lxwp7/w_1200/source.jpg" alt="Beeld uit De Roze Revolutie" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeld: De Roze Revolutie, VPRO</figcaption></figure><dl><dt>Gegevens</dt><dd>Vierdelige VPRO-serie van regisseur Michiel van Erp, uitgezonden van 10 tot 31 mei 2021.</dd><dt>Inhoud</dt><dd>Van Erp onderzoekt vanuit zijn persoonlijke verwondering de geschiedenis van de LHBTQIA+-beweging in Nederland in de afgelopen vijftig jaar.</dd><dt>Voor de podwalk</dt><dd>Het uitgangspunt van persoonlijke verwondering sluit aan op de les “begin met verwondering in plaats van uitleg”.</dd></dl></div>
-    <div class="card case"><h4>De nieuwe generaties van Suriname</h4><figure class="frame"><a href="https://www.vpro.nl/de-nieuwe-generaties-van-suriname/" target="_blank" rel="noopener"><img src="https://images.vpro.nl/5ovt6hw5klu1/w_1200/de-nieuwe-generaties-van-suriname-2025-vpro-still2-c-vpro-omroep-zwart.jpg" alt="Still uit De nieuwe generaties van Suriname" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Still, © VPRO / Omroep Zwart</figcaption></figure><dl><dt>Gegevens</dt><dd>Vierdelige serie van Amanda van Hesteren, een samenwerking van Omroep Zwart en de VPRO, coproductie met Scenery. Uitgezonden in het najaar van 2025 op NPO 3 en NPO Start.</dd><dt>Inhoud</dt><dd>Jongeren die in Nederland zijn opgegroeid starten een project in Suriname, zoals een nieuw leven voor een boksschool, duurzame cassaveteelt, een theatervoorstelling en een ziekenhuisontwerp voor een inheems dorp.</dd><dt>Voor de podwalk</dt><dd>Familie- en herkomstverhalen koppelen aan plekken: de serie laat zien hoe die verbinding met herkomst eruit kan zien.</dd></dl></div>
-    </div>
-    <p class="src">Bronnen: vpro.nl, TheTVDB, IMDb Pro. De VPRO-tekst schrijft een naam in aflevering 1 op twee manieren (Gerwen/Gerwin).</p>`,
-    `<h3>Videoreferenties: YOUS &amp; YAY in het wild</h3>
-    <div class="cards cases">
-    <div class="card case"><h4>YOUS &amp; YAY: In het wild</h4><figure class="frame"><a href="https://www.vpro.nl/yous-yay-in-het-wild/info/over-seizoen-1" target="_blank" rel="noopener"><img src="https://images.vpro.nl/5j8juilyi900/w_1200/source.jpg" alt="Beeld uit Yous &amp; Yay in het wild" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeld: Yous &amp; Yay in het wild, VPRO</figcaption></figure><dl><dt>Gegevens</dt><dd>Yousef Gnaoui (Yous) en Pepijn Lanen (Yay) ontvangen gasten. Seizoen 1 (december 2024) met onder anderen S10 &amp; Froukje en Achmed Akkabi. Seizoen 2 startte op zondag 22 maart op VPRO en NPO 3, met Monica Geuze, Frenna, Halina Reijn, Kees van der Spek en Samir Bantal.</dd><dt>Inhoud</dt><dd>Persoonlijke gesprekken over inspiratie en drijfveren, met “rabbit holes” die dieper ingaan op de fascinaties van de gast.</dd><dt>Let op</dt><dd>Volgens de VPRO-pagina’s is dit een televisieserie op NPO 3 en NPO Start. In onze case-analyse staat het als wandelpodcast: controleer welk format we precies bedoelen.</dd></dl></div>
-    </div>
-    <p class="src">Bronnen: vpro.nl, TheTVDB.</p>`,
-    `<h3>Platformvoorbeelden</h3>
-    <p class="lead">${D}Wat de bronnen zeggen over de <mark>Nederlandse voorbeelden</mark> uit de trendanalyse.</p>
-    <div class="cards three">
-      <div class="card"><h4>SPIL (SPILNEWS)</h4><p>Nieuwsmerk voor jongeren van Mediahuis, gelanceerd in juni 2025 (doelgroep 15 of 18 tot 25 jaar, bronnen verschillen). Alleen video en podcasts, op TikTok, Instagram en YouTube. Slechts 36% van de jongeren voelt zich vertegenwoordigd door de media. Met “journalistieke creators” voor nichethema's.</p><em>Bron: Mediahuis</em></div>
-      <div class="card"><h4>NOS Stories</h4><p>Nieuwsformat van de NOS voor jongeren van 13 tot 18 jaar, begonnen in 2015 als NOS Kort op Instagram. In 2018 meer dan 300.000 volgers, daarna uitgebreid naar YouTube en Snapchat. Winnaar Best Social Awards voor Instagram.</p><em>Let op: voor TikTok vonden we geen bron; onze eerdere zin “groot bereik op TikTok en Instagram” is niet bevestigd.</em></div>
-      <div class="card"><h4>NU.nl</h4><p>Over de video-first strategie is in de bronnen die we raadpleegden niets gevonden.</p><em>Nog te onderzoeken, bijvoorbeeld via Villamedia of het jaarverslag.</em></div>
-    </div>
-    <p class="callout">Beeldmateriaal van deze kanalen is niet toegevoegd: dat staat op de platformen zelf. Fieldresearch: nog toe te voegen.</p>`] },
+  // ───────────────────────── PROTOTYPE (visueel klikbaar idee van het product)
+  { tab: 'Prototype', title: 'Prototype', pages: [`
+    <h3>Wat we maken</h3>
+    <p class="lead">Een <mark>interactieve, locatiegebonden podwalk</mark>: een fysieke route gekoppeld aan verhalen, met gelaagde audio en een tijdschakelaar tussen nu en het archief.</p>
+    <p>Het prototype is een visueel, klikbaar idee. Het werkt nog niet echt, maar laat zien hoe de gebruiker de route ervaart, van starten tot afronden.</p>
+    <ol class="steps">
+      <li><b>Welkom</b><span>Eén belofte in drie stappen, met afstand en duur.</span></li>
+      <li><b>Voor je begint</b><span>Koptelefoon en locatie, elk met een reden. Pas daarna kun je door.</span></li>
+      <li><b>Route</b><span>Het hele traject en alle stops op een kaart, vóór de start.</span></li>
+      <li><b>Lopen</b><span>Afstand en richting naar de volgende stop. Aankomst wordt vanzelf herkend.</span></li>
+      <li><b>Luisteren</b><span>De tijdschakelaar Nu ↔ Toen is de hoofdbediening. De geluidsmix met losse lagen (stem, muziek, sfeer, archief) zit achter een knop.</span></li>
+      <li><b>Klaar</b><span>Een duidelijk einde met een weg terug naar het begin.</span></li>
+    </ol>
+    <p class="callout">Locaties, afstanden en teksten zijn plaatshouders. De pilot-route (50 Jaar Hiphop) wordt nog ingevuld. In de scope staat een klikbaar front-end prototype in Figma.</p>`,
+    `<h3>Probeer het zelf</h3>
+    <p>Klik door de route. Met “Demo: ik ben er al” sla je het lopen over.</p>
+    <iframe class="proto" src="prototype.html?embed" title="Podwalk prototype" loading="lazy"></iframe>
+    <p class="src"><a href="prototype.html" target="_blank" rel="noopener">Open het prototype op een eigen pagina →</a></p>`] },
 ];
 
 // short menu terms, one per page of each folder
 const TERMS = [
   ['Aanleiding', 'Opdracht', 'Doel', 'Ons vraagstuk'],
-  ['Jonge mediagebruikers', 'Primaire doelgroep', 'Mediagebruik', 'Behoeften', 'Interesses', 'Stakeholders'],
+  ['Jonge mediagebruikers', 'Primaire doelgroep', 'Mediagebruik', 'Behoeften', 'Interesses', 'Stakeholders', 'Stakeholdermap', 'Actieplan'],
   ['Generatieve AI', 'Nieuwsgebruik', 'Short-form video', 'TikTok', 'Menselijke verteller', 'Platformen en AI', 'Conclusie'],
   ['Oplevering', 'Binnen en buiten', 'Onze scope', 'Succescriteria'],
   ['Hoofdvragen', 'Deelvragen'],
   ['Briefing', 'Best practice', 'Doelgroep en trends', 'Podwalk'],
   ['Overzicht', 'Storytellingmodel', 'Principes', 'Cases 1-3', 'Cases 4-5', 'Naar podwalk', 'Bronnen'],
-  ['Hiphop en dance', 'Roze Revolutie en Suriname', 'YOUS & YAY', 'Platformvoorbeelden'],
+  ['Wat we maken', 'Probeer het zelf'],
 ];
 sheets.forEach((s, i) => (s.terms = TERMS[i]));
 const $ = s => document.querySelector(s), N = sheets.length;
@@ -362,7 +367,7 @@ const colorOf = i => COLORS[i % COLORS.length][0], textOf = i => COLORS[i % COLO
 const nameOf = s => s.short || s.title.replace(/&shy;/g, '');
 // the folder front: used for the stack AND as the hero of the opened website
 const folder = (s, i) => `<span class="tab">${String(i + 1).padStart(2, '0')} · ${nameOf(s)}</span>
-  <div class="fbody"><small>${s.tab}</small><footer>${s.pages.length} pagina's</footer><div class="ftitle"><h2>${s.title}</h2></div></div>`;
+  <div class="fbody"><small>${s.tab}</small><div class="ftitle"><h2>${s.title}</h2></div></div>`;
 
 // build stack + tabs (static, centered stack; hovering a sheet lifts it so its name shows)
 const hover = sheets.map(() => 0), lift = sheets.map(() => 0), away = sheets.map(() => 0), awayT = sheets.map(() => 0); // away: 1 = slid out of view
@@ -380,7 +385,7 @@ const els = sheets.map((s, i) => {
   return el;
 });
 const tabs = [...new Set(sheets.map(s => s.tab))];
-$('#tabs').innerHTML = tabs.map(t => `<button>${t}</button>`).join('') + '<a href="prototype.html">Prototype</a>';
+$('#tabs').innerHTML = tabs.map(t => `<button>${t}</button>`).join('');
 // hovering a tab lifts that group of sheets
 $('#tabs').onmouseover = $('#tabs').onmouseout = e => {
   if (picked > -1 || !e.target.matches('button')) return;
@@ -390,7 +395,8 @@ $('#tabs').onmouseover = $('#tabs').onmouseout = e => {
 };
 
 const STACK_RX = -24, STACK_RY = -58; // keep in sync with #stack in style.css
-const FW = 56, FH = 31.5; // folder size in em, keep in sync with .folder in style.css
+const PHONE = matchMedia('(max-width:700px)').matches; // phone: narrower stack, taller folders (keep in sync with the media query at the end of style.css)
+const FW = 56, FH = PHONE ? 52 : 31.5; // folder size in em, keep in sync with .folder in style.css
 let P = 10; // px per em of the stack (sheet transforms are in px so a sheet can change its own font-size)
 const measure = () => (P = parseFloat(getComputedStyle($('#stack')).fontSize));
 measure(); addEventListener('resize', measure);
@@ -427,7 +433,7 @@ const ICONS = [
   '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',                                // uitgangspunten: compass
   '<circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/>',                                           // onderzoek: search
 ];
-$('#mega').innerHTML = `<div class="mm-head"><h2>Belangrijkste onderwerpen</h2><p>VPRO Medialab, creative debrief · <a href="prototype.html">Bekijk het prototype →</a></p></div>` + sheets.map((s, i) =>
+$('#mega').innerHTML = `<div class="mm-head"><h2>Belangrijkste onderwerpen</h2><p>VPRO Medialab, creative debrief</p></div>` + sheets.map((s, i) =>
   `<div class="mm-tile"><button class="mm-main" data-i="${i}"><span class="mm-ico">${svg(ICONS[i % ICONS.length])}</span><b>${nameOf(s)}</b><small>${s.tab}</small></button>` +
   `<ul>${s.pages.map((_, k) => `<li><button data-i="${i}" data-k="${k}">${s.terms[k]}</button></li>`).join('')}</ul></div>`).join('');
 // the menu always fits the window: find the largest text size (9-16px) at which it stays within 100vh x 100vw
@@ -443,11 +449,12 @@ fitMenu();
 const menu = on => { document.body.classList.toggle('menu', on); $('#menuBtn').setAttribute('aria-expanded', on); $('#menuTxt').textContent = on ? 'Sluiten' : 'Menu'; };
 $('#menuBtn').onclick = () => menu(!document.body.classList.contains('menu'));
 // the menu stays available while a folder is open: same folder = scroll to its page, other folder = close this one, then open that one
+const SCROLL_PAD = 70; // px kept above a page we scroll to, so it doesn't sit under the sticky bar
 const goTo = (i, k = -1) => {
-  if (picked === i && !$('#reader').hidden) return void $('#reader').scrollTo({ top: k >= 0 ? $('#pages').querySelectorAll('.page')[k].offsetTop : 0, behavior: 'smooth' });
+  if (picked === i && !$('#reader').hidden) return void $('#reader').scrollTo({ top: k >= 0 ? $('#pages').querySelectorAll('.page')[k].offsetTop - SCROLL_PAD : 0, behavior: 'smooth' });
   if (picked < 0) return open(i, k);
-  close();
-  const t = setInterval(() => picked < 0 && (clearInterval(t), open(i, k)), 60);
+  close(); // go home first; the next folder opens once the stack has settled
+  const t = setInterval(() => picked < 0 && (clearInterval(t), open(i, k)), 40);
 };
 $('#mega').onclick = e => { const b = e.target.closest('button'); if (b) { menu(false); goTo(+b.dataset.i, b.dataset.k === undefined ? -1 : +b.dataset.k); } };
 addEventListener('click', e => document.body.classList.contains('menu') && !e.target.closest('#mega,#menuBtn') && menu(false));
@@ -487,42 +494,65 @@ function open(i, k = -1) {
   openAnim = fly(els[i], cardPose(i, small), heroPose(), 750, 'cubic-bezier(.22,.8,.2,1)');
   openAnim.finished.then(() => { opening = false; if (picked === i && !closing) showReader(i); }).catch(() => {});
 }
+// eased scroll of the reader whose duration grows with the distance; any wheel, touch or key press by the user takes over
+let glideId = 0;
+function glide(to) {
+  const rd = $('#reader'), from = rd.scrollTop, id = ++glideId, t0 = performance.now(), ms = Math.min(1500, 500 + Math.abs(to - from) * 0.12);
+  const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+  const step = now => { if (id !== glideId || picked < 0) return; const p = Math.min(1, (now - t0) / ms); rd.scrollTop = from + (to - from) * ease(p); p < 1 && requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+['wheel', 'touchstart', 'keydown'].forEach(ev => $('#reader').addEventListener(ev, () => glideId++, { passive: true }));
 function showReader(i) {
   const s = sheets[i], pages = $('#pages'), n = s.pages.length;
   // hero = the folder itself, then one full-width website section per page
   pages.innerHTML = `<article class="sheet folder in">${folder(s, i).replace(/<\/div>$/, '<div class="cue">Scroll ↓</div></div>')}</article>` +
     s.pages.map((h, p) => `<section class="page"><div class="inner"><span class="eyebrow">${p + 1} / ${n}</span>${h}</div></section>`).join('');
+  // footer: the neighbouring folders by name, plus a way back up and out
+  const pv = (i + N - 1) % N, nx = (i + 1) % N, num = j => String(j + 1).padStart(2, '0');
+  const mega = sheets.map((t, j) => `<div class="${j === i ? 'cur' : ''}"><button data-i="${j}"><small>${num(j)}</small>${nameOf(t)}</button><ul>${t.terms.map((term, k) => `<li><button data-i="${j}" data-k="${k}">${term}</button></li>`).join('')}</ul></div>`).join('');
+  pages.insertAdjacentHTML('beforeend', `<footer class="pfoot"><div class="inner">
+    <div class="pf-mega">${mega}</div>
+    <div class="pf-nav"><button data-i="${pv}"><small>← Vorige map</small><b>${num(pv)} · ${nameOf(sheets[pv])}</b></button><button data-i="${nx}"><small>Volgende map →</small><b>${num(nx)} · ${nameOf(sheets[nx])}</b></button></div>
+    <div class="pf-bar"><span>VPRO Medialab · creative debrief</span><button data-top>Naar boven ↑</button><button data-close>Sluit map ✕</button></div></div></footer>`);
+  new IntersectionObserver(([en]) => document.body.classList.toggle('atfoot', en.isIntersecting), { root: $('#reader') }).observe(pages.lastElementChild); // the fixed prev/next bar steps aside for the footer's own
+  $('#rPrev').textContent = '‹ ' + nameOf(sheets[pv]); $('#rNext').textContent = nameOf(sheets[nx]) + ' ›';
   pages.style.setProperty('--c', colorOf(i));
   pages.firstElementChild.style.setProperty('--c', colorOf(i));
   pages.firstElementChild.style.setProperty('--t', textOf(i));
   fit();
   $('#reader').hidden = false;
-  $('#reader').scrollTop = startAt >= 0 ? pages.querySelectorAll('.page')[startAt].offsetTop : 0; // after unhiding, or the scroll is ignored
+  $('#reader').scrollTop = 0; // after unhiding, or the scroll is ignored
+  if (startAt >= 0) { // opened from the menu: the folder appears at its top, then scrolls down to the page
+    const k = startAt;
+    setTimeout(() => { const t = picked === i && pages.querySelectorAll('.page')[k]; t && glide(Math.max(0, t.offsetTop - SCROLL_PAD)); }, 600);
+  }
   startAt = -1;
 }
 function close() {
   const i = picked;
   if (i < 0 || closing) return;
   closing = true;
+  const tm = { fly: 520, ret: 200, per: 60, hold: 700 };
   $('#reader').hidden = true; // reader goes away instantly; the sheet flies straight back into its slot
   hover.fill(0); lift[i] = opening ? openLift : 0; // closed mid-flight: land in the pose it left, then settle (no snap)
   // the others slide back in (nearest first) with a quick fade as the sheet arrives
-  els.forEach((el, j) => j !== i && setTimeout(() => { awayT[j] = 0; el.style.opacity = 1; }, 200 + Math.abs(j - i) * 60));
-  document.body.classList.remove('opened');
+  els.forEach((el, j) => j !== i && setTimeout(() => { awayT[j] = 0; el.style.transition = 'opacity .55s ease'; el.style.opacity = 1; setTimeout(() => (el.style.transition = ''), 650); }, tm.ret + Math.abs(j - i) * tm.per)); // soft fade-in while sliding back, not a pop
+  document.body.classList.remove('opened', 'atfoot'); $('#sbar')?.classList.remove('on');
   let back;
   if (opening) { back = openAnim; back.reverse(); } // closed mid-flight: just run the flight backwards from where it is
-  else { els[i].style.fontSize = readerFont() + 'px'; back = fly(els[i], heroPose(), cardPose(i, P / readerFont()), 520, 'cubic-bezier(.3,.7,.2,1)'); } // font re-synced in case the window was resized while reading
+  else { els[i].style.fontSize = readerFont() + 'px'; back = fly(els[i], heroPose(), cardPose(i, P / readerFont()), tm.fly, 'cubic-bezier(.3,.7,.2,1)'); } // font re-synced in case the window was resized while reading
   back.finished.then(() => {
     els[i].getAnimations().forEach(an => an.cancel());
     els[i].style.fontSize = ''; // back to stack size, visually identical
     els[i].style.transform = stackT(i);
     flying = opening = false;
-    setTimeout(() => { els[i].classList.remove('picked'); picked = -1; closing = false; els.forEach((el, j) => el.matches(':hover') && setHover(j, 1)); }, 700); // hover stays off until the others are back
+    setTimeout(() => { els[i].classList.remove('picked'); picked = -1; closing = false; els.forEach((el, j) => el.matches(':hover') && setHover(j, 1)); }, tm.hold); // hover stays off until the others are back
   });
 }
 // clicking anywhere (or Esc) closes, also while the sheet is still flying out
 addEventListener('click', e => picked > -1 && !closing && e !== openEvt && $('#reader').hidden && !e.target.closest('.sheet.picked') && close());
-$('#close').onclick = close;
+$('#close').onclick = () => close();
 addEventListener('resize', fit);
 
 // smooth wheel scrolling in the reader (touch and keyboard stay native)
@@ -541,4 +571,52 @@ addEventListener('resize', fit);
     target = Math.max(0, Math.min(rd.scrollHeight - rd.clientHeight, target + e.deltaY * (e.deltaMode === 1 ? 33 : 1)));
     raf = raf || requestAnimationFrame(step);
   }, { passive: false });
+}
+
+// folder navigation without the menu or hover (phones): a picker under the stack and prev/next while a folder is open
+{
+  let sel = 0;
+  const phone = matchMedia('(max-width:700px),(hover:none)'); // keep in sync with the picker media query in style.css
+  const pick = i => { sel = (i + N) % N; phone.matches && setHover(sel, 1);$('#pOpen').innerHTML = `<small>${String(sel + 1).padStart(2, '0')} / ${N}</small>${nameOf(sheets[sel])}`; };
+  document.body.insertAdjacentHTML('beforeend',
+    '<div id="picker"><button id="pPrev" aria-label="Vorige map">‹</button><button id="pOpen"></button><button id="pNext" aria-label="Volgende map">›</button></div>' +
+    '<div id="rnav"><button id="rPrev" aria-label="Vorige map"></button><button id="rNext" aria-label="Volgende map"></button></div>');
+  $('#pages').addEventListener('click', e => {
+    const b = e.target.closest('.pfoot button'); if (!b) return;
+    if (b.dataset.i !== undefined) goTo(+b.dataset.i, b.dataset.k === undefined ? -1 : +b.dataset.k); else if (b.hasAttribute('data-top')) $('#reader').scrollTo({ top: 0, behavior: 'smooth' }); else close();
+  });
+  $('#pPrev').onclick = e => (e.stopPropagation(), pick(sel - 1));
+  $('#pNext').onclick = e => (e.stopPropagation(), pick(sel + 1));
+  $('#pOpen').onclick = e => (e.stopPropagation(), open(sel));
+  $('#rPrev').onclick = e => (e.stopPropagation(), goTo((picked + N - 1) % N));
+  $('#rNext').onclick = e => (e.stopPropagation(), goTo((picked + 1) % N));
+  pick(0);
+}
+
+// stakeholder map: a chip jumps to (and highlights) its action plan
+$('#pages').addEventListener('click', e => {
+  const b = e.target.closest('.smap [data-s]'); if (!b) return;
+  const c = $('#sh-' + b.dataset.s); if (!c) return;
+  $('#pages').querySelectorAll('.plan .sel').forEach(x => x.classList.remove('sel'));
+  c.classList.add('sel'); $('#reader').scrollTo({ top: $('#reader').scrollTop + c.getBoundingClientRect().top - 120, behavior: 'smooth' });
+});
+
+// sticky parallax header: the hero title drifts slower than the scroll and fades; once the hero is gone a compact bar takes over
+{
+  document.body.insertAdjacentHTML('beforeend', '<div id="sbar"><b></b><span></span></div>');
+  const rd = $('#reader'), bar = $('#sbar'); let tick = false, shown = -1;
+  const upd = () => {
+    tick = false;
+    if (rd.hidden || picked < 0) return bar.classList.remove('on');
+    const y = rd.scrollTop, h = innerHeight, hero = $('#pages').firstElementChild;
+    if (shown !== picked) {
+      shown = picked; bar.style.setProperty('--c', colorOf(picked)); bar.style.setProperty('--t', textOf(picked));
+      bar.firstChild.textContent = `${String(picked + 1).padStart(2, '0')} · ${nameOf(sheets[picked])}`;
+    }
+    bar.classList.toggle('on', y > h * 0.6);
+    if (hero) { hero.style.setProperty('--py', Math.min(y, h * 1.2) * 0.5 + 'px'); hero.style.setProperty('--po', Math.max(0, 1 - y / (h * 0.7))); }
+    let cur = null; $('#pages').querySelectorAll('.page').forEach(p => { if (p.offsetTop <= y + h * 0.3) cur = p; });
+    bar.lastChild.textContent = cur?.querySelector('h3')?.textContent || '';
+  };
+  rd.addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
 }
