@@ -170,7 +170,8 @@ body.opened #tabs{transform:translateY(100%)}
 body.menu #tabs{transform:translateY(100%)}
 body.opened #label{transform:translateY(-90px)}
 body.opened #tabs,body.opened #label{opacity:0}
-body.opened #hint{display:none}
+body.opened #hint,body.opened #proto{display:none}
+#proto{position:fixed;left:24px;top:84px;z-index:5;padding:10px 16px;background:var(--blue,#0000ff);color:#fff;font-weight:700;text-decoration:none}
 body.opened #close{display:block}
 
 @media(max-width:700px){

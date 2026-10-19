@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Podwalk prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0000ff;--dblue:#000099;--green:#0cdf0c;--navy:#00004c;--ink:#121212;--t:0}
+*{box-sizing:border-box;margin:0}
+body{font-family:Figtree,sans-serif;color:var(--ink);background:#f2f2f2;display:flex;gap:48px;align-items:center;justify-content:center;min-height:100vh;padding:24px;flex-wrap:wrap}
+.side{max-width:320px}
+.side h1{font-size:32px;line-height:1.05;font-weight:800;color:var(--blue)}
+.side p{margin-top:12px;line-height:1.45}
+.side a{color:var(--blue);font-weight:600}
+.side small{display:block;margin-top:16px;opacity:.6}
+.phone{width:380px;height:min(780px,calc(100vh - 48px));min-height:640px;background:#fff;border:10px solid var(--ink);border-radius:44px;overflow:hidden;position:relative;flex:none}
+.screen{position:absolute;inset:0;display:none;flex-direction:column;padding:48px 20px 20px}
+.screen.on{display:flex}
+button{font:inherit;cursor:pointer;border:0}
+.btn{background:var(--blue);color:#fff;font-weight:800;padding:16px;font-size:17px;width:100%}
+.btn.alt{background:var(--green);color:var(--navy)}
+.tag{display:inline-block;background:var(--navy);color:#fff;font-size:12px;font-weight:600;padding:4px 8px;align-self:flex-start}
+h2{font-size:38px;line-height:1;font-weight:800;color:var(--blue);margin:14px 0 10px}
+.sub{line-height:1.4}
+.hero{flex:1;margin:18px -20px;background:linear-gradient(160deg,var(--blue),var(--navy));position:relative;overflow:hidden}
+.hero i{position:absolute;bottom:0;width:14%;background:var(--green);opacity:.9}
+.back{background:none;font-weight:600;color:var(--blue);align-self:flex-start;margin-bottom:6px;padding:0}
+/* map */
+.map{flex:1;margin:12px -20px;background:#e9eef7;position:relative;overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;transform:translate(-50%,-50%);border:3px solid #fff}
+.pin.me{background:var(--green);color:var(--navy);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 12px #0cdf0c44}}
+.stop{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid #ddd;font-weight:600;background:none;width:100%;text-align:left}
+.stop b{color:var(--blue)}
+/* listen */
+.scene{height:230px;margin:10px -20px;position:relative;overflow:hidden;background:#8aa0c8}
+.scene .now,.scene .arch{position:absolute;inset:0}
+.scene .now{background:linear-gradient(#9fb4dc 55%,#5f6f8f 55%);}
+.scene .arch{background:linear-gradient(#d9c7a0 55%,#7a6a4c 55%);filter:grayscale(.6) contrast(1.1);opacity:var(--t)}
+.scene .bld{position:absolute;bottom:45%;background:#2c3a5e;width:22%}
+.scene .arch .bld{background:#4d3f2a}
+.scene .grain{position:absolute;inset:0;opacity:calc(var(--t)*.35);background:repeating-radial-gradient(#000 0 1px,transparent 1px 3px)}
+.year{position:absolute;right:14px;top:12px;background:var(--ink);color:#fff;font-weight:800;padding:4px 10px}
+.where{font-size:13px;opacity:.7}
+.slider{margin:6px 0 2px}
+.slider .lab{display:flex;justify-content:space-between;font-weight:800;font-size:13px}
+input[type=range]{width:100%;accent-color:var(--blue);height:30px}
+.layers{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.layer{border:2px solid var(--blue);background:#fff;color:var(--blue);padding:8px 10px;text-align:left;font-weight:800;font-size:14px}
+.layer.on{background:var(--blue);color:#fff}
+.layer small{display:block;font-weight:400;opacity:.85;font-size:11px}
+.eq{display:flex;gap:2px;align-items:flex-end;height:14px;margin-top:4px}
+.eq s{width:4px;background:currentColor;height:30%;animation:eq 0.9s infinite ease-in-out;opacity:.3}
+.layer.on .eq s{opacity:1}
+.eq s:nth-child(2){animation-delay:.15s}.eq s:nth-child(3){animation-delay:.3s}.eq s:nth-child(4){animation-delay:.45s}.eq s:nth-child(5){animation-delay:.6s}
+@keyframes eq{50%{height:100%}}
+.cap{margin-top:8px;font-size:13px;line-height:1.35;background:#eef;padding:8px 10px;border-left:4px solid var(--blue)}
+.nav{display:flex;gap:8px;margin-top:auto}
+.nav .btn{padding:12px}
+</style>
+</head>
+<body>
+<div class="side">
+  <h1>Podwalk<br>prototype</h1>
+  <p>Een visueel, klikbaar idee van het product: een fysieke route met verhalen, gelaagde audio en een tijdschakelaar tussen nu en het archief.</p>
+  <p><a href="index.html">← Terug naar de debrief</a></p>
+  <small>Illustratief. Locaties, jaartallen en teksten zijn plaatshouders; de pilot-route (50 Jaar Hiphop) wordt nog ingevuld.</small>
+</div>
+
+<div class="phone">
+  <!-- 1 start -->
+  <section class="screen on" id="s1">
+    <span class="tag">VPRO Podwalk · pilot</span>
+    <h2>50 Jaar<br>Hiphop</h2>
+    <p class="sub">Loop door de stad en hoor de geschiedenis op de plek waar die gebeurde. Straatgeluid, archief en verhalen smelten samen.</p>
+    <div class="hero" id="hero"></div>
+    <p class="sub" style="margin-bottom:12px"><b>Route:</b> ± 3 km · 5 stops · 60 min</p>
+    <button class="btn" data-go="s2">Start de route</button>
+  </section>
+  <!-- 2 map -->
+  <section class="screen" id="s2">
+    <button class="back" data-go="s1">← Terug</button>
+    <h2 style="font-size:28px;margin:4px 0">Jouw route</h2>
+    <div class="map">
+      <svg viewBox="0 0 360 400" preserveAspectRatio="none"><path d="M40 350 C90 300 60 230 140 210 S250 190 230 120 S300 50 320 40" fill="none" stroke="#0000ff" stroke-width="5" stroke-dasharray="2 10" stroke-linecap="round"/></svg>
+      <div class="pin" style="left:11%;top:87%">1</div>
+      <div class="pin" style="left:39%;top:52%">2</div>
+      <div class="pin me" style="left:64%;top:30%">3</div>
+      <div class="pin" style="left:80%;top:15%">4</div>
+    </div>
+    <button class="stop" data-go="s3"><b>3</b><span>Je bent bij stop 3<br><small>Voorbeeldlocatie · tik om te luisteren</small></span></button>
+  </section>
+  <!-- 3 listen -->
+  <section class="screen" id="s3">
+    <button class="back" data-go="s2">← Kaart</button>
+    <span class="where">Stop 3 van 5 · voorbeeldlocatie</span>
+    <div class="scene" id="scene">
+      <div class="now"><i class="bld" style="left:5%;height:40%"></i><i class="bld" style="left:30%;height:55%"></i><i class="bld" style="left:58%;height:35%"></i><i class="bld" style="left:78%;height:50%"></i></div>
+      <div class="arch"><i class="bld" style="left:8%;height:30%"></i><i class="bld" style="left:35%;height:42%"></i><i class="bld" style="left:62%;height:28%"></i></div>
+      <div class="grain"></div>
+      <div class="year" id="year">Nu</div>
+    </div>
+    <div class="slider">
+      <div class="lab"><span>Nu</span><span>Archief</span></div>
+      <input type="range" id="time" min="0" max="100" value="0" aria-label="Tijdschakelaar tussen nu en archief">
+    </div>
+    <div class="cap" id="cap">Je hoort de straat zoals die nu is. Schuif naar rechts om terug te gaan in de tijd.</div>
+    <div class="layers" id="layers"></div>
+    <div class="nav"><button class="btn alt" data-go="s2">Volgende stop →</button></div>
+  </section>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(!b)return;
+  document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===b.dataset.go))});
+// hero bars
+$('#hero').innerHTML=[40,70,55,90,35,80,60].map((h,i)=>`<i style="left:${4+i*14}%;height:${h}%;animation:eq ${0.8+i*.1}s infinite ease-in-out"></i>`).join('');
+// layers (voice, music, ambience, archive): the four audio tracks from the scope
+const L=[['Stem','verteller en interviews'],['Muziek','tracks van toen'],['Sfeer','straatgeluid nu'],['Archief','geluid van vroeger']];
+$('#layers').innerHTML=L.map((l,i)=>`<button class="layer on"><b>${l[0]}</b><small>${l[1]}</small><div class="eq"><s></s><s></s><s></s><s></s><s></s></div></button>`).join('');
+$('#layers').onclick=e=>{const b=e.target.closest('.layer');if(b)b.classList.toggle('on')};
+// time slider: crossfade nu -> archief
+$('#time').oninput=e=>{const v=e.target.value/100;$('#scene').style.setProperty('--t',v);
+  $('#year').textContent=v<.2?'Nu':v<.8?'Overgang':'Archief';
+  $('#cap').textContent=v<.2?'Je hoort de straat zoals die nu is. Schuif naar rechts om terug te gaan in de tijd.':v<.8?'Het straatgeluid van nu en de opnames van toen smelten samen.':'Archiefbeeld en historische soundscape van exact deze plek.'};
+</script>
+</body>
+</html>
