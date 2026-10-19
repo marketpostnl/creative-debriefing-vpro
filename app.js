@@ -313,6 +313,34 @@ const sheets = [
       <li>Best practice analyse VPRO (eigen document): vijf VPRO-series, van 50 jaar hiphop tot YOUS &amp; YAY</li>
       <li>Nederlandse voorbeelden: SPILNEWS, NU.nl, NOS Stories</li>
     </ul>`] },
+
+  // ───────────────────────── VIDEOREFERENTIES (desk research met officiële beelden)
+  { tab: 'Bronnen', title: 'Video&shy;referenties', short: 'Videoreferenties', pages: [`<h3>Videoreferenties: hiphop en dance</h3>
+    <p class="lead">${D}Beeld en feiten bij de twee series die als <mark>podwalk-onderwerp</mark> zijn gekozen. Klik een beeld om naar de VPRO-pagina te gaan.</p>
+    <div class="cards cases">
+    <div class="card case"><h4>50 jaar hiphop in Nederland: Iemand moet het doen</h4><figure class="frame"><a href="https://www.vpro.nl/50-jaar-hiphop-in-nederland-iemand-moet-het-doen/info/50-jaar-hiphop-in-nederland" target="_blank" rel="noopener"><img src="https://images.vpro.nl/1ub8n6eicyrd/w_1200/50jr-hiphop-nl-imhd-vpro-2025-beeldmerk-c-jay-sunsmith.jpg" alt="Beeldmerk van 50 jaar hiphop in Nederland" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeldmerk, © Jay Sunsmith / VPRO</figcaption></figure><dl><dt>Gegevens</dt><dd>Zesdelige VPRO-serie van regisseurs Ivan Barbosa en Sacha Vermeulen, coproductie met Scenery. Uitgezonden vanaf 30 november 2025 op NPO 3 en NPO Start.</dd><dt>Inhoud</dt><dd>Van de vroege cyphers en graffiti tot het huidige succes, inclusief de keerzijde: commercialisering, mediaframing en de persoonlijke tol voor de dragers van de cultuur.</dd><dt>Voor de podwalk</dt><dd>Aflevering 1 (Grondleggers) behandelt de jaren zeventig en tachtig: een logisch startpunt voor een pilot-route.</dd></dl></div>
+    <div class="card case"><h4>30 jaar Dutch Dance</h4><figure class="frame"><a href="https://www.vpro.nl/programmas/30jaardutchdance" target="_blank" rel="noopener"><img src="https://images.vpro.nl/3e9e1qwcpgl7/w_1200/30-jaar-dutch-dance-social.jpg" alt="Sociale afbeelding van 30 jaar Dutch Dance" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeld: 30 jaar Dutch Dance, VPRO</figcaption></figure><dl><dt>Gegevens</dt><dd>Drieluik van de VPRO, uitgezonden van 20 oktober tot 3 november 2018 op NPO 3. Afleveringen: Pionieren, Harder harder harder, De wijde wereld.</dd><dt>Inhoud</dt><dd>Naast de serie bevat het project podcasts en een website vol interviews en archiefmateriaal, zoals een interview met Joost van Bellen.</dd><dt>Voor de podwalk</dt><dd>Het archiefmateriaal staat al online: bruikbaar als inspiratie voor de archieflaag van de route.</dd></dl></div>
+    </div>
+    <p class="src">Bronnen: vpro.nl, TheTVDB. Volledige afleveringen staan op NPO Start; een officiële YouTube-upload is niet gevonden.</p>`,
+    `<h3>Videoreferenties: identiteit en emancipatie</h3>
+    <div class="cards cases">
+    <div class="card case"><h4>De Roze Revolutie</h4><figure class="frame"><a href="https://www.vpro.nl/de-roze-revolutie/info/over-de-serie" target="_blank" rel="noopener"><img src="https://images.vpro.nl/j4awf2lxwp7/w_1200/source.jpg" alt="Beeld uit De Roze Revolutie" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeld: De Roze Revolutie, VPRO</figcaption></figure><dl><dt>Gegevens</dt><dd>Vierdelige VPRO-serie van regisseur Michiel van Erp, uitgezonden van 10 tot 31 mei 2021.</dd><dt>Inhoud</dt><dd>Van Erp onderzoekt vanuit zijn persoonlijke verwondering de geschiedenis van de LHBTQIA+-beweging in Nederland in de afgelopen vijftig jaar.</dd><dt>Voor de podwalk</dt><dd>Het uitgangspunt van persoonlijke verwondering sluit aan op de les “begin met verwondering in plaats van uitleg”.</dd></dl></div>
+    <div class="card case"><h4>De nieuwe generaties van Suriname</h4><figure class="frame"><a href="https://www.vpro.nl/de-nieuwe-generaties-van-suriname/" target="_blank" rel="noopener"><img src="https://images.vpro.nl/5ovt6hw5klu1/w_1200/de-nieuwe-generaties-van-suriname-2025-vpro-still2-c-vpro-omroep-zwart.jpg" alt="Still uit De nieuwe generaties van Suriname" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Still, © VPRO / Omroep Zwart</figcaption></figure><dl><dt>Gegevens</dt><dd>Vierdelige serie van Amanda van Hesteren, een samenwerking van Omroep Zwart en de VPRO, coproductie met Scenery. Uitgezonden in het najaar van 2025 op NPO 3 en NPO Start.</dd><dt>Inhoud</dt><dd>Jongeren die in Nederland zijn opgegroeid starten een project in Suriname, zoals een nieuw leven voor een boksschool, duurzame cassaveteelt, een theatervoorstelling en een ziekenhuisontwerp voor een inheems dorp.</dd><dt>Voor de podwalk</dt><dd>Familie- en herkomstverhalen koppelen aan plekken: de serie laat zien hoe die verbinding met herkomst eruit kan zien.</dd></dl></div>
+    </div>
+    <p class="src">Bronnen: vpro.nl, TheTVDB, IMDb Pro. De VPRO-tekst schrijft een naam in aflevering 1 op twee manieren (Gerwen/Gerwin).</p>`,
+    `<h3>Videoreferenties: YOUS &amp; YAY in het wild</h3>
+    <div class="cards cases">
+    <div class="card case"><h4>YOUS &amp; YAY: In het wild</h4><figure class="frame"><a href="https://www.vpro.nl/yous-yay-in-het-wild/info/over-seizoen-1" target="_blank" rel="noopener"><img src="https://images.vpro.nl/5j8juilyi900/w_1200/source.jpg" alt="Beeld uit Yous &amp; Yay in het wild" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Beeld: Yous &amp; Yay in het wild, VPRO</figcaption></figure><dl><dt>Gegevens</dt><dd>Yousef Gnaoui (Yous) en Pepijn Lanen (Yay) ontvangen gasten. Seizoen 1 (december 2024) met onder anderen S10 &amp; Froukje en Achmed Akkabi. Seizoen 2 startte op zondag 22 maart op VPRO en NPO 3, met Monica Geuze, Frenna, Halina Reijn, Kees van der Spek en Samir Bantal.</dd><dt>Inhoud</dt><dd>Persoonlijke gesprekken over inspiratie en drijfveren, met “rabbit holes” die dieper ingaan op de fascinaties van de gast.</dd><dt>Let op</dt><dd>Volgens de VPRO-pagina’s is dit een televisieserie op NPO 3 en NPO Start. In onze case-analyse staat het als wandelpodcast: controleer welk format we precies bedoelen.</dd></dl></div>
+    </div>
+    <p class="src">Bronnen: vpro.nl, TheTVDB.</p>`,
+    `<h3>Platformvoorbeelden</h3>
+    <p class="lead">${D}Wat de bronnen zeggen over de <mark>Nederlandse voorbeelden</mark> uit de trendanalyse.</p>
+    <div class="cards three">
+      <div class="card"><h4>SPIL (SPILNEWS)</h4><p>Nieuwsmerk voor jongeren van Mediahuis, gelanceerd in juni 2025 (doelgroep 15 of 18 tot 25 jaar, bronnen verschillen). Alleen video en podcasts, op TikTok, Instagram en YouTube. Slechts 36% van de jongeren voelt zich vertegenwoordigd door de media. Met “journalistieke creators” voor nichethema's.</p><em>Bron: Mediahuis</em></div>
+      <div class="card"><h4>NOS Stories</h4><p>Nieuwsformat van de NOS voor jongeren van 13 tot 18 jaar, begonnen in 2015 als NOS Kort op Instagram. In 2018 meer dan 300.000 volgers, daarna uitgebreid naar YouTube en Snapchat. Winnaar Best Social Awards voor Instagram.</p><em>Let op: voor TikTok vonden we geen bron; onze eerdere zin “groot bereik op TikTok en Instagram” is niet bevestigd.</em></div>
+      <div class="card"><h4>NU.nl</h4><p>Over de video-first strategie is in de bronnen die we raadpleegden niets gevonden.</p><em>Nog te onderzoeken, bijvoorbeeld via Villamedia of het jaarverslag.</em></div>
+    </div>
+    <p class="callout">Beeldmateriaal van deze kanalen is niet toegevoegd: dat staat op de platformen zelf. Fieldresearch: nog toe te voegen.</p>`] },
 ];
 
 // short menu terms, one per page of each folder
@@ -324,6 +352,7 @@ const TERMS = [
   ['Hoofdvragen', 'Deelvragen'],
   ['Briefing', 'Best practice', 'Doelgroep en trends', 'Podwalk'],
   ['Overzicht', 'Storytellingmodel', 'Principes', 'Cases 1-3', 'Cases 4-5', 'Naar podwalk', 'Bronnen'],
+  ['Hiphop en dance', 'Roze Revolutie en Suriname', 'YOUS & YAY', 'Platformvoorbeelden'],
 ];
 sheets.forEach((s, i) => (s.terms = TERMS[i]));
 const $ = s => document.querySelector(s), N = sheets.length;
@@ -351,7 +380,7 @@ const els = sheets.map((s, i) => {
   return el;
 });
 const tabs = [...new Set(sheets.map(s => s.tab))];
-$('#tabs').innerHTML = tabs.map(t => `<button>${t}</button>`).join('');
+$('#tabs').innerHTML = tabs.map(t => `<button>${t}</button>`).join('') + '<a href="prototype.html">Prototype</a>';
 // hovering a tab lifts that group of sheets
 $('#tabs').onmouseover = $('#tabs').onmouseout = e => {
   if (picked > -1 || !e.target.matches('button')) return;
@@ -398,7 +427,7 @@ const ICONS = [
   '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',                                // uitgangspunten: compass
   '<circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/>',                                           // onderzoek: search
 ];
-$('#mega').innerHTML = `<div class="mm-head"><h2>Belangrijkste onderwerpen</h2><p>VPRO Medialab, creative debrief</p></div>` + sheets.map((s, i) =>
+$('#mega').innerHTML = `<div class="mm-head"><h2>Belangrijkste onderwerpen</h2><p>VPRO Medialab, creative debrief · <a href="prototype.html">Bekijk het prototype →</a></p></div>` + sheets.map((s, i) =>
   `<div class="mm-tile"><button class="mm-main" data-i="${i}"><span class="mm-ico">${svg(ICONS[i % ICONS.length])}</span><b>${nameOf(s)}</b><small>${s.tab}</small></button>` +
   `<ul>${s.pages.map((_, k) => `<li><button data-i="${i}" data-k="${k}">${s.terms[k]}</button></li>`).join('')}</ul></div>`).join('');
 // the menu always fits the window: find the largest text size (9-16px) at which it stays within 100vh x 100vw

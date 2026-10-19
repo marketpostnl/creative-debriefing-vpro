@@ -38,6 +38,8 @@ body.menu #mega>*{transform:none;transition:transform .55s cubic-bezier(.2,.8,.2
 #tabs{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:center;gap:32px;padding:0 24px;height:56px;align-items:center;background:var(--blue);overflow-x:auto;white-space:nowrap}
 #tabs button{color:#fff;font-weight:500;padding:6px 0;border-bottom:3px solid transparent}
 #tabs button.on{font-weight:700;border-color:#fff}
+#tabs a{color:var(--ink);background:var(--green);font-weight:700;padding:6px 14px;text-decoration:none}
+.mm-head a{color:inherit;font-weight:700}
 #hint{position:fixed;left:50%;top:50%;translate:-50% -50%;z-index:5;padding:14px 22px;background:var(--green);font-size:18px;font-weight:700;color:var(--ink);pointer-events:none;white-space:nowrap;transition:opacity .4s}
 /* narrow or portrait screens: two columns, subtopics as a wrapped inline list, so it still fits the viewport */
 @media(max-width:1100px),(max-aspect-ratio:1/1),(max-height:560px){#mega{grid-template-columns:repeat(2,1fr);--f:max(9px,min(16px,1.45vh,3vw));padding-left:4%;padding-right:4%}#mega ul{display:flex;flex-wrap:wrap;gap:0 .9em;padding:.5em 1.1em .8em}#mega .mm-main{padding:1.1em 1.1em .8em}#mega li button{width:auto;padding:.25em 0;text-indent:0}#mega li button::before{display:none}}
@@ -170,8 +172,7 @@ body.opened #tabs{transform:translateY(100%)}
 body.menu #tabs{transform:translateY(100%)}
 body.opened #label{transform:translateY(-90px)}
 body.opened #tabs,body.opened #label{opacity:0}
-body.opened #hint,body.opened #proto{display:none}
-#proto{position:fixed;left:24px;top:84px;z-index:5;padding:10px 16px;background:var(--blue,#0000ff);color:#fff;font-weight:700;text-decoration:none}
+body.opened #hint{display:none}
 body.opened #close{display:block}
 
 @media(max-width:700px){
@@ -189,3 +190,6 @@ body.opened #close{display:block}
 #pages .case dl{margin:0}
 #pages .case dt{margin-top:.9em;font-weight:800;font-size:.85em;color:var(--blue)}
 #pages .case dd{margin:.15em 0 0;font-size:.95em;line-height:1.5}
+#pages .frame{margin:1em 0 0}
+#pages .frame img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#ddd}
+#pages .frame figcaption{font-size:.75em;color:var(--mute,#666);margin-top:.4em}
