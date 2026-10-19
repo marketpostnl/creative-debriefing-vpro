@@ -120,16 +120,16 @@ body.menu #mega>*{transform:none;transition:transform .55s cubic-bezier(.2,.8,.2
 #pages .flow li small{display:block;color:var(--blue);font-weight:800;margin-bottom:.3em}
 #pages .flow li b{display:block;font-size:1.15em;color:var(--dblue)}
 #pages .flow li span{display:block;margin-top:.4em;font-size:.92em}
-#pages .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15em,1fr));gap:1em;margin:1.6em 0}
-#pages .cards.three{grid-template-columns:repeat(auto-fit,minmax(11em,1fr))}
-#pages .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(16em,1fr));gap:1em;margin:1.6em 0}
+#pages .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(15em,100%),1fr));gap:1em;margin:1.6em 0}
+#pages .cards.three{grid-template-columns:repeat(auto-fit,minmax(min(11em,100%),1fr))}
+#pages .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(16em,100%),1fr));gap:1em;margin:1.6em 0}
 #pages .card{position:relative;padding:1.4em 1.5em;background:var(--tint)}
 #pages .page:nth-child(even) .card{background:#fff}
 #pages .card h4{margin:0 0 .5em}
 #pages .card p{margin:0 0 .6em}
 #pages .card.num{padding-top:3.6em}
 #pages .card.num i{position:absolute;left:1.5em;top:1.2em;width:1.8em;height:1.8em;background:var(--blue);color:#fff;font:800 1em/1.8em Figtree,sans-serif;text-align:center;font-style:normal}
-#pages .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));gap:1em;margin:1.8em 0 1em}
+#pages .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(14em,100%),1fr));gap:1em;margin:1.8em 0 1em}
 #pages .stat{padding:1.4em 1.6em;background:var(--tint)}
 #pages .page:nth-child(even) .stat{background:#fff}
 #pages .stat b{display:block;font:800 4em/1 Figtree,sans-serif;color:var(--blue);margin-bottom:.2em}
@@ -185,7 +185,7 @@ body.opened #close{display:block}
 }
 
 /* best-practice case cards: label/value rows */
-#pages .cards.cases{grid-template-columns:repeat(auto-fit,minmax(20em,1fr))}
+#pages .cards.cases{grid-template-columns:repeat(auto-fit,minmax(min(20em,100%),1fr))}
 #pages .case h4{margin:0 0 .8em;font-size:1.25em}
 #pages .case dl{margin:0}
 #pages .case dt{margin-top:.9em;font-weight:800;font-size:.85em;color:var(--blue)}
@@ -227,7 +227,7 @@ body.opened #close{display:block}
 body.atfoot #rnav{display:none!important}
 @media(max-width:700px){#pages .pf-nav{grid-template-columns:1fr}#pages .pf-nav button:last-child{text-align:left}}
 /* mega nav inside the footer */
-#pages .pf-mega{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6em 1.2em;margin-bottom:2.4em;padding-bottom:2em;border-bottom:1px solid #ffffff44}
+#pages .pf-mega{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.6em 1.2em;margin-bottom:2.4em;padding-bottom:2em;border-bottom:1px solid #ffffff44}
 #pages .pf-mega button{display:block;text-align:left;color:#fff;background:none;font:inherit;cursor:pointer;padding:0}
 #pages .pf-mega>div>button{font-weight:800;font-size:1.1em;line-height:1.25;padding-bottom:.5em;border-bottom:2px solid var(--green);width:100%;overflow-wrap:break-word;hyphens:auto}
 #pages .pf-mega>div.cur>button{color:var(--green)}
@@ -235,7 +235,7 @@ body.atfoot #rnav{display:none!important}
 #pages .pf-mega ul{list-style:none;margin:.6em 0 0;padding:0}
 #pages .pf-mega li button{font-size:.9em;padding:.25em 0;opacity:.85}
 #pages .pf-mega button:hover{color:var(--green);opacity:1;text-decoration:underline}
-@media(max-width:700px){#pages .pf-mega{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){#pages .pf-mega{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* stakeholder map */
 #pages .smap{display:grid;grid-template-columns:auto 1fr;grid-template-rows:1fr auto;gap:.5em .8em;margin:1.6em 0}
@@ -253,7 +253,7 @@ body.atfoot #rnav{display:none!important}
 #pages .smap .chips button{font:inherit;font-weight:700;font-size:.85em;line-height:1.25;text-align:left;padding:.45em .7em;background:#fff;color:var(--blue);border:2px solid var(--blue);cursor:pointer}
 #pages .smap .q.nauw .chips button{border-color:#fff}
 #pages .smap .chips button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-#pages .plan{grid-template-columns:repeat(auto-fit,minmax(18em,1fr))}
+#pages .plan{grid-template-columns:repeat(auto-fit,minmax(min(18em,100%),1fr))}
 #pages .plan .card{scroll-margin-top:6em}
 #pages .plan .card.sel{outline:4px solid var(--green);outline-offset:2px}
 #pages .plan h4{margin:0 0 .5em}
@@ -283,3 +283,33 @@ body.atfoot #rnav{display:none!important}
 .stamp,#pages .eyebrow,.tagq,#pages .chips span,#pages .compare small,#pages .vs small,#pages .case dt,#pages .plan dt,.folder .tab,.folder small,.folder .cue,#label small,#sbar,.pfoot .pf-nav small,#pOpen small{-webkit-user-select:none;user-select:none}
 .stamp,#pages .eyebrow,.tagq,#pages .chips span,#sbar{pointer-events:none}
 #pages img{-webkit-user-drag:none;user-select:none}
+
+/* responsive and accessibility hardening */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button{touch-action:manipulation}
+#reader{overscroll-behavior:contain}
+#mega{max-height:100vh;max-height:100dvh}
+#mega small{font-size:max(.85em,10px)}
+#tabs button{min-height:44px;padding:0 4px}
+#pages .pf-mega button{overflow-wrap:anywhere}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+#mega :focus-visible,.pfoot :focus-visible,#tabs :focus-visible{outline-color:var(--green)}
+@media(max-width:700px),(hover:none){
+  #mega li button{padding-top:.8em;padding-bottom:.8em}
+  #pages .pf-mega li button{padding:.55em 0}
+  #pages .pf-bar button{padding:.7em 0}
+  #pages .smap .chips button{padding:.7em .8em}
+}
+@media(max-width:480px){
+  #menuBtn{right:12px;padding:12px 14px}
+  #menuTxt,#close .lbl{display:none}
+  #close{right:68px;padding:12px 14px}
+  #sbar{padding-right:128px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+#pages .inner{overflow-wrap:break-word}
+#pages h3,#pages h4{overflow-wrap:break-word;hyphens:auto}
+@media(max-width:480px){#menuBtn{min-width:44px;min-height:44px;justify-content:center}#close{min-height:44px}}
+#pages h3{font-size:clamp(1.6em,7.5vw,2.5em)}
+/* landscape phone: the picker moves to the free left side instead of covering the stack */
+@media(max-height:480px) and (orientation:landscape){#picker{right:auto;width:min(260px,32vw);bottom:68px}}

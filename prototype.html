@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Podwalk prototype</title>
+<meta name="theme-color" content="#0000ff">
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#0000ff;--dblue:#000099;--green:#0cdf0c;--navy:#00004c;--ink:#121212;--mute:#5b5b66;--t:0}
 *{box-sizing:border-box;margin:0}
-body{font-family:Figtree,sans-serif;color:var(--ink);background:#f2f2f2;display:flex;gap:56px;align-items:center;justify-content:center;min-height:100vh;padding:24px;flex-wrap:wrap}
+body{font-family:Figtree,sans-serif;color:var(--ink);background:#f2f2f2;display:flex;gap:56px;align-items:center;justify-content:center;min-height:100vh;padding:clamp(8px,3vw,24px);flex-wrap:wrap}
 body.embed{padding:0;background:#f2f2f2;min-height:100vh}
 body.embed .side{display:none}
 button{font:inherit;cursor:pointer;border:0;color:inherit}
@@ -26,11 +27,11 @@ button{font:inherit;cursor:pointer;border:0;color:inherit}
 .steps i.on{background:var(--blue)}
 .note{margin-top:16px;font-size:13px;color:var(--mute)}
 /* telefoon */
-.phone{width:380px;height:min(780px,calc(100vh - 48px));min-height:660px;background:#fff;border:10px solid var(--ink);border-radius:44px;overflow:hidden;position:relative;flex:none}
+.phone{width:min(380px,100%);height:min(780px,calc(100vh - 48px));min-height:660px;background:#fff;border:10px solid var(--ink);border-radius:44px;overflow:hidden;position:relative;flex:none}
 .screen{position:absolute;inset:0;display:none;flex-direction:column;padding:44px 20px 20px}
 .screen.on{display:flex}
 .top{display:flex;align-items:center;gap:10px;min-height:30px}
-.back{background:none;font-weight:800;color:var(--blue);font-size:22px;padding:0 6px 0 0;line-height:1}
+.back{min-width:44px;min-height:44px;text-align:left;background:none;font-weight:800;color:var(--blue);font-size:22px;padding:0 6px 0 0;line-height:1}
 .dots{display:flex;gap:5px;flex:1}
 .dots i{flex:1;height:5px;background:#d4d4dc}
 .dots i.done{background:var(--blue)}.dots i.cur{background:var(--green)}
@@ -116,6 +117,8 @@ input[type=range]{width:100%;accent-color:var(--blue);height:34px}
 /* 6 klaar */
 .done{flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:10px}
 .big-check{width:84px;height:84px;background:var(--green);color:var(--navy);font-size:46px;font-weight:800;display:grid;place-items:center;margin:0 auto}
+button{touch-action:manipulation}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
