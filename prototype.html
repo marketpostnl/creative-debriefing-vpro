@@ -28,8 +28,10 @@ button{font:inherit;cursor:pointer;border:0;color:inherit}
 .note{margin-top:16px;font-size:13px;color:var(--mute)}
 /* telefoon */
 .phone{width:min(380px,100%);height:min(780px,calc(100vh - 48px));min-height:660px;background:#fff;border:10px solid var(--ink);border-radius:44px;overflow:hidden;position:relative;flex:none}
-.screen{position:absolute;inset:0;display:none;flex-direction:column;padding:44px 20px 20px}
-.screen.on{display:flex}
+.screen{position:absolute;inset:0;display:none;flex-direction:column;padding:44px 20px 28px;overflow-y:auto;scrollbar-width:none}
+.screen.on{display:flex;animation:slidein .34s cubic-bezier(.2,.8,.2,1)}
+@keyframes slidein{from{transform:translateX(26px);opacity:0}to{transform:none;opacity:1}}
+button:active{filter:brightness(.92)}
 .top{display:flex;align-items:center;gap:10px;min-height:30px}
 .back{min-width:44px;min-height:44px;text-align:left;background:none;font-weight:800;color:var(--blue);font-size:22px;padding:0 6px 0 0;line-height:1}
 .dots{display:flex;gap:5px;flex:1}
@@ -46,7 +48,7 @@ h3{font-size:24px;line-height:1.1;font-weight:800;color:var(--blue);margin:12px 
 .sub{line-height:1.4;color:#33333c}
 /* 1 welkom */
 .hero{height:150px;margin:14px -20px;background:linear-gradient(160deg,var(--blue),var(--navy));position:relative;overflow:hidden}
-.hero i{position:absolute;bottom:0;width:11%;background:var(--green);animation:eq 1.2s infinite ease-in-out}
+.hero i{position:absolute;bottom:0;width:11%;background:var(--green);animation:eq 2.6s infinite ease-in-out}
 @keyframes eq{50%{transform:scaleY(.35)}}
 .hero i{transform-origin:bottom}
 .how{display:grid;gap:10px;margin:4px 0 10px}
@@ -70,33 +72,58 @@ h3{font-size:24px;line-height:1.1;font-weight:800;color:var(--blue);margin:12px 
 .list b{color:var(--blue);width:18px}
 .list em{margin-left:auto;font-style:normal;color:var(--mute);font-weight:400}
 /* 4 lopen */
-.walk{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px}
-.ring{width:190px;height:190px;border-radius:50%;background:conic-gradient(var(--blue) calc(var(--p,0)*1%),#e3e3ee 0);display:grid;place-items:center}
-.ring div{width:164px;height:164px;border-radius:50%;background:#fff;display:grid;place-items:center;align-content:center}
-.ring b{font-size:46px;font-weight:800;color:var(--blue);line-height:1}
-.ring small{color:var(--mute);font-weight:600}
-.arrow{font-size:30px;color:var(--blue);display:inline-block;animation:nudge 1.4s infinite}
-@keyframes nudge{50%{transform:translateX(8px)}}
 .playing{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--mute);background:#f3f3f8;padding:10px 12px;margin-top:6px;text-align:left;width:100%}
 .eq{display:flex;gap:2px;align-items:flex-end;height:16px;color:var(--blue)}
-.eq s{width:4px;background:currentColor;height:100%;transform-origin:bottom;animation:eq .9s infinite ease-in-out}
+.eq s{width:4px;background:currentColor;height:100%;transform-origin:bottom;animation:eq 1.8s infinite ease-in-out}
 .eq s:nth-child(2){animation-delay:.15s}.eq s:nth-child(3){animation-delay:.3s}.eq s:nth-child(4){animation-delay:.45s}
 .arrived{animation:pop .5s}
 @keyframes pop{0%{transform:scale(.9)}100%{transform:scale(1)}}
+
+/* app chrome: status bar, island, home indicator, notification */
+.statusbar{position:absolute;top:0;left:0;right:0;height:34px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:6px 26px 0;font-size:13px;font-weight:800;z-index:20;pointer-events:none}
+.statusbar .sys{display:flex;gap:6px;align-items:center}
+.statusbar svg{display:block;fill:currentColor}
+.batt{display:inline-block;width:24px;height:12px;border:2px solid currentColor;position:relative;padding:1px}
+.batt:after{content:"";position:absolute;right:-5px;top:2px;width:2px;height:4px;background:currentColor}
+.batt i{display:block;height:100%;width:72%;background:currentColor}
+.island{position:absolute;top:9px;left:50%;width:84px;height:22px;background:#000;border-radius:12px;transform:translateX(-50%);z-index:21}
+.homebar{position:absolute;bottom:7px;left:50%;width:120px;height:5px;border-radius:3px;background:var(--ink);transform:translateX(-50%);opacity:.85;z-index:20;pointer-events:none}
+.toast{position:absolute;left:10px;right:10px;top:40px;z-index:30;display:flex;gap:10px;align-items:center;background:#fff;border:2px solid var(--ink);padding:10px 12px;transform:translateY(-160%);transition:transform .5s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.toast.on{transform:none}
+.toast .ic{flex:none;width:34px;height:34px;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800}
+.toast small{display:block;font-size:11px;font-weight:800;color:var(--mute);letter-spacing:.04em;text-transform:uppercase}
+.toast b{display:block;font-size:14px;line-height:1.2}
+/* lopen: turn-by-turn, live map, bottom sheet */
+.turn{display:flex;align-items:center;gap:12px;background:var(--navy);color:#fff;padding:10px 12px;margin-top:2px;flex:none}
+.turn .ti{flex:none;width:40px;height:40px;background:var(--green);color:var(--navy);display:grid;place-items:center;font-size:24px;font-weight:800;font-style:normal;transition:transform .3s}
+.turn b{display:block;font-size:16px;line-height:1.15}
+.turn small{font-size:12px;opacity:.8}
+.turn .tdist{margin-left:auto;font-weight:800;font-size:20px;white-space:nowrap}
+.navmap{height:170px;margin:10px -20px 0;position:relative;overflow:hidden;background:#eaeef5;flex:none}
+.navmap svg{position:absolute;inset:0;width:100%;height:100%}
+.sheet{margin:-12px -20px 0;position:relative;background:#fff;border-top:2px solid var(--ink);padding:10px 20px 0;flex:1;display:flex;flex-direction:column;gap:7px;min-height:0}
+.sheet:before{content:"";align-self:center;width:44px;height:5px;background:#cfcfda}
+.sheet .row{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.sheet .big{font-size:42px;font-weight:800;color:var(--blue);line-height:1;font-variant-numeric:tabular-nums}
+.sheet .big small{font-size:14px;color:var(--mute);margin-left:4px;font-weight:600}
+.sheet .eta{font-size:12px;font-weight:800;text-align:right;color:var(--dblue);line-height:1.3}
+.pbar{height:6px;background:#e3e3ee;flex:none}
+.pbar i{display:block;height:100%;background:var(--blue);width:0}
+.sheet h3{margin:0;font-size:18px}
 /* 5 luisteren */
-.scene{height:190px;margin:8px -20px 0;position:relative;overflow:hidden}
+.scene{height:150px;margin:8px -20px 0;position:relative;overflow:hidden;flex:none}
 .now,.arch{position:absolute;inset:0}
 .now{background:linear-gradient(#9fb4dc 55%,#5f6f8f 55%)}
-.arch{background:linear-gradient(#d9c7a0 55%,#7a6a4c 55%);filter:grayscale(.6) contrast(1.1);opacity:var(--t)}
+.arch{background:linear-gradient(#d9c7a0 55%,#7a6a4c 55%);filter:grayscale(.6) contrast(1.1);opacity:var(--t);transition:opacity .35s ease}
 .bld{position:absolute;bottom:45%;background:#2c3a5e;width:22%}
 .arch .bld{background:#4d3f2a}
-.grain{position:absolute;inset:0;opacity:calc(var(--t)*.35);background:repeating-radial-gradient(#000 0 1px,transparent 1px 3px)}
+.grain{position:absolute;inset:0;transition:opacity .35s ease;opacity:calc(var(--t)*.35);background:repeating-radial-gradient(#000 0 1px,transparent 1px 3px)}
 .year{position:absolute;right:12px;top:10px;background:var(--ink);color:#fff;font-weight:800;padding:4px 10px;font-size:14px}
 .slider{margin-top:10px;position:relative}
 .slider .lab{display:flex;justify-content:space-between;font-weight:800;font-size:13px;margin-bottom:2px}
 .slider .big{font-size:15px}
 input[type=range]{width:100%;accent-color:var(--blue);height:34px}
-.coach{position:absolute;left:0;right:0;top:-46px;background:var(--ink);color:#fff;padding:8px 12px;font-size:13px;font-weight:600;line-height:1.25;animation:pop .4s}
+.coach{position:absolute;left:0;right:0;top:-40px;background:var(--ink);color:#fff;padding:8px 12px;font-size:13px;font-weight:600;line-height:1.25;animation:pop .4s}
 .coach:after{content:"";position:absolute;left:50%;bottom:-6px;border:6px solid transparent;border-bottom:0;border-top-color:var(--ink)}
 .cap{margin-top:8px;font-size:15px;line-height:1.35;background:#eef;padding:10px 12px;border-left:4px solid var(--blue);min-height:64px}
 .player{display:flex;gap:12px;align-items:center;margin-top:10px}
@@ -104,16 +131,80 @@ input[type=range]{width:100%;accent-color:var(--blue);height:34px}
 .bar{flex:1;height:6px;background:#dcdce8;position:relative}
 .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--blue);width:0}
 .time{font-size:12px;font-weight:800;color:var(--mute);width:38px;text-align:right}
-.mixbtn{background:none;font-weight:800;color:var(--blue);font-size:14px;padding:8px 0;text-align:left}
-.mix{display:none;gap:8px;margin-top:2px}
-.mix.on{display:grid}
-.lay{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;font-size:13px}
-.lay b{font-size:14px}.lay small{color:var(--mute)}
-.lay .m{grid-column:1;height:5px;background:#e3e3ee;position:relative}
-.lay .m i{position:absolute;inset:0 auto 0 0;background:var(--green);width:50%}
-.sw{grid-column:2;grid-row:1/3;width:42px;height:24px;background:var(--blue);position:relative;border-radius:12px}
-.sw:after{content:"";position:absolute;top:3px;right:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:.15s}
-.lay.off .sw{background:#bbb}.lay.off .sw:after{right:21px}.lay.off .m i{width:0!important}
+/* inhoud, in de buurt, samen */
+.playing b{display:block;color:var(--ink);font-size:12px}
+.near{display:none;margin-top:6px;padding:10px 12px;background:var(--navy);color:#fff;font-size:13px;line-height:1.35;text-align:left;width:100%;animation:pop .4s}
+.near.on{display:block}
+.near small{display:block;font-weight:800;color:var(--green)}
+.near b{display:block;font-size:15px}
+.idea{display:block;font-size:11px;color:var(--mute);margin-top:3px}
+.crowd{margin-top:8px;font-size:13px;font-weight:600;color:var(--dblue)}
+.crowd:before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--green);margin-right:6px;animation:pulse 1.6s infinite}
+.comm{margin-top:12px;padding:12px;background:#f3f3f8;text-align:left;font-size:14px;line-height:1.35}
+.comm b{display:block}
+.comm .btn{margin-top:8px;padding:12px;font-size:15px}
+
+/* luisteren: drie benoemde stappen, met uitleg wat elk onderdeel doet */
+.np{display:flex;align-items:center;gap:10px;margin-top:2px}
+.np small{display:block;font-size:12px;font-weight:800;color:var(--mute);letter-spacing:.04em;text-transform:uppercase}
+.np h3{margin:0;font-size:22px}
+.live{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--dblue);background:#f3f3f8;padding:5px 8px}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite}
+.lead{font-size:14px;line-height:1.35;color:#33333c;margin-top:6px}
+.scap{position:absolute;left:0;right:0;bottom:0;padding:18px 14px 8px;background:linear-gradient(transparent,#000000b8);color:#fff;font-size:13px;font-weight:700}
+.ctl{margin-top:14px}
+.ctl-h b{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--ink)}
+.ctl-h small{display:block;font-size:12.5px;color:var(--mute);line-height:1.3;margin:2px 0 0 28px}
+.ctl-h .n{flex:none;width:20px;height:20px;background:var(--blue);color:#fff;font-style:normal;font-size:12px;display:grid;place-items:center}
+.demo{font-size:10px;font-weight:800;background:var(--ink);color:#fff;padding:2px 6px;margin-left:2px}
+.stickybar{position:sticky;bottom:-28px;margin:auto -20px -28px;padding:10px 20px 34px;background:linear-gradient(#fff0,#fff 30%);flex:none}
+.stickybar .btn{margin:0}
+.slider .cap{margin-top:6px}
+
+
+/* weetjes over de plek */
+.facts{display:grid;gap:8px;margin-top:8px}
+.fact{border-left:4px solid var(--blue);background:#f3f3f8;padding:9px 12px}
+.fact b{display:block;font-size:13px;color:var(--blue);font-weight:800}
+.fact p{font-size:14px;line-height:1.35;margin:2px 0}
+.fact small{font-size:11px;color:var(--mute)}
+.player{margin-top:10px}
+
+/* spoelbalk voor het verhaal */
+.seekwrap{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
+input.seek{-webkit-appearance:none;appearance:none;width:100%;height:16px;margin:0;background:none;cursor:pointer}
+input.seek::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:linear-gradient(90deg,var(--blue) var(--p,0%),#0000 var(--p,0%)),linear-gradient(90deg,#8f8fba var(--u,33%),#0000 var(--u,33%)),repeating-linear-gradient(45deg,#cfcfe2 0 4px,#e6e6f1 4px 8px);box-shadow:inset 0 0 0 1px #aeaecb}
+input.seek::-moz-range-track{height:6px;border-radius:3px;background:linear-gradient(90deg,var(--blue) var(--p,0%),#0000 var(--p,0%)),linear-gradient(90deg,#8f8fba var(--u,33%),#0000 var(--u,33%)),repeating-linear-gradient(45deg,#cfcfe2 0 4px,#e6e6f1 4px 8px);box-shadow:inset 0 0 0 1px #aeaecb}
+input.seek::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;margin-top:-4px;border-radius:50%;background:var(--blue);border:2px solid #fff;box-shadow:0 0 0 1px var(--blue)}
+input.seek::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:var(--blue);border:2px solid #fff;box-shadow:0 0 0 1px var(--blue)}
+.lockhint{font-size:11px;color:var(--mute);min-height:14px;line-height:1.2}
+.player .time{width:auto;white-space:nowrap}
+.play.sm{width:38px;height:38px;font-size:14px}
+.unlock .player{margin:2px 0 0}
+.crowd{margin-top:4px}
+/* punten en ontgrendelen */
+.pts{flex:none;background:var(--ink);color:#fff;font-weight:800;font-size:12px;padding:4px 8px}
+.pts.pop{animation:pop .5s}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags .tag{margin:0}
+.tag.gold{background:var(--green);color:var(--navy)}
+.unlock{background:#f3f3f8;padding:10px 12px;display:flex;flex-direction:column;gap:7px;flex:none}
+.uh{display:flex;justify-content:space-between;font-size:13px;font-weight:800;color:var(--ink)}
+.parts{display:flex;gap:4px}
+.parts i{flex:1;height:8px;background:#d7d7e6;transition:background .5s}
+.parts i.on{background:var(--green)}
+.unlock .playing{background:none;padding:0;margin:0}
+.unlock .ul{font-size:11.5px;color:var(--mute)}
+.earned{margin-top:8px;background:var(--green);color:var(--navy);font-weight:800;font-size:13px;padding:6px 10px}
+.lock{font-size:11px;font-weight:800;background:#f3f3f8;color:var(--mute);padding:2px 6px;margin-left:6px}
+.lock.open{background:var(--green);color:var(--navy)}
+.list .pt{font-weight:800;color:var(--dblue);margin-left:10px;white-space:nowrap}
+.score{display:flex;gap:14px;align-items:center;justify-content:center;text-align:left;background:#f3f3f8;padding:10px 14px}
+.score b#totalPts{font-size:44px;line-height:1;color:var(--blue);display:block}
+.score small{display:block;font-size:12px;font-weight:800;color:var(--mute)}
+.bd{display:grid;gap:2px;font-size:12px;font-weight:600;min-width:120px}
+.bd div{display:flex;justify-content:space-between;gap:12px}
+.bd b{color:var(--dblue)}
 /* 6 klaar */
 .done{flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:10px}
 .big-check{width:84px;height:84px;background:var(--green);color:var(--navy);font-size:46px;font-weight:800;display:grid;place-items:center;margin:0 auto}
@@ -131,6 +222,10 @@ button{touch-action:manipulation}
 </div>
 
 <div class="phone" id="phone">
+  <div class="statusbar" aria-hidden="true"><span id="clk">9:41</span><span class="sys"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 4.2a9.5 9.5 0 0 1 13 0"/><path d="M4 7a6 6 0 0 1 8 0"/><circle cx="8" cy="10" r="1" fill="currentColor" stroke="none"/></svg><span class="batt"><i></i></span></span></div>
+  <div class="island" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"><span class="ic">♪</span><span><small>VPRO Podwalk</small><b id="toastTxt"></b></span></div>
+  <div class="homebar" aria-hidden="true"></div>
   <!-- 1 welkom -->
   <section class="screen on" data-s="welkom">
     <span class="tag">VPRO Podwalk · pilot</span>
@@ -138,13 +233,22 @@ button{touch-action:manipulation}
     <div class="hero" id="hero"></div>
     <div class="meta"><span>± 3 km</span><span>5 stops</span><span>± 60 min</span></div>
     <div class="how">
-      <div><b>1</b><span>Loop de route, de app wijst je de weg</span></div>
-      <div><b>2</b><span>Bij elke stop start het verhaal vanzelf</span></div>
+      <div><b>1</b><span>Loop de route zelf; de app wijst je de weg en speelt het verhaal af</span></div>
+      <div><b>2</b><span>Op elke stop ontdek je weetjes over de plek</span></div>
       <div><b>3</b><span>Schuif terug in de tijd en hoor hoe het was</span></div>
     </div>
     <button class="btn" data-next>Start</button>
   </section>
-  <!-- 2 voorbereiding -->
+  <!-- 2 inhoud -->
+  <section class="screen" data-s="inhoud">
+    <div class="top"><button class="back" data-prev aria-label="Terug">←</button></div>
+    <h3>Waar gaat het over?</h3>
+    <p class="sub">Een zesdelige VPRO-serie over de geschiedenis van de Nederlandse hiphopcultuur. Artiesten vertellen het verhaal, ondersteund door archiefmateriaal en de tracks waar ze over praten. Deze route volgt één tijdperk, te beginnen bij de jaren zeventig en tachtig.</p>
+    <div class="why"><small>Waarom lopen?</small><b>Het verhaal gebeurde hier</b><p>Op elke stop hoor je het verhaal op de plek zelf, met archief en straatgeluid van toen. Een gewone podcast laat je alleen luisteren; de route laat je het meemaken.</p></div>
+    <span class="idea">Inhoud van de stops: plaatshouders.</span>
+    <button class="btn" data-next>Naar de voorbereiding</button>
+  </section>
+  <!-- 3 voorbereiding -->
   <section class="screen" data-s="voorbereiding">
     <div class="top"><button class="back" data-prev aria-label="Terug">←</button></div>
     <h3>Voor je begint</h3>
@@ -153,10 +257,11 @@ button{touch-action:manipulation}
     <button class="check" data-check><span class="box"></span><span><b>Locatie delen</b><small>Zo weet de app wanneer je bij een stop bent en start het verhaal automatisch.</small></span></button>
     <button class="btn" id="goRoute" data-next disabled>Naar de route</button>
   </section>
-  <!-- 3 route -->
+  <!-- 4 route -->
   <section class="screen" data-s="route">
     <div class="top"><button class="back" data-prev aria-label="Terug">←</button></div>
     <h3>Jouw route</h3>
+    <p class="sub" style="font-size:14px">Elke stop levert punten op. Het verhaal van een stop ontgrendel je door ernaartoe te lopen.</p>
     <div class="map">
       <svg viewBox="0 0 360 250" preserveAspectRatio="none"><path d="M40 215 C90 185 60 140 140 130 S250 118 230 75 S300 30 320 22" fill="none" stroke="#0000ff" stroke-width="5" stroke-dasharray="2 10" stroke-linecap="round"/></svg>
       <div class="pin me" style="left:11%;top:86%">1</div>
@@ -168,43 +273,67 @@ button{touch-action:manipulation}
     <div class="list" id="stoplist"></div>
     <button class="btn" data-next>Begin bij stop 1</button>
   </section>
-  <!-- 4 lopen -->
+  <!-- 5 lopen -->
   <section class="screen" data-s="lopen">
-    <div class="top"><button class="back" data-prev aria-label="Terug">←</button><div class="dots dd"></div><span class="cnt cc"></span></div>
-    <div class="walk">
-      <span class="tag" id="wtag" style="align-self:center">Onderweg</span>
-      <h3 id="wname" style="margin:4px 0 0">Stop 1</h3>
-      <div class="ring" id="ring"><div><b id="dist">240</b><small>meter</small></div></div>
-      <p class="sub"><span class="arrow">→</span> Loop rechtdoor, de volgende stop ligt aan je rechterhand</p>
-      <div class="playing"><div class="eq"><s></s><s></s><s></s><s></s></div><span>Je hoort nu alleen sfeer en straatgeluid. Het verhaal start bij de stop.</span></div>
+    <div class="top"><button class="back" data-prev aria-label="Terug">←</button><div class="dots dd"></div><span class="cnt cc"></span><span class="pts" aria-label="Punten">★ <b class="sc">0</b></span></div>
+    <div class="turn" aria-live="polite"><i class="ti" id="tIcon">↑</i><div><b id="tTxt">Loop rechtdoor</b><small id="tSub"></small></div><span class="tdist" id="tDist"></span></div>
+    <div class="navmap" aria-hidden="true">
+      <svg viewBox="0 0 360 170" preserveAspectRatio="xMidYMid slice">
+        <rect width="360" height="170" fill="#eaeef5"/>
+        <rect x="150" y="92" width="86" height="56" fill="#cfe9cf"/>
+        <path d="M-10 60H370M-10 130H370M60 -10V180M200 -10V180M300 -10V180" stroke="#fff" stroke-width="12" fill="none"/>
+        <path d="M-10 60H370M-10 130H370M60 -10V180M200 -10V180M300 -10V180" stroke="#d7dce6" stroke-width="1" fill="none"/>
+        <path id="rpath" fill="none" stroke="#b9b9ff" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 11"/>
+        <path id="rdone" fill="none" stroke="#0000ff" stroke-width="6" stroke-linecap="round"/>
+        <g id="destG"><circle r="13" fill="#0000ff" stroke="#fff" stroke-width="3"/><text id="destN" text-anchor="middle" y="5" font-size="13" font-weight="800" fill="#fff">1</text></g>
+        <g id="meG"><path d="M0 0L34 -17V17Z" fill="#0000ff" opacity=".16"/><circle r="14" fill="#0cdf0c" opacity=".35"><animate attributeName="r" values="9;17;9" dur="2.4s" repeatCount="indefinite"/></circle><circle r="8" fill="#0cdf0c" stroke="#00004c" stroke-width="3"/></g>
+      </svg>
     </div>
-    <button class="btn ghost" id="skipWalk">Demo: ik ben er al</button>
+    <div class="sheet">
+      <div class="tags"><span class="tag" id="wtag">Onderweg</span><span class="tag gold" id="rew">★ +100 punten bij aankomst</span></div>
+      <div class="row"><div><h3 id="wname">Stop 1</h3><div class="big"><span id="dist">240</span><small>meter</small></div></div><div class="eta"><span id="eta"></span><br><span id="etaDist"></span></div></div>
+      <div class="pbar"><i id="pfill"></i></div>
+      <div class="unlock"><div class="uh"><span>Verhaal van <b id="uStop">stop 1</b></span><span id="uCnt">0/3 delen</span></div><div class="parts" id="parts"><i></i><i></i><i></i></div><div class="playing"><div class="eq"><s></s><s></s><s></s><s></s></div><span><b>Nu in je oren <span class="demo">plaatshouder</span></b><span id="gtxt"></span></span></div><div class="player w"><button class="play sm" id="wplay" aria-label="Pauzeer">❚❚</button><div class="seekwrap"><input type="range" class="seek" id="wseek" min="0" max="180" step="1" value="0" aria-label="Positie in het verhaal"><small class="lockhint"></small></div><span class="time" id="wtm">0:00</span></div></div>
+      <div class="near" id="near"><small>VPRO in de buurt · idee</small><b>Hier maakte de VPRO eerder iets</b>Plaatshouder: loop je langs een plek waar de VPRO iets over maakte, dan verschijnt dat archiefitem automatisch.</div>
+      <button class="btn ghost" id="skipWalk">Demo: ik ben er al</button>
+    </div>
   </section>
-  <!-- 5 luisteren -->
+  <!-- 6 luisteren: weetjes over de plek -->
   <section class="screen" data-s="luisteren">
-    <div class="top"><button class="back" data-prev aria-label="Terug">←</button><div class="dd dots"></div><span class="cnt cc"></span></div>
-    <div class="scene" id="scene">
-      <div class="now"><i class="bld" style="left:5%;height:40%"></i><i class="bld" style="left:30%;height:55%"></i><i class="bld" style="left:58%;height:35%"></i><i class="bld" style="left:78%;height:50%"></i></div>
-      <div class="arch"><i class="bld" style="left:8%;height:30%"></i><i class="bld" style="left:35%;height:42%"></i><i class="bld" style="left:62%;height:28%"></i></div>
-      <div class="grain"></div><div class="year" id="year">Nu</div>
+    <div class="top"><button class="back" data-prev aria-label="Terug">←</button><div class="dd dots"></div><span class="cnt cc"></span><span class="pts" aria-label="Punten">★ <b class="sc">0</b></span></div>
+    <div class="np"><div><small id="npStop">Stop 1 · je bent hier</small><h3 id="npTitle">Leidseplein</h3></div><span class="live"><i></i>Speelt nu</span></div>
+    <div class="crowd" id="crowd"></div>
+    <div class="earned" id="earned"></div>
+    <div class="player"><button class="play" id="play" aria-label="Pauzeer">❚❚</button><div class="seekwrap"><input type="range" class="seek" id="seek2" min="0" max="180" step="1" value="0" aria-label="Positie in het verhaal"><small class="lockhint"></small></div><span class="time" id="tm">0:00</span></div>
+    <div class="ctl">
+      <div class="ctl-h"><b><i class="n">★</i>Weetjes over deze plek</b><small>Terwijl het verhaal speelt, lees je wat hier te weten valt</small></div>
+      <div class="facts" id="facts"></div>
+      <span class="idea" id="locNote"></span>
     </div>
-    <div class="slider">
-      <div class="coach" id="coach">Schuif naar rechts om terug in de tijd te gaan</div>
-      <div class="lab"><span class="big">Nu</span><span class="big">Toen (archief)</span></div>
-      <input type="range" id="time" min="0" max="100" value="0" aria-label="Tijdschakelaar tussen nu en archief">
+    <div class="ctl">
+      <div class="ctl-h"><b><i class="n">⏱</i>Tijdreis<span class="demo">idee</span></b><small>Schuif om te horen en zien hoe deze plek vroeger was</small></div>
+      <div class="scene" id="scene">
+        <div class="now"><i class="bld" style="left:5%;height:40%"></i><i class="bld" style="left:30%;height:55%"></i><i class="bld" style="left:58%;height:35%"></i><i class="bld" style="left:78%;height:50%"></i></div>
+        <div class="arch"><i class="bld" style="left:8%;height:30%"></i><i class="bld" style="left:35%;height:42%"></i><i class="bld" style="left:62%;height:28%"></i></div>
+        <div class="grain"></div><div class="year" id="year">Nu</div><div class="scap" id="scap"></div>
+      </div>
+      <div class="slider">
+        <div class="coach" id="coach">Probeer het: schuif naar rechts →</div>
+        <div class="lab"><span class="big">Nu</span><span class="big">Toen (archief)</span></div>
+        <input type="range" id="time" min="0" max="100" value="0" aria-label="Tijdschakelaar tussen nu en archief">
+      </div>
+      <div class="cap" id="cap"></div>
     </div>
-    <div class="cap" id="cap"></div>
-    <div class="player"><button class="play" id="play" aria-label="Pauzeer">❚❚</button><div class="bar"><i id="prog"></i></div><span class="time" id="tm">0:00</span></div>
-    <button class="mixbtn" id="mixbtn">Geluidsmix ▾</button>
-    <div class="mix" id="mix"></div>
-    <button class="btn green" id="nextStop">Volgende stop →</button>
+    <div class="stickybar"><button class="btn green" id="nextStop">Verder naar stop 2 →</button></div>
   </section>
-  <!-- 6 klaar -->
+  <!-- 7 klaar -->
   <section class="screen" data-s="klaar">
     <div class="done">
       <div class="big-check">✓</div>
       <h2 style="margin:6px 0 0">Route afgerond</h2>
       <p class="sub">Je hoorde 5 verhalen, op de plek waar ze gebeurden.</p>
+      <div class="score"><div><b id="totalPts">0</b><small>van <span id="maxPts">0</span> punten</small></div><div class="bd" id="breakdown"></div></div>
+      <div class="comm"><b>Loop mee met anderen · idee</b>Zie wie dezelfde route liep, deel je favoriete stop en ontdek routes van anderen. Een community rond de podwalk.<button class="btn" id="share">Deel je route</button><span class="idea" id="shareNote">Voorbeeld: delen is nog niet gebouwd.</span></div>
     </div>
     <button class="btn" id="again">Opnieuw beginnen</button>
   </section>
@@ -213,17 +342,32 @@ button{touch-action:manipulation}
 <script>
 if(location.search.includes('embed'))document.body.classList.add('embed');
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const ORDER=['welkom','voorbereiding','route','lopen','luisteren','klaar'];
-const STOPS=[['Stop 1','240 m'],['Stop 2','180 m'],['Stop 3','300 m'],['Stop 4','150 m'],['Stop 5','210 m']];
+const ORDER=['welkom','inhoud','voorbereiding','route','lopen','luisteren','klaar'];
+const STOPS=[['Stop 1','240 m',100],['Stop 2','180 m',150],['Stop 3','300 m',100],['Stop 4','150 m',200],['Stop 5','210 m',150]]; // [naam, afstand, punten bij aankomst]: voorbeeldwaarden
 const WHY={
  welkom:['Stap 1 · Welkom','Eén duidelijke belofte','Wat je gaat doen in drie korte stappen, plus duur en afstand. Eén knop, geen keuzestress.'],
- voorbereiding:['Stap 2 · Voorbereiding','Vraag toestemming met uitleg','Koptelefoon en locatie worden vooraf geregeld, elk met een reden. “Naar de route” blijft uit tot beide aan staan.'],
- route:['Stap 3 · Route','Eerst het overzicht','De hele route op een kaart, met alle stops. Zo weet je wat je te wachten staat voordat je begint.'],
- lopen:['Stap 4 · Lopen','De app wijst, jij loopt','Afstand tot de volgende stop, een richting en sfeergeluid. Aankomst wordt vanzelf herkend (hier gesimuleerd).'],
- luisteren:['Stap 5 · Luisteren','Eén hoofdbediening: de tijdschakelaar','De schuif “Nu ↔ Toen” staat centraal en wordt bij het eerste gebruik uitgelegd. De mix met losse lagen zit bewust verborgen voor wie meer wil.'],
- klaar:['Stap 6 · Afronden','Een duidelijk einde','Bevestiging dat je klaar bent, met een weg terug naar het begin.']};
+ inhoud:['Stap 2 · Inhoud','Waar gaat het over, en waarom lopen?','Eerst de inhoud: de serie 50 jaar hiphop in Nederland, en waarom een route het verhaal sterker maakt dan alleen luisteren.'],
+ voorbereiding:['Stap 3 · Voorbereiding','Vraag toestemming met uitleg','Koptelefoon en locatie worden vooraf geregeld, elk met een reden. “Naar de route” blijft uit tot beide aan staan.'],
+ route:['Stap 4 · Route','Overzicht met punten en vergrendelde verhalen','De hele route op een kaart. Elke stop heeft een puntenwaarde (voorbeeld). Het verhaal van een stop is vergrendeld en ontgrendel je door ernaartoe te lopen. Stop 1 is een voorbeeldlocatie.'],
+ lopen:['Stap 5 · Lopen','Jij loopt, de app speelt het verhaal','Er is geen gids: je loopt zelf, met de kaart en het verhaal in de app. Je loopt in een echt wandeltempo (1,4 m/s, 240 m kost zo’n 3 minuten); met de knop Tempo kun je de demo versnellen. Het verhaal is even lang als je wandeling plus een stuk op de stop en loopt gelijk op met je stappen: je kunt pauzeren en terugspoelen, niet vooruit. Raak je achter, dan speelt de app iets sneller om bij te komen. Bij aankomst (hier gesimuleerd) verdien je de punten van die stop.'],
+ luisteren:['Stap 6 · Op de stop','Weetjes over de plek','Je bent bij de stop. Het verhaal speelt door (pauzeren en spoelen kan nog steeds) en je leest weetjes over deze plek, elk met een bron. Bovenaan zie je hoeveel mensen hier eerder waren (voorbeeld). Stop 1 is een voorbeeldlocatie (Leidseplein, naar een VPRO-foto uit 1983). Daaronder de tijdreis, gemarkeerd als idee.'],
+ klaar:['Stap 7 · Afronden','Een duidelijk einde met je punten','Bevestiging dat je klaar bent, met je totaal en de punten per stop, een weg terug naar het begin en een idee voor een community rond de route.']};
+// weetjes per plek: alleen feiten uit bronnen. Stop 1 is een voorbeeldlocatie, gekozen op basis van een VPRO-foto uit 1983
+const LOC=[
+ {name:'Leidseplein, Amsterdam',short:'Leidseplein',facts:[
+  ['1983','B-boys breakdansen op het Leidseplein. Zo staat het onder een foto op de VPRO-pagina over de serie.','VPRO'],
+  ['Jaren 70 en 80','Jongeren uit multiculturele buurten komen samen en eisen hun plek op met breakdance, rap en graffiti.','VPRO, aflevering 1'],
+  ['Op straat','De media keken weg, maar op straat en in buurthuizen groeide een multiculturele cultuur.','VPRO, aflevering 1'],
+  ['1660','Het plein bestaat sinds 1660 en is genoemd naar de Leidsepoort, een stadspoort die er tot 1862 stond.','Wikipedia: Leidseplein (Amsterdam)'],
+  ['1894','De huidige Stadsschouwburg aan het plein is in 1894 voltooid, na een brand in 1890 die het eerdere houten theater verwoestte.','Wikipedia: Leidseplein (Amsterdam)']],
+  note:'Voorbeeldlocatie, gekozen op basis van de VPRO-foto uit 1983. De definitieve route is nog niet bepaald.'},
+].concat([2,3,4,5].map(n=>({name:`Locatie van stop ${n}`,facts:[['Nog te bepalen','Weetjes over deze plek volgen zodra de locatie van deze stop is gekozen.','plaatshouder']],note:''})));
 let cur='welkom', stop=0, timers=[];
-const clear=()=>{timers.forEach(clearInterval);timers=[]};
+let raf=0,raf2=0;
+const clear=()=>{timers.forEach(clearInterval);timers=[];cancelAnimationFrame(raf);cancelAnimationFrame(raf2);raf=raf2=0};
+// app feel: live clock, notification banner with a light vibration
+const clk=()=>{const d=new Date();$('#clk').textContent=d.getHours()+':'+String(d.getMinutes()).padStart(2,'0')};clk();setInterval(clk,30000);
+let toastT;const toast=t=>{$('#toastTxt').textContent=t;$('#toast').classList.add('on');navigator.vibrate&&navigator.userActivation?.hasBeenActive&&navigator.vibrate(40);clearTimeout(toastT);toastT=setTimeout(()=>$('#toast').classList.remove('on'),3400)};
 function dots(){const h=STOPS.map((_,i)=>`<i class="${i<stop?'done':i===stop?'cur':''}"></i>`).join('');$$('.dd').forEach(d=>d.innerHTML=h);$$('.cc').forEach(c=>c.textContent=`${stop+1}/${STOPS.length}`)}
 function go(name){
   clear();cur=name;
@@ -231,6 +375,7 @@ function go(name){
   const w=WHY[name];$('#wk').textContent=w[0];$('#wt').textContent=w[1];$('#wp').textContent=w[2];
   const i=ORDER.indexOf(name);$('#steps').innerHTML=ORDER.map((_,k)=>`<i class="${k<=i?'on':''}"></i>`).join('');
   if(name==='lopen')startWalk();
+  if(name==='klaar')renderScore();
   if(name==='luisteren')startListen();
 }
 const step=d=>{const i=ORDER.indexOf(cur)+d;
@@ -248,32 +393,77 @@ $$('[data-check]').forEach(b=>b.onclick=()=>{b.classList.toggle('on');b.querySel
   $('#goRoute').disabled=$$('[data-check]:not(.on)').length>0});
 // hero + route lijst
 $('#hero').innerHTML=[40,70,55,90,35,80,60].map((h,i)=>`<i style="left:${4+i*14}%;height:${h}%;animation-delay:${i*.12}s"></i>`).join('');
-$('#stoplist').innerHTML=STOPS.map((s,i)=>`<div><b>${i+1}</b>${s[0]}<em>${s[1]}</em></div>`).join('');
-// lopen: afstand telt af, aankomst start het verhaal automatisch
-function startWalk(){dots();$('#wname').textContent=`Naar ${STOPS[stop][0].toLowerCase()}`;
-  const total=parseInt(STOPS[stop][1]);let d=total;const upd=()=>{$('#dist').textContent=d;$('#ring').style.setProperty('--p',100-d/total*100)};upd();
-  timers.push(setInterval(()=>{d=Math.max(0,d-12);upd();if(d===0){clear();$('#wtag').textContent='Je bent er';$('#wname').textContent=STOPS[stop][0];timers.push(setTimeout(()=>go('luisteren'),900))}},200));}
-$('#skipWalk').onclick=()=>go('luisteren');
+$('#stoplist').innerHTML=STOPS.map((s,i)=>`<div><b>${i+1}</b>${s[0]}${LOC[i].short?` · ${LOC[i].short}`:''}<span class="lock${i?'':' open'}">${i?'Vergrendeld':'Start hier'}</span><em>${s[1]}</em><span class="pt">★ ${s[2]}</span></div>`).join('');
+// lopen: een rustige, vloeiende wandeling: de stip loopt over de route, de meters tellen er soepel mee af
+const PATHS=['M30 150C90 140 100 95 160 88S260 90 300 30','M30 40C80 50 110 100 170 96S280 120 330 140','M40 140C100 130 90 70 170 64S290 60 330 100','M320 30C270 50 250 110 190 106S90 100 30 140','M30 100C100 110 120 50 190 58S290 100 330 40'];
+const ease=t=>-(Math.cos(Math.PI*t)-1)/2;
+const STORY=['Deel 1: jongeren uit multiculturele buurten komen samen.','Deel 2: breakdance, rap en graffiti op straat en in buurthuizen.','Deel 3: de media kijken weg, de cultuur groeit door.'];
+let score=0;const got=[],MAX=STOPS.reduce((a,x)=>a+x[2],0);
+const setScore=()=>{$$('.sc').forEach(e=>e.textContent=score);$$('.pts').forEach(e=>{e.classList.remove('pop');void e.offsetWidth;e.classList.add('pop')})};
+function renderScore(){$('#totalPts').textContent=score;$('#maxPts').textContent=MAX;$('#breakdown').innerHTML=STOPS.map((x,i)=>`<div><span>${x[0]}</span><b>${got[i]!=null?'+'+got[i]:'–'}</b></div>`).join('')}
+function arrive(){clear();const pts=STOPS[stop][2];if(got[stop]==null){got[stop]=pts;score+=pts;setScore()}
+  aud.max=aud.L;audUI();$('#dist').textContent=0;$('#tDist').textContent='0 m';$('#pfill').style.width='100%';
+  $('#wtag').textContent='Je bent er';$('#wname').textContent=STOPS[stop][0];$('#tTxt').textContent='Je bent aangekomen';$('#tIcon').textContent='✓';
+  toast(`+${pts} punten bij ${STOPS[stop][0].toLowerCase()}`);timers.push(setTimeout(()=>go('luisteren'),1600))}
+function startWalk(){dots();$('#near').classList.remove('on');$('#toast').classList.remove('on');$('#wtag').textContent='Onderweg';$('#wname').textContent=`Naar ${STOPS[stop][0].toLowerCase()}`;
+  const total=parseInt(STOPS[stop][1]),walkSec=total/PACE,d0=PATHS[stop%PATHS.length];
+  Object.assign(aud,{L:walkSec+STOPSEG,pos:0,max:0,playing:true,rate:1,unl:1});audUI();
+  const rp=$('#rpath'),rd=$('#rdone');rp.setAttribute('d',d0);rd.setAttribute('d',d0);const L=rp.getTotalLength();
+  const end=rp.getPointAtLength(L);$('#destG').setAttribute('transform',`translate(${end.x} ${end.y})`);$('#destN').textContent=stop+1;
+  $('#etaDist').textContent=`van ${STOPS[stop][1]}`;$('#rew').textContent=`★ +${STOPS[stop][2]} punten bij aankomst`;$('#uStop').textContent=LOC[stop].short||STOPS[stop][0].toLowerCase();
+  let near=false,last='',el=0,tl=0;
+  const frame=now=>{const dt=tl?(now-tl)/1000:0;tl=now;el=Math.min(walkSec,el+dt*SPEEDS[tempo]);const p=el/walkSec,dist=total*(1-p);aud.max=el;
+    const a=rp.getPointAtLength(p*L),b=rp.getPointAtLength(Math.min(L,p*L+3));
+    $('#meG').setAttribute('transform',`translate(${a.x} ${a.y}) rotate(${Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI})`);
+    rd.setAttribute('stroke-dasharray',`${p*L} ${L}`);
+    const m=Math.ceil(dist);$('#dist').textContent=m;$('#tDist').textContent=m+' m';$('#pfill').style.width=p*100+'%';
+    $('#eta').textContent=`${Math.max(1,Math.ceil(dist/(PACE*60)))} min lopen`;
+    const [ic,tx]=p<.5?['↑','Loop rechtdoor']:p<.88?['↱','Sla rechtsaf']:['◎','Je bent bijna bij de stop'];
+    if(tx!==last){last=tx;$('#tIcon').textContent=ic;$('#tTxt').textContent=tx;$('#tSub').textContent=`richting ${LOC[stop].short||STOPS[stop][0].toLowerCase()}`}
+    if(p>=.5&&!near){near=true;$('#near').classList.add('on');toast('Hier maakte de VPRO eerder iets (idee)')}
+    if(p<1)raf=requestAnimationFrame(frame);
+    else arrive()};
+  raf=requestAnimationFrame(frame);}
+$('#skipWalk').onclick=arrive;
 // luisteren
-const CAPS=['Je hoort de straat zoals die nu is, met de verteller erbovenop.','Het straatgeluid van nu en de opnames van toen smelten samen.','Archiefbeeld en historische soundscape van exact deze plek.'];
-const LAY=[['Stem','verteller en interviews',()=>1],['Muziek','tracks van toen',t=>.4+t*.6],['Sfeer','straatgeluid nu',t=>1-t*.7],['Archief','geluid van vroeger',t=>t]];
+const CAPS=['Je hoort de straat zoals die nu is, met de stemmen van deze plek erbovenop.','Het straatgeluid van nu en de opnames van toen smelten samen.','Archiefbeeld en historische soundscape van exact deze plek.'];
 let coached=false;
-function setTime(v){const t=v/100;$('#scene').style.setProperty('--t',t);
-  $('#year').textContent=t<.2?'Nu':t<.8?'Overgang':'Archief';$('#cap').textContent=CAPS[t<.2?0:t<.8?1:2];
-  $$('.lay').forEach((el,i)=>el.querySelector('.m i').style.width=Math.round(LAY[i][2](t)*100)+'%')}
-function startListen(){dots();$('#time').value=0;
-  $('#mix').innerHTML=LAY.map(l=>`<div class="lay"><div><b>${l[0]}</b> <small>${l[1]}</small></div><div class="sw" role="switch"></div><div class="m"><i></i></div></div>`).join('');
-  $$('.lay .sw').forEach(sw=>sw.onclick=()=>sw.closest('.lay').classList.toggle('off'));
-  $('#mix').classList.remove('on');$('#mixbtn').textContent='Geluidsmix ▾';
+const SCAP=['Zo ziet deze plek er nu uit','Nu en toen lopen in elkaar over','Zo zag het er vroeger uit (archiefbeeld, plaatshouder)'];
+function setTime(v){const t=v/100;$('#scene').style.setProperty('--t',t);$('#scap').textContent=SCAP[t<.2?0:t<.8?1:2];
+  $('#year').textContent=t<.2?'Nu':t<.8?'Overgang':'Archief';$('#cap').textContent=CAPS[t<.2?0:t<.8?1:2]}
+const CROWD=[12,9,15,7,11]; // voorbeeldaantallen
+$('#share').onclick=()=>{$('#shareNote').textContent='Voorbeeld: hier zou je route met de community gedeeld worden.'};
+// verhaal-audio: één stand die van de wandeling doorloopt naar de stop (gesimuleerd, geen echt geluid).
+// Het verhaal is even lang als je wandeling plus een stuk op de stop en loopt gelijk op met je stappen: je kunt niet verder luisteren dan je gelopen hebt.
+// Pauzeren en terugspoelen kan, vooruitspoelen niet. Loop je achter, dan speelt de app iets sneller om bij te komen.
+const PACE=1.4,STOPSEG=90,SPEEDS=[1,4,12],TEMPO=['Echt tempo','Demo ×4','Demo ×12']; // m/s, seconden verhaal op de stop, demo-snelheden (×1 = echte tijd)
+let tempo=0;
+const aud={pos:0,max:0,L:260,playing:true,rate:1,unl:1};
+const fmt=x=>`${Math.floor(x/60)}:${String(Math.floor(x%60)).padStart(2,'0')}`;
+function audUI(){const L=aud.L,behind=aud.max-aud.pos,third=L/3,part=Math.min(3,Math.floor(aud.pos/third)+1),unl=Math.min(3,Math.floor(aud.max/third)+1),arrived=aud.max>=L;
+  $$('.seek').forEach(r=>{r.max=Math.round(L);r.value=aud.pos;r.style.setProperty('--p',aud.pos/L*100+'%');r.style.setProperty('--u',aud.max/L*100+'%')});
+  $$('.time').forEach(e=>e.textContent=`${fmt(aud.pos)} / ${fmt(L)}`);
+  $$('#play,#wplay').forEach(b=>{b.textContent=aud.playing?'❚❚':'▶';b.setAttribute('aria-label',aud.playing?'Pauzeer':'Speel af')});
+  $$('.live').forEach(e=>e.lastChild.textContent=!aud.playing?'Gepauzeerd':aud.rate>1?'Haalt in':'Speelt nu');
+  $$('#parts i').forEach((x,k)=>x.classList.toggle('on',k<unl));$('#uCnt').textContent=`${unl}/3 delen`;$('#gtxt').textContent=STORY[part-1];
+  const msg=aud.pos>=L-.2?'Einde van het verhaal':behind>3?(arrived?`Nog ${fmt(L-aud.pos)} te luisteren${aud.playing?'':' (gepauzeerd)'}`:aud.playing?`Je loopt ${fmt(behind)} achter: de app speelt iets sneller om bij te komen`:`Gepauzeerd: je loopt ${fmt(behind)} achter op je route`):arrived?'':'Het verhaal loopt gelijk op met je route. Vooruitspoelen kan niet.';
+  $$('.lockhint').forEach(e=>e.textContent=msg);
+  if(unl>aud.unl){if(cur==='lopen')toast(`Deel ${unl} van het verhaal ontgrendeld`)}aud.unl=unl}
+let lastT=performance.now();
+setInterval(()=>{const now=performance.now(),dt=(now-lastT)/1000;lastT=now;if(cur!=='lopen'&&cur!=='luisteren')return;
+  if(aud.playing){const behind=aud.max-aud.pos;aud.rate=behind>10?1.25:behind<1?1:aud.rate;aud.pos=Math.min(aud.pos+dt*SPEEDS[tempo]*aud.rate,aud.max)}
+  audUI()},100);
+$$('.seek').forEach(r=>r.oninput=()=>{if(+r.value<aud.pos)aud.pos=+r.value;audUI()}); // alleen terug; verder dan nu wordt teruggezet
+$$('#play,#wplay').forEach(b=>b.onclick=()=>{aud.playing=!aud.playing;audUI()});
+function startListen(){dots();$('#npTitle').textContent=LOC[stop].short||LOC[stop].name;$('#npStop').textContent=`${STOPS[stop][0]} · je bent hier`;$('#locNote').textContent=LOC[stop].note;
+  $('#facts').innerHTML=LOC[stop].facts.map(f=>`<div class="fact"><b>${f[0]}</b><p>${f[1]}</p><small>Bron: ${f[2]}</small></div>`).join('');
+  $('#earned').textContent=`★ +${STOPS[stop][2]} punten verdiend bij ${STOPS[stop][0].toLowerCase()}`;
+  $('#crowd').textContent=`${CROWD[stop]} mensen waren hier voor jou (voorbeeld)`;$('#time').value=0;
   $('#coach').style.display=coached?'none':'block';setTime(0);
-  $('#nextStop').textContent=stop<STOPS.length-1?'Volgende stop →':'Route afronden';
-  let s=0,playing=true;$('#play').textContent='❚❚';$('#prog').style.width='0';$('#tm').textContent='0:00';
-  $('#play').onclick=()=>{playing=!playing;$('#play').textContent=playing?'❚❚':'▶'};
-  timers.push(setInterval(()=>{if(!playing)return;s=Math.min(90,s+1);$('#prog').style.width=s/90*100+'%';$('#tm').textContent=`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`},333));}
+  $('#nextStop').textContent=stop<STOPS.length-1?`Verder naar stop ${stop+2} →`:'Route afronden';audUI()}
 $('#time').oninput=e=>{setTime(e.target.value);coached=true;$('#coach').style.display='none'};
-$('#mixbtn').onclick=()=>{const o=$('#mix').classList.toggle('on');$('#mixbtn').textContent=o?'Geluidsmix ▴':'Geluidsmix ▾'};
 $('#nextStop').onclick=()=>step(1);
-$('#again').onclick=()=>{stop=0;$$('[data-check]').forEach(b=>{b.classList.remove('on');b.querySelector('.box').textContent=''});$('#goRoute').disabled=true;go('welkom')};
+$('#again').onclick=()=>{stop=0;score=0;got.length=0;setScore();$$('[data-check]').forEach(b=>{b.classList.remove('on');b.querySelector('.box').textContent=''});$('#goRoute').disabled=true;go('welkom')};
 go('welkom');
 </script>
 </body>
