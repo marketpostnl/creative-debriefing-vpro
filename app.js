@@ -685,3 +685,110 @@ $('#pages').addEventListener('click', e => {
   };
   rd.addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
 }
+
+// ---------- search: index of every page, word suggestions, spelling correction ----------
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+const words = s => norm(s).match(/[a-z0-9]+/g) || [];
+const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const DOC = [], VOC = new Map(); // DOC: one entry per page; VOC: word -> how often it occurs
+sheets.forEach((s, i) => s.pages.forEach((h, k) => {
+  const text = new DOMParser().parseFromString(h.replace(/</g, ' <'), 'text/html').body.textContent.replace(/­/g, '').replace(/\s+/g, ' ').trim(); // DOMParser: nothing loads or runs
+  const d = { i, k, head: `${nameOf(s)} · ${s.terms[k]}`, title: norm(nameOf(s) + ' ' + s.terms[k]), text, n: norm(text) };
+  DOC.push(d);
+  words(text + ' ' + d.head).forEach(w => w.length > 2 && VOC.set(w, (VOC.get(w) || 0) + 1));
+}));
+const lev = (a, b) => { let p = [...Array(b.length + 1).keys()]; for (let i = 1; i <= a.length; i++) { const c = [i]; for (let j = 1; j <= b.length; j++) c[j] = Math.min(p[j] + 1, c[j - 1] + 1, p[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); p = c; } return p[b.length]; };
+// a typed word is fine if it starts some known word; otherwise take the closest known word (1 edit up to 4 letters, 2 edits above), most frequent wins ties
+const fix = t => {
+  if (t.length < 3 || [...VOC.keys()].some(w => w.startsWith(t))) return t;
+  let best = t, bd = t.length < 5 ? 2 : 3, bc = 0;
+  for (const [w, c] of VOC) { if (Math.abs(w.length - t.length) > 2) continue; const d = lev(t, w); if (d < bd || (d === bd && c > bc)) (bd = d, bc = c, best = w); }
+  return best;
+};
+const stem = t => (t.length > 4 ? t.replace(/(en|s)$/, '') : t); // podwalks = podwalk
+const rx = (ts, flags) => new RegExp('(?<![a-z0-9])(' + ts.map(stem).join('|') + ')[a-z0-9]*', flags);
+const find = ts => DOC.map(d => {
+  let sc = 0;
+  for (const t of ts) { const c = (d.n.match(rx([t], 'g')) || []).length; if (!c) return null; sc += c + (rx([t]).test(d.title) ? 10 : 0); }
+  return { d, sc, ts };
+}).filter(Boolean);
+// "pod walks" also means "podwalks": try the typed words and every glued pair, keep each page's best score
+const glue = ts => {
+  const out = [];
+  for (let j = 0; j < ts.length; j++) {
+    const g = ts[j] + (ts[j + 1] ?? '');
+    if (j < ts.length - 1 && (!VOC.has(ts[j]) || !VOC.has(ts[j + 1])) && [...VOC.keys()].some(w => w.startsWith(g))) (out.push(g), j++);
+    else out.push(ts[j]);
+  }
+  return out;
+};
+const findAll = ts => find(ts).sort((a, b) => b.sc - a.sc).slice(0, 6);
+const snip = (d, ts) => {
+  const m = rx(ts).exec(d.n), s = Math.max(0, (m ? m.index : 0) - 50), t = d.text.slice(s, s + 150);
+  let out = '', last = 0;
+  for (const x of d.n.slice(s, s + 150).matchAll(rx(ts, 'g'))) { out += esc(t.slice(last, x.index)) + '<mark>' + esc(t.slice(x.index, x.index + x[0].length)) + '</mark>'; last = x.index + x[0].length; }
+  return (s ? '…' : '') + out + esc(t.slice(last)) + '…';
+};
+const START = ['podwalk', 'doelgroep', 'tiktok', 'storytelling', 'muziek', 'stakeholders', 'cases', 'prototype'].filter(w => VOC.has(w));
+const SB = $('#searchBtn'), S = $('#search'), SQ = $('#sq'), SR = $('#sres');
+const chips = ws => ws.map(w => `<button data-w="${w}">${w}</button>`).join('');
+let hits = [];
+const render = () => {
+  const ts = words(SQ.value);
+  if (!ts.length) { $('#ssug').innerHTML = chips(START); $('#snote').textContent = 'Populair: klik een woord of begin te typen.'; SR.innerHTML = ''; return; }
+  const glued = glue(ts), fixed = glued.map(fix), changed = fixed.join(' ') !== glued.join(' '), last = fixed.at(-1);
+  const more = [...VOC].filter(([w]) => w.startsWith(last) && w !== last).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([w]) => w);
+  $('#ssug').innerHTML = chips(more);
+  hits = findAll(fixed);
+  $('#snote').innerHTML = changed ? `Bedoelde je <b>${esc(fixed.join(' '))}</b>? Resultaten hiervoor.` : hits.length ? `${hits.length} ${hits.length === 1 ? 'resultaat' : 'resultaten'}` : '';
+  SR.innerHTML = hits.length ? hits.map((h, n) => `<button class="sr" data-n="${n}"><small>${esc(h.d.head)}</small><span>${snip(h.d, h.ts)}</span></button>`).join('') : `<p>Niets gevonden voor “${esc(SQ.value.trim())}”. Probeer een ander woord.</p>`;
+};
+// once the folder has opened, scroll to the passage that matched and flash it
+const reveal = (i, k, ts) => {
+  let n = 0;
+  const t = setInterval(() => {
+    if (++n > 300) return clearInterval(t);
+    if (picked !== i || $('#reader').hidden || opening || closing) return;
+    clearInterval(t);
+    setTimeout(() => {
+      const rd = $('#reader'), w = document.createTreeWalker($('#pages').querySelectorAll('.page')[k], NodeFilter.SHOW_TEXT), re = rx(ts);
+      for (let nd; (nd = w.nextNode());) if (re.test(norm(nd.data))) {
+        const el = nd.parentElement;
+        rd.scrollTo({ top: el.getBoundingClientRect().top - rd.getBoundingClientRect().top + rd.scrollTop - 140, behavior: REDUCED ? 'auto' : 'smooth' });
+        el.classList.remove('hit'); void el.offsetWidth; el.classList.add('hit');
+        return;
+      }
+    }, 700);
+  }, 100);
+};
+const searchOpen = () => S.classList.contains('on');
+const search = on => {
+  if (on === searchOpen()) return;
+  on && menu(false);
+  S.classList.toggle('on', on); SB.setAttribute('aria-expanded', on);
+  if (on) { render(); SQ.focus(); SQ.select(); } else SB.focus();
+};
+SB.onclick = () => search(true);
+$('#sx').onclick = () => search(false);
+SQ.oninput = render;
+S.onclick = e => {
+  e.stopPropagation();
+  const w = e.target.closest('[data-w]'), r = e.target.closest('.sr');
+  if (w) { const ts = words(SQ.value); SQ.value = (ts.length > 1 ? ts.slice(0, -1).join(' ') + ' ' : '') + w.dataset.w; render(); SQ.focus(); } // a suggestion replaces the word being typed
+  else if (r) { const h = hits[+r.dataset.n]; search(false); goTo(h.d.i, h.d.k); reveal(h.d.i, h.d.k, h.ts); }
+  else if (e.target === S) search(false);
+};
+addEventListener('keydown', e => {
+  if (e.key === 'Escape' && searchOpen()) return (e.stopImmediatePropagation(), search(false));
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') return (e.preventDefault(), search(!searchOpen()));
+  if (!searchOpen()) return;
+  const list = [SQ, ...SR.querySelectorAll('.sr')], at = list.indexOf(document.activeElement);
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); list[(at + (e.key === 'ArrowDown' ? 1 : -1) + list.length) % list.length].focus(); }
+  else if (e.key === 'Enter' && document.activeElement === SQ) SR.querySelector('.sr')?.click();
+}, true);
+// the search button sits left of the menu button, whatever size or place the menu button has
+const placeSearch = () => { const m = $('#menuBtn').getBoundingClientRect(), c = $('#close').getBoundingClientRect(), r = c.width ? c : m; Object.assign(SB.style, { top: m.top + 'px', right: innerWidth - r.left + 8 + 'px', height: m.height + 'px' }); };
+const ro = new ResizeObserver(placeSearch); ro.observe($('#menuBtn')); ro.observe($('#close'));
+addEventListener('resize', placeSearch);
+new MutationObserver(placeSearch).observe(document.body, { attributes: true, attributeFilter: ['class'] }); // Esc button appears with body.opened
+placeSearch();

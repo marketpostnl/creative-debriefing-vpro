@@ -15,6 +15,10 @@
 <body>
 <nav id="tabs" aria-label="Onderdelen"></nav>
 <button id="menuBtn" aria-expanded="false" aria-controls="mega" aria-label="Menu"><span class="bars"></span><span id="menuTxt">Menu</span></button>
+<button id="searchBtn" aria-label="Zoeken" aria-expanded="false" aria-controls="search"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg><span class="lbl">Zoek</span></button>
+<div id="search" role="dialog"><div class="sbox">
+<div class="srow"><input id="sq" type="search" placeholder="Zoek in de debrief, bijvoorbeeld podwalk" autocomplete="off" spellcheck="false" aria-label="Zoekterm"><button id="sx" aria-label="Zoeken sluiten">✕<span class="lbl"> Esc</span></button></div>
+<div id="ssug" aria-label="Suggesties"></div><p id="snote" aria-live="polite"></p><div id="sres"></div></div></div>
 <nav id="mega" aria-label="Belangrijkste onderwerpen"></nav>
 <main id="stage"><div id="stack"></div></main>
 <div id="label"><small>VPRO Medialab · creative debrief</small><b id="cur"></b></div>
