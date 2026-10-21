@@ -8,9 +8,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ---------- chrome ---------- */
 #label{position:fixed;left:24px;top:20px;z-index:5}
 #menuBtn{position:fixed;top:20px;right:24px;z-index:13;display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--green);color:var(--ink);font-weight:700}
-#menuBtn .bars{width:18px;height:2px;background:currentColor;box-shadow:0 6px currentColor,0 -6px currentColor}
+#menuBtn .bars{width:18px;height:2px;background:currentColor;box-shadow:0 5px currentColor,0 10px currentColor,0 -5px currentColor,0 -10px currentColor}
 body.menu #menuBtn{background:#fff}
-#mega{--f:max(9px,min(16px,1.9vh,1.28vw));position:fixed;left:0;right:0;top:0;z-index:12;max-height:100vh;max-width:100vw;overflow-y:auto;scrollbar-width:none;padding:68px 5% 1.6em;font-size:var(--f);background:var(--blue);color:#fff;display:grid;grid-template-columns:repeat(4,1fr);gap:.75em;align-items:stretch;transform:translateY(-101%);transition:transform .5s cubic-bezier(.7,0,.2,1),visibility 0s .5s;visibility:hidden}
+#mega{--f:max(9px,min(16px,1.9vh,1.28vw));position:fixed;left:0;right:0;top:0;z-index:12;max-height:100vh;max-width:100vw;overflow-y:auto;scrollbar-width:none;padding:68px 5% 1.6em;font-size:var(--f);background:var(--blue);color:#fff;display:grid;grid-template-columns:repeat(3,1fr);gap:.75em;align-items:stretch;transform:translateY(-101%);transition:transform .5s cubic-bezier(.7,0,.2,1),visibility 0s .5s;visibility:hidden}
 body.menu #mega{transform:none;visibility:visible;transition:transform .5s cubic-bezier(.7,0,.2,1),visibility 0s}
 /* tiles slide in one after another once the panel is down, and leave together */
 #mega>*{transform:translateY(-2.5em);transition:transform .25s ease-in}
@@ -33,6 +33,7 @@ body.menu #mega>*{transform:none;transition:transform .55s cubic-bezier(.2,.8,.2
 #mega li button{width:100%;padding:.4em 0 .4em 1.5em;text-indent:-1.5em;font-size:.95em;line-height:1.3;font-weight:500}
 #mega li button::before{content:"→";margin-right:.6em;color:var(--blue);font-weight:800}
 #mega li button:hover{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+#mega ul:has(li:nth-child(9)){columns:2;column-gap:1em}#mega li{break-inside:avoid}
 #label small{display:block;font-size:14px;font-weight:500;color:var(--mute)}
 #label b{display:block;font-size:30px;line-height:1.1;font-weight:800;color:var(--dblue);min-height:1.1em}
 #tabs{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:center;gap:32px;padding:0 24px;height:56px;align-items:center;background:var(--blue);overflow:hidden;white-space:nowrap}
@@ -44,7 +45,7 @@ body.menu #mega>*{transform:none;transition:transform .55s cubic-bezier(.2,.8,.2
 /* narrow or portrait screens: two columns, subtopics as a wrapped inline list, so it still fits the viewport */
 @media(max-width:1100px),(max-aspect-ratio:1/1),(max-height:560px){#mega{grid-template-columns:repeat(2,1fr);--f:max(9px,min(16px,1.45vh,3vw));padding-left:4%;padding-right:4%}#mega ul{display:flex;flex-wrap:wrap;gap:0 .9em;padding:.5em 1.1em .8em}#mega .mm-main{padding:1.1em 1.1em .8em}#mega li button{width:auto;padding:.25em 0;text-indent:0}#mega li button::before{display:none}}
 /* short landscape screens (phones on their side): four columns again, compact */
-@media(max-height:560px) and (min-width:700px) and (min-aspect-ratio:1/1){#mega{grid-template-columns:repeat(4,1fr);--f:max(7px,min(16px,calc((100vh - 84px)/31),1.15vw))}}
+@media(max-height:560px) and (min-width:700px) and (min-aspect-ratio:1/1){#mega{grid-template-columns:repeat(3,1fr);--f:max(7px,min(16px,calc((100vh - 84px)/31),1.15vw))}}
 @media(max-width:700px){#hint{font-size:15px;padding:12px 16px}#tabs{justify-content:space-evenly;gap:0;padding:0 8px}#tabs button{font-size:clamp(11px,3.6vw,16px)}#label b{font-size:22px}}
 
 /* ---------- isometric stack ---------- */
@@ -137,7 +138,8 @@ body.menu #mega>*{transform:none;transition:transform .55s cubic-bezier(.2,.8,.2
 #pages .bars>small{display:block;color:var(--mute);margin-bottom:1em}
 #pages .bar{display:grid;grid-template-columns:3.5em 1fr 3.5em;align-items:center;gap:1em;margin:.7em 0}
 #pages .bar i{display:block;height:2.2em;background:#0000ff1a;position:relative}
-#pages .bar i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--blue)}
+#pages .bar i::after{content:"";position:absolute;inset:0 auto 0 0;width:0;background:var(--blue);transition:width 1.4s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+#pages .bar.in i::after{width:var(--w)}
 #pages .bar b{font:800 1.3em Figtree,sans-serif;color:var(--blue)}
 #pages .layers{display:grid;gap:.7em;margin:1.8em 0}
 #pages .layers>div{padding:1.2em 1.5em;background:var(--tint);border-left:.4em solid var(--blue)}
@@ -313,3 +315,35 @@ button{touch-action:manipulation}
 #pages h3{font-size:clamp(1.6em,7.5vw,2.5em)}
 /* landscape phone: the picker moves to the free left side instead of covering the stack */
 @media(max-height:480px) and (orientation:landscape){#picker{right:auto;width:min(260px,32vw);bottom:68px}}
+/* phone: no folder-to-folder buttons; menu and close sit inside the white strip beside the folder tab */
+@media(max-width:700px){body.opened:not(.menu) #rnav{display:none}}
+@media(max-width:480px){
+  /* taller white strip above the folder body (tab grows with it); buttons keep their size and sit centred in it */
+  .folder{--strip:calc(var(--u)*6.4)}
+  .folder .fbody{inset:var(--strip) 0 0 0}
+  .folder .tab{height:var(--strip);padding-top:calc(var(--u)*2.3)}
+  .folder small{top:calc(var(--u)*8.7)}
+  body.opened #menuBtn,body.opened #close{top:6px;width:46px;height:44px;padding:0;justify-content:center;align-items:center}
+  body.opened #close{right:64px}
+  body:has(#sbar.on) #menuBtn,body:has(#sbar.on) #close{top:18px}
+}
+
+/* scroll reveals: stats rise in, numbered cards pop (numbers and bars are driven by revealOnScroll in app.js) */
+@media(prefers-reduced-motion:no-preference){
+  #pages .stat{opacity:0;transform:translateY(1em);transition:opacity .6s ease var(--d,0s),transform .8s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+  #pages .stat.in{opacity:1;transform:none}
+  #pages .card.num i{transform:scale(.4);opacity:0;transition:transform .5s cubic-bezier(.3,1.6,.5,1) var(--d,0s),opacity .3s ease var(--d,0s)}
+  #pages .card.num.in i{transform:none;opacity:1}
+}
+
+/* table of contents in the left whitespace of the reader (only where the margin is wide enough) */
+#toc{display:none}
+@media(min-width:1440px){
+  #toc{display:flex;flex-direction:column;position:fixed;left:24px;top:124px;width:190px;max-height:calc(100vh - 170px);overflow-y:auto;scrollbar-width:none;z-index:10;opacity:0;pointer-events:none;transition:opacity .3s}
+  #toc.on{opacity:1;pointer-events:auto}
+  body:not(.opened) #toc,body.menu #toc,body.atfoot #toc{opacity:0;pointer-events:none}
+  #toc small{font-size:.8rem;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6em}
+  #toc button{text-align:left;font-size:.9rem;line-height:1.3;padding:.4em 0 .4em .9em;border-left:2px solid #0000ff33;color:var(--ink);font-weight:500;transition:color .2s,border-color .2s}
+  #toc button:hover{color:var(--blue)}
+  #toc button.cur{border-left-color:var(--blue);color:var(--blue);font-weight:800}
+}
