@@ -312,23 +312,38 @@ const sheets = [
   // ───────────────────────── 05 Het concept
   { tab: 'Concept', title: 'Het concept', pages: [
     `<h3>Het platformidee</h3>
-    <p class="lead">De <mark>VPRO Immersive Podwalk-app</mark>: een interactieve, locatiegebonden podwalk, een fysieke route gekoppeld aan verhalen, met gelaagde audio en een tijdschakelaar tussen nu en het archief.</p>
-    <p>Technologie is hier geen versnelling van een bestaande productie, maar de kern van de ervaring. De luisteraar loopt de route en de app toont archiefbeelden van vroeger op exact die plek, met bijbehorende historische soundscapes.</p>
-    <p class="callout">Pilot-route: 50 Jaar Hiphop. Het prototype laat zien hoe de gebruiker de route ervaart, van starten tot afronden.</p>`,
+    <p class="lead">De <mark>VPRO Immersive Podwalk-app</mark> is een overkoepelend, schaalbaar platform voor interactieve, locatiegebonden podwalks.</p>
+    <p>Binnen dit platform worden bestaande en toonaangevende programma's, series, documentaires en films van de VPRO doorontwikkeld naar fysieke buitenervaringen. Door lineaire televisie- en archiefcontent te transformeren naar interactieve wandelroutes, laten we deze VPRO-onderwerpen extra leven en voelbaar worden via een complete, multizintuiglijke ervaring: audio, beeld, fysieke omgeving en augmented reality.</p>
+    <p>In plaats van een eenmalig project is de app een <b>doorlopende bibliotheek van routes</b>, waarin steeds nieuwe onderwerpen en verhaallijnen uit het VPRO-oeuvre worden toegevoegd. Technologie is de directe brug tussen het verhaal en de fysieke wereld: de luisteraar loopt de route en de app projecteert archiefbeelden, 3D-objecten en historische soundscapes van toen op exact die plek in het heden.</p>
+    <div class="stats"><div class="stat"><b>41</b><span>minuten pilot-route</span></div><div class="stat"><b>5</b><span>historische knooppunten in Amsterdam</span></div><div class="stat"><b>1</b><span>platform, steeds nieuwe routes</span></div></div>
+    <p class="callout">Pilot-route: <b>50 Jaar Hiphop in Nederland</b>. Deze eerste, volledig uitgewerkte aflevering is het proof-of-concept voor het hele platform: een route van Vondelpark tot Spuistraat die via spatial audio, WebAR en AI tot leven komt.</p>`,
     `<h3>Waar gaat de podcast over?</h3>
-    <p class="lead">${D}De pilot-route is gebaseerd op <mark>50 jaar hiphop in Nederland: Iemand moet het doen</mark>, een zesdelige VPRO-serie over de geschiedenis en evolutie van de Nederlandse hiphopcultuur.</p>
-    <p>Per aflevering ligt de focus op een specifiek tijdperk. Artiesten vertellen het verhaal, ondersteund door archiefmateriaal en de tracks waar ze over praten. Aflevering 1 (Grondleggers) behandelt de jaren zeventig en tachtig. Ook de keerzijde komt aan bod: commercialisering, mediaframing en de persoonlijke tol.</p>
-    <div class="cards three"><div class="card"><h4>Stemmen</h4><p>Artiesten vertellen zelf het verhaal</p></div><div class="card"><h4>Archief</h4><p>Beelden en geluid van toen</p></div><div class="card"><h4>Tracks</h4><p>De muziek waar ze over praten</p></div></div>
-    <p class="src">Bron: best practice analyse VPRO, case 1.</p>
-    <p class="callout">Welke tijdperken en stops de route precies krijgt, is nog niet bepaald. In het prototype zijn de stops plaatshouders.</p>`,
-    `<h3>Waarom een podwalk?</h3>
-    <div class="compare"><div class="no"><small>Een gewone podcast</small><p>Lineair en passief: de gebruiker luistert slechts toe.</p></div><div class="yes"><small>Een podwalk</small><p>De route zelf is onderdeel van het verhaal: je loopt, hoort en ziet het op de plek waar het gebeurde.</p></div></div>
+    <p class="lead">De pilot-route is gebaseerd op <mark>50 jaar hiphop in Nederland: Iemand moet het doen</mark>, een zesdelige VPRO-reeks over de opkomst, evolutie en maatschappelijke impact van de Nederlandse hiphopcultuur.</p>
+    <p>De route focust op de pioniersjaren en de overgang naar de undergroundscene in Amsterdam.</p>
     <ol class="steps">
-      <li><b>De plek is het verhaal</b><span>De app toont archiefbeelden van vroeger op exact die plek, met bijbehorende historische soundscapes.</span></li>
-      <li><b>Alle zintuigen tegelijk</b><span>Interviews, archief en tracks wisselen elkaar af, en het straatgeluid blijft hoorbaar als actieve laag.</span></li>
-      <li><b>Wandelen maakt open</b><span>Bij YOUS &amp; YAY ontstaat in de openbare ruimte sneller openheid dan in een studio. Een informele, wandelende toon voelt niet belerend.</span></li>
+      <li><b>Vondelpark</b><span>De Surinaamse funk-grooves.</span></li>
+      <li><b>Paradiso</b><span>De doorbraak van Amerikaanse hiphopgrootheden: hier zette Run-D.M.C. in 1988 de zaal op zijn kop.</span></li>
+      <li><b>Leidseplein</b><span>Straatbattles, waar b-boys hun karton uitrolden.</span></li>
+      <li><b>Café De Duivel</b><span>De geboorte van Nederhop.</span></li>
+      <li><b>Spuistraat</b><span>De rauwe kraak- en hiphopcultuur.</span></li>
     </ol>
-    <p class="src">Bron: best practice analyse VPRO, cases 1, 2 en 5.</p>`,
+    <div class="cards three"><div class="card"><h4>Stemmen</h4><p>Artiesten, dj's en pioniers vertellen zelf hun persoonlijke verhalen, direct gekoppeld aan de straten van Amsterdam.</p></div><div class="card"><h4>Archief</h4><p>Authentiek NPO- en VPRO-beeldmateriaal, radio-interviews en historische soundscapes, live over de huidige stad heen gelegd.</p></div><div class="card"><h4>Tracks</h4><p>De bepalende muziek (o.a. funkbreaks, Run-D.M.C., Grandmaster Flash, Extince) die de wandelpas stuurt en de sfeer per stop bepaalt.</p></div></div>`,
+    `<h3>Waarom een podwalk?</h3>
+    <div class="compare"><div class="no"><small>Documentaire of podcast</small><p>Lineair en passief: de gebruiker luistert of kijkt slechts toe vanaf een bank of scherm.</p></div><div class="yes"><small>Een podwalk</small><p>De fysieke omgeving wordt het podium en het canvas.</p></div></div>
+    <ol class="steps">
+      <li><b>VPRO-thema's laten leven</b><span>Een maatschappelijk of cultureel onderwerp blijft niet hangen in theorie, maar wordt een tastbare, zintuiglijke herinnering doordat je er zelf doorheen beweegt.</span></li>
+      <li><b>De plek is het verhaal</b><span>Je staat op de exacte plek waar Run-D.M.C. in 1988 Paradiso op zijn kop zette, of waar b-boys hun karton uitrolden op het Leidseplein.</span></li>
+      <li><b>Archief ontmoet augmented reality</b><span>De smartphonecamera is een tijdmachine via WebAR: archiefbeelden en 3D-objecten (vintage platenspelers, gigantische gettoblasters) over de muren en pleinen van nu.</span></li>
+      <li><b>Alle zintuigen tegelijk</b><span>Straatgeluiden van passerende trams en voetgangers vloeien samen met 3D-binaural audio, historische opnames en beats op je koptelefoon.</span></li>
+      <li><b>Wandelen maakt open en actief</b><span>Geen belerende geschiedenisles, maar een ontdekkingstocht waarin de luisteraar zelf opdrachten uitvoert en onderdeel wordt van de subcultuur.</span></li>
+    </ol>`,
+    `<h3>Interactieve functies en AR-lagen</h3>
+    <p class="lead">In plaats van alleen luisteren nodigt de app de gebruiker bij <mark>elke stop</mark> uit tot gerichte, actieve interactie.</p>
+    <div class="cards three">
+      <div class="card"><h4>WebAR: archief en 3D-objecten</h4><p>Richt je camera op het podium van het Vondelpark Openluchttheater om een vintage platenkoffer te openen, transformeer de gevel van Paradiso virtueel in een enorme jaren '80-boombox, of bekijk historische straatfoto's van het Leidseplein die over het huidige straatbeeld heen faden.</p></div>
+      <div class="card"><h4>Doe-interacties</h4><p>Haptisch en visueel: zelf over het scherm scratchen op een virtuele draaitafel bij Café De Duivel, of met een digitale spuitbus je eigen tag als augmented reality achterlaten op de muren van de Spuistraat.</p></div>
+      <div class="card"><h4>AI-gids Professor Soortkill</h4><p>Geïnspireerd op de vaste culturele duider uit de NPO-serie. Terwijl de audiotrack doorloopt, open je op elk moment de chat voor vragen over jargon, Smibanese en straattaal, artiestenbiografieën of de historische context van de stop.</p></div>
+    </div>`,
     `<h3>Muziek, locatie en samen: ideeën</h3>
     <p class="lead">Dit zijn ideeën uit feedback en eigen ideeën. Ze staan als <mark>idee of demo</mark> in het prototype of zijn nog niet uitgewerkt, niet als werkende functie.</p>
     <div class="cards three">
@@ -337,29 +352,28 @@ const sheets = [
       <div class="card"><h4>Punten en ontgrendelen</h4><p>Het verhaal van een stop loopt gelijk op met je wandeling en ontgrendelt in drie delen. Je kunt pauzeren en terugspoelen, maar niet vooruit; loop je achter, dan haalt de app dat in. Elke stop levert punten op bij aankomst. Een spelelement dat het lopen beloont; de puntenwaarden zijn voorbeeldwaarden.</p></div><div class="card"><h4>Samen en community</h4><p>Anderen betrekken: zien hoeveel mensen hier eerder waren, routes delen en een community rond de podwalk. Echte multiplayer valt buiten de scope (geen back-end).</p></div>
     </div>`,
     `<h3>Immersive layers</h3>
-    <p class="lead">In vier van de vijf cases wordt de <mark>serie of aflevering zelf het onderwerp</mark> van een immersieve podwalk-route.</p>
+    <p class="lead">Hoe is de ervaring opgebouwd? <mark>Vier lagen</mark> die tegelijk werken.</p>
     <div class="layers">
-      <div><small>Verhaal</small><b>Gesproken geschiedenis</b><span>Interviews en persoonlijke verhalen van artiesten, dj's en hoofdpersonen</span></div>
-      <div><small>Beeld en geluid</small><b>Archief en soundscapes</b><span>Archiefbeelden en historische soundscapes op exact die plek, met de tracks van toen</span></div>
-      <div><small>Plek</small><b>Wandelen en omgevingsgeluid</b><span>Een route in de openbare ruimte waar het straatgeluid onderdeel blijft van de audiolagen</span></div>
+      <div><small>Verhaal</small><b>Gesproken geschiedenis</b><span>De overkoepelende gids en stemmen van pioniers leiden de luisteraar stapsgewijs door de stadschronologie.</span></div>
+      <div><small>Beeld en interactie</small><b>WebAR en AI</b><span>Visuele reconstructies op locatie en een direct aanspreekbare AI-kennislaag via Professor Soortkill.</span></div>
+      <div><small>Geluid</small><b>Adaptieve soundscapes en muziek</b><span>Beats die versnellen tijdens de wandelinstructies tussen stops, en tracks die op vol volume knallen zodra je op een bestemming stilstaat.</span></div>
+      <div><small>Plek</small><b>Omgevingsbewustzijn</b><span>De podwalk sluit de buitenwereld niet af: omgevingsgeluid blijft een bewuste component van de ervaring.</span></div>
     </div>
-    <h4>Wanneer hoor je wat?</h4>
-     <div class="cols"><div class="card"><h4>Onderweg: je loopt zelf</h4><p>Er is geen gids. Je loopt zelf, met de kaart en het verhaal in de app. De app speelt het verhaal van de volgende stop in delen af, en het straatgeluid blijft hoorbaar.</p></div><div class="card"><h4>Op de stop: de plek zelf</h4><p>Zodra je aankomt, zie en hoor je meer over de plek: weetjes met bron, archief en tracks. Dat hoor je alleen hier, omdat het verhaal bij deze plek hoort.</p></div></div>
-     <p class="src">Archief op de plek: cases 1 en 2. Weetjes over de voorbeeldlocatie (Leidseplein): VPRO en Wikipedia.</p>
-     <p class="callout">Het gemeenschappelijke principe: de zintuigen actief prikkelen en de luisteraar echt in het verhaal meetrekken.</p>`,
-    `<h3>Afbakening format: onze scope, de podwalk</h3>
+    <h4>Wanneer hoor en doe je wat?</h4>
+    <div class="cols"><div class="card"><h4>Onderweg: wandelen tussen stops</h4><p>De host geeft duidelijke navigatie-instructies op het ritme van instrumentale hiphop- en funkloops. De muziek is wandelbegeleiding, terwijl achtergrondverhalen de brug slaan naar de volgende locatie.</p></div><div class="card"><h4>Op de stop: aankomst en verdieping</h4><p>Zodra je de GPS-locatie bereikt, activeert de stop. De muziek dimt voor het historische verhaal, waarna een prompt volgt om je smartphone erbij te pakken voor het WebAR-element of de luistersessie van de hoofdtrack.</p></div></div>`,
+    `<h3>Afbakening format: onze scope</h3>
     <div class="vs">
-      <div class="col good"><small>Wel binnen scope</small>
-        <div class="item"><span>Een interactief, locatiegebonden podwalk-format: een fysieke route gekoppeld aan verhalen</span></div>
-        <div class="item"><span>Adaptieve en gelaagde audio: losse audiosporen voor stem, muziek, sfeer en archief</span></div>
-        <div class="item"><span>Een interactieve interfacefunctie (tijdschakelaar of slider) tussen de huidige realiteit en het archief</span></div>
-        <div class="item"><span>Een visueel en klikbaar front-end prototype in Figma, gericht op een pilot-route zoals 50 Jaar Hiphop</span></div>
+      <div class="col good"><small>Wat het wél is</small>
+        <div class="item"><span>Een platformconcept voor interactieve VPRO-podwalks, gedemonstreerd met een functioneel en klikbaar mobiel Figma-prototype</span></div>
+        <div class="item"><span>Een concrete, uitgewerkte pilot van 41 minuten langs 5 specifieke stops rond 50 Jaar Hiphop in Nederland</span></div>
+        <div class="item"><span>Gelaagde audio met vloeiende transities tussen wandelbegeleiding, sfeer, archief en muziektracks</span></div>
+        <div class="item"><span>Geïntegreerde WebAR-interacties en een contextuele AI-chatbotpersona (Professor Soortkill)</span></div>
       </div>
-      <div class="col bad"><small>Niet binnen scope</small>
-        <div class="item"><span>Een statische webpagina of tekstueel magazineartikel met gewone play-knoppen</span></div>
-        <div class="item"><span>Een generieke tekstgebaseerde AI-chatbot (geen kale ChatGPT-interface)</span></div>
-        <div class="item"><span>Een traditionele lineaire radiouitzending zonder interactie</span></div>
-        <div class="item"><span>Volledige back-end programmering of een live app store-release</span></div>
+      <div class="col bad"><small>Wat het niet is</small>
+        <div class="item"><span>Een eenmalige, op zichzelf staande audiotour zonder koepelplatform</span></div>
+        <div class="item"><span>Een statische webpagina of traditionele podcastfeed met standaard afspeelknoppen</span></div>
+        <div class="item"><span>Een generieke, kale ChatGPT-interface zonder redactionele VPRO-stem of hiphopcontext</span></div>
+        <div class="item"><span>Een volledig geprogrammeerde back-end of live release in de App Store of Google Play Store</span></div>
       </div>
     </div>`] },
 
@@ -377,7 +391,7 @@ const sheets = [
       <li><b>Luisteren</b><span>De tijdschakelaar Nu ↔ Toen is de hoofdbediening. De geluidsmix met losse lagen (stem, muziek, sfeer, archief) zit achter een knop.</span></li>
       <li><b>Klaar</b><span>Een duidelijk einde met een weg terug naar het begin.</span></li>
     </ol>
-    <p class="callout">Locaties, afstanden en teksten zijn plaatshouders. Het muziekfragment, het VPRO-item onderweg en de community zijn ideeën uit feedback, als demo uitgewerkt. De pilot-route (50 Jaar Hiphop) wordt nog ingevuld. In de scope staat een klikbaar front-end prototype in Figma.</p>`,
+    <p class="callout">Locaties, afstanden en teksten zijn plaatshouders. Het muziekfragment, het VPRO-item onderweg en de community zijn ideeën uit feedback, als demo uitgewerkt. De pilot-route (50 Jaar Hiphop, 5 stops van Vondelpark tot Spuistraat) staat in het concept; het prototype gebruikt nog plaatshouders. In de scope staat een klikbaar front-end prototype in Figma.</p>`,
     `<h3>Probeer het zelf</h3>
     <p>Klik door de route. Met “Demo: ik ben er al” sla je het lopen over.</p>
     <iframe class="proto" src="prototype.html?embed" title="Podwalk prototype" loading="lazy"></iframe>
@@ -390,7 +404,7 @@ const TERMS = [
   ['Generatieve AI', 'Nieuwsgebruik', 'Short-form video', 'TikTok', 'Menselijke verteller', 'Platformen en AI'],
   ['Primaire doelgroep', 'Stakeholders'],
   ['Overzicht', 'Trendanalyse', 'Storytellingmodel', 'Principes', 'Cases 1-3', 'Cases 4-5', 'Doelgroeponderzoek', 'Onderzoek → ontwerpkeuze', 'Lessen', 'Doelgroep en trends', 'Voor de podwalk', 'Bronnen'],
-  ['Het platformidee', 'Waar gaat het over', 'Waarom een podwalk', 'Muziek, locatie en samen', 'Immersive layers', 'Afbakening format'],
+  ['Het platformidee', 'Waar gaat het over', 'Waarom een podwalk', 'Interactie en AR', 'Muziek, locatie en samen', 'Immersive layers', 'Afbakening format'],
   ['Wat we maken', 'Probeer het zelf'],
 ];
 sheets.forEach((s, i) => (s.terms = TERMS[i]));

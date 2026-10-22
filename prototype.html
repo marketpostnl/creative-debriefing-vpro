@@ -218,7 +218,7 @@ button{touch-action:manipulation}
   <p class="intro">Een klikbare weergave van de gebruikersreis: van starten, naar lopen, naar luisteren op de plek zelf.</p>
   <div class="steps" id="steps"></div>
   <div class="why"><small id="wk">Stap 1</small><b id="wt"></b><p id="wp"></p></div>
-  <p class="note">Illustratief: locaties, afstanden en teksten zijn plaatshouders. De pilot-route (50 Jaar Hiphop) wordt nog ingevuld. <a href="index.html">← Terug naar de debrief</a></p>
+  <p class="note">Illustratief: locaties, afstanden en teksten zijn plaatshouders. De vijf stops komen uit de pilot-route 50 Jaar Hiphop; afstanden, punten en het archiefbeeld zijn plaatshouders. <a href="index.html">← Terug naar de debrief</a></p>
 </div>
 
 <div class="phone" id="phone">
@@ -231,7 +231,7 @@ button{touch-action:manipulation}
     <span class="tag">VPRO Podwalk · pilot</span>
     <h2>50 Jaar<br>Hiphop</h2>
     <div class="hero" id="hero"></div>
-    <div class="meta"><span>± 3 km</span><span>5 stops</span><span>± 60 min</span></div>
+    <div class="meta"><span>± 3 km</span><span>5 stops</span><span>41 min</span></div>
     <div class="how">
       <div><b>1</b><span>Loop de route zelf; de app wijst je de weg en speelt het verhaal af</span></div>
       <div><b>2</b><span>Op elke stop ontdek je weetjes over de plek</span></div>
@@ -245,7 +245,7 @@ button{touch-action:manipulation}
     <h3>Waar gaat het over?</h3>
     <p class="sub">Een zesdelige VPRO-serie over de geschiedenis van de Nederlandse hiphopcultuur. Artiesten vertellen het verhaal, ondersteund door archiefmateriaal en de tracks waar ze over praten. Deze route volgt één tijdperk, te beginnen bij de jaren zeventig en tachtig.</p>
     <div class="why"><small>Waarom lopen?</small><b>Het verhaal gebeurde hier</b><p>Op elke stop hoor je het verhaal op de plek zelf, met archief en straatgeluid van toen. Een gewone podcast laat je alleen luisteren; de route laat je het meemaken.</p></div>
-    <span class="idea">Inhoud van de stops: plaatshouders.</span>
+    <span class="idea">Vijf stops: Vondelpark, Paradiso, Leidseplein, Café De Duivel, Spuistraat.</span>
     <button class="btn" data-next>Naar de voorbereiding</button>
   </section>
   <!-- 3 voorbereiding -->
@@ -301,7 +301,7 @@ button{touch-action:manipulation}
   <!-- 6 luisteren: weetjes over de plek -->
   <section class="screen" data-s="luisteren">
     <div class="top"><button class="back" data-prev aria-label="Terug">←</button><div class="dd dots"></div><span class="cnt cc"></span><span class="pts" aria-label="Punten">★ <b class="sc">0</b></span></div>
-    <div class="np"><div><small id="npStop">Stop 1 · je bent hier</small><h3 id="npTitle">Leidseplein</h3></div><span class="live"><i></i>Speelt nu</span></div>
+    <div class="np"><div><small id="npStop">Stop 1 · je bent hier</small><h3 id="npTitle">Vondelpark</h3></div><span class="live"><i></i>Speelt nu</span></div>
     <div class="crowd" id="crowd"></div>
     <div class="earned" id="earned"></div>
     <div class="player"><button class="play" id="play" aria-label="Pauzeer">❚❚</button><div class="seekwrap"><input type="range" class="seek" id="seek2" min="0" max="180" step="1" value="0" aria-label="Positie in het verhaal"><small class="lockhint"></small></div><span class="time" id="tm">0:00</span></div>
@@ -348,20 +348,36 @@ const WHY={
  welkom:['Stap 1 · Welkom','Eén duidelijke belofte','Wat je gaat doen in drie korte stappen, plus duur en afstand. Eén knop, geen keuzestress.'],
  inhoud:['Stap 2 · Inhoud','Waar gaat het over, en waarom lopen?','Eerst de inhoud: de serie 50 jaar hiphop in Nederland, en waarom een route het verhaal sterker maakt dan alleen luisteren.'],
  voorbereiding:['Stap 3 · Voorbereiding','Vraag toestemming met uitleg','Koptelefoon en locatie worden vooraf geregeld, elk met een reden. “Naar de route” blijft uit tot beide aan staan.'],
- route:['Stap 4 · Route','Overzicht met punten en vergrendelde verhalen','De hele route op een kaart. Elke stop heeft een puntenwaarde (voorbeeld). Het verhaal van een stop is vergrendeld en ontgrendel je door ernaartoe te lopen. Stop 1 is een voorbeeldlocatie.'],
+ route:['Stap 4 · Route','Overzicht met punten en vergrendelde verhalen','De hele route op een kaart. Elke stop heeft een puntenwaarde (voorbeeld). Het verhaal van een stop is vergrendeld en ontgrendel je door ernaartoe te lopen. De vijf stops lopen van Vondelpark tot Spuistraat.'],
  lopen:['Stap 5 · Lopen','Jij loopt, de app speelt het verhaal','Er is geen gids: je loopt zelf, met de kaart en het verhaal in de app. Je loopt in een echt wandeltempo (1,4 m/s, 240 m kost zo’n 3 minuten); met de knop Tempo kun je de demo versnellen. Het verhaal is even lang als je wandeling plus een stuk op de stop en loopt gelijk op met je stappen: je kunt pauzeren en terugspoelen, niet vooruit. Raak je achter, dan speelt de app iets sneller om bij te komen. Bij aankomst (hier gesimuleerd) verdien je de punten van die stop.'],
- luisteren:['Stap 6 · Op de stop','Weetjes over de plek','Je bent bij de stop. Het verhaal speelt door (pauzeren en spoelen kan nog steeds) en je leest weetjes over deze plek, elk met een bron. Bovenaan zie je hoeveel mensen hier eerder waren (voorbeeld). Stop 1 is een voorbeeldlocatie (Leidseplein, naar een VPRO-foto uit 1983). Daaronder de tijdreis, gemarkeerd als idee.'],
+ luisteren:['Stap 6 · Op de stop','Weetjes over de plek','Je bent bij de stop. Het verhaal speelt door (pauzeren en spoelen kan nog steeds) en je leest weetjes over deze plek, elk met een bron. Bovenaan zie je hoeveel mensen hier eerder waren (voorbeeld). Daaronder de tijdreis, gemarkeerd als idee.'],
  klaar:['Stap 7 · Afronden','Een duidelijk einde met je punten','Bevestiging dat je klaar bent, met je totaal en de punten per stop, een weg terug naar het begin en een idee voor een community rond de route.']};
-// weetjes per plek: alleen feiten uit bronnen. Stop 1 is een voorbeeldlocatie, gekozen op basis van een VPRO-foto uit 1983
+// weetjes per plek: alleen feiten uit bronnen. De vijf stops komen uit het concept (pilot-route 50 Jaar Hiphop, Vondelpark tot Spuistraat)
 const LOC=[
+ {name:'Vondelpark, Amsterdam',short:'Vondelpark',facts:[
+  ['Funk','De Surinaamse funk-grooves in het Vondelpark staan aan het begin van de route.','Conceptdocument'],
+  ['Openluchttheater','Op het podium van het Openluchttheater opent de app een vintage platenkoffer in AR (idee).','Conceptdocument']],
+  note:'Weetjes uit het concept. Meer weetjes met bron volgen.'},
+ {name:'Paradiso, Amsterdam',short:'Paradiso',facts:[
+  ['1988','Run-D.M.C. zet Paradiso op zijn kop: de doorbraak van Amerikaanse hiphopgrootheden.','Conceptdocument'],
+  ['Jaren 80','De gevel van Paradiso verandert virtueel in een enorme boombox (AR-idee).','Conceptdocument']],
+  note:'Weetjes uit het concept. Meer weetjes met bron volgen.'},
  {name:'Leidseplein, Amsterdam',short:'Leidseplein',facts:[
+  ['Straatbattles','Hier rolden b-boys hun karton uit voor straatbattles.','Conceptdocument'],
   ['1983','B-boys breakdansen op het Leidseplein. Zo staat het onder een foto op de VPRO-pagina over de serie.','VPRO'],
   ['Jaren 70 en 80','Jongeren uit multiculturele buurten komen samen en eisen hun plek op met breakdance, rap en graffiti.','VPRO, aflevering 1'],
   ['Op straat','De media keken weg, maar op straat en in buurthuizen groeide een multiculturele cultuur.','VPRO, aflevering 1'],
   ['1660','Het plein bestaat sinds 1660 en is genoemd naar de Leidsepoort, een stadspoort die er tot 1862 stond.','Wikipedia: Leidseplein (Amsterdam)'],
   ['1894','De huidige Stadsschouwburg aan het plein is in 1894 voltooid, na een brand in 1890 die het eerdere houten theater verwoestte.','Wikipedia: Leidseplein (Amsterdam)']],
-  note:'Voorbeeldlocatie, gekozen op basis van de VPRO-foto uit 1983. De definitieve route is nog niet bepaald.'},
-].concat([2,3,4,5].map(n=>({name:`Locatie van stop ${n}`,facts:[['Nog te bepalen','Weetjes over deze plek volgen zodra de locatie van deze stop is gekozen.','plaatshouder']],note:''})));
+  note:''},
+ {name:'Café De Duivel, Amsterdam',short:'Café De Duivel',facts:[
+  ['Nederhop','In Café De Duivel werd Nederhop geboren.','Conceptdocument'],
+  ['Draaitafel','Hier scratch je zelf op een virtuele draaitafel (idee).','Conceptdocument']],
+  note:'Weetjes uit het concept. Meer weetjes met bron volgen.'},
+ {name:'Spuistraat, Amsterdam',short:'Spuistraat',facts:[
+  ['Underground','De rauwe kraak- en hiphopcultuur van de Spuistraat sluit de route af.','Conceptdocument'],
+  ['Tag','Met een digitale spuitbus laat je je eigen tag in AR achter op de muren (idee).','Conceptdocument']],
+  note:'Weetjes uit het concept. Meer weetjes met bron volgen.'}];
 let cur='welkom', stop=0, timers=[];
 let raf=0,raf2=0;
 const clear=()=>{timers.forEach(clearInterval);timers=[];cancelAnimationFrame(raf);cancelAnimationFrame(raf2);raf=raf2=0};

@@ -144,7 +144,7 @@ body.menu #mega>*{transform:none;transition:transform .55s cubic-bezier(.2,.8,.2
 #pages .layers{display:grid;gap:.7em;margin:1.8em 0}
 #pages .layers>div{padding:1.2em 1.5em;background:var(--tint);border-left:.4em solid var(--blue)}
 #pages .page:nth-child(even) .layers>div{background:#fff}
-#pages .layers>div:nth-child(2){margin-left:2em}#pages .layers>div:nth-child(3){margin-left:4em}
+#pages .layers>div:nth-child(2){margin-left:2em}#pages .layers>div:nth-child(3){margin-left:4em}#pages .layers>div:nth-child(4){margin-left:6em}
 #pages .layers small{color:var(--blue)}
 #pages .layers b{display:block;font-size:1.2em;color:var(--dblue)}
 #pages .steps{list-style:none;counter-reset:s;margin:1.8em 0;padding:0}
